@@ -12,34 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for produtos.xaml
     /// </summary>
-    public partial class produtos : Page
+    public partial class Index : Page
     {
-        private SqlConnection con;
-
-        public produtos()
+        public Index()
         {
             InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
-            con = ConnectionDB.getConnection();
-            FillProdutos();
         }
-
-        private void FillProdutos()
-        {
-            string CmdString = "SELECT nome AS Nome, quantidade as Quantidade, dose as Dose, unidades as Unidades FROM db.Medicamento;";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("produtos");
-            sda.Fill(dt);
-            produtosGrid.ItemsSource = dt.DefaultView;
-        }
-       
     }
 }

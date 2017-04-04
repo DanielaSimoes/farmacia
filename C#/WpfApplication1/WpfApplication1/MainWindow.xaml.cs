@@ -23,11 +23,26 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            Index index = new Index();
+            this.NavigateTo(index);
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void NavigateTo(object o)
         {
-            
+            Frame1.Navigate(o);
+        }
+
+        private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedText = (sender as ComboBox).SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+
+            if (selectedText.Equals("Verificar Stock"))
+            {
+                produtos produtos_frame = new produtos();
+                this.NavigateTo(produtos_frame);
+            }
+
+            Console.WriteLine(selectedText);
         }
     }
 }
