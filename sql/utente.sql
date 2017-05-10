@@ -35,7 +35,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Person([NIF],[morada],[num_utente])
+		INSERT INTO db.Utente([NIF],[morada],[num_utente])
 		VALUES (@NIF, @morada, @num_utente)
 
 	COMMIT TRANSACTION;

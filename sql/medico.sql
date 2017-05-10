@@ -35,7 +35,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Person([NIF],[especialidade],[numSNS])
+		INSERT INTO db.Medico([NIF],[especialidade],[numSNS])
 		VALUES (@NIF, @especialidade, @numSNS)
 
 	COMMIT TRANSACTION;

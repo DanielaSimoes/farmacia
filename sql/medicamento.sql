@@ -40,7 +40,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Person([nome],[lab_id],[quantidade],[validade],[dose],[unidades],[categoria_id],[tipo_id])
+		INSERT INTO db.Medicamento([nome],[lab_id],[quantidade],[validade],[dose],[unidades],[categoria_id],[tipo_id])
 		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id)
 
 	COMMIT TRANSACTION;
