@@ -14,6 +14,8 @@ CREATE TABLE db.Prescricao(
         medico_NIF                   INT NOT NULL,
         utente_NIF                   INT NOT NULL,
         db_NIPC                      INT NOT NULL,
+        data_processa				 DATE,
+        num_venda					 INT NOT NULL,
 		PRIMARY KEY(num_prescricao),
 		Check(num_prescricao>=0), Check(codigo_acesso_dispensa>=0), Check(codigo_opcao>=0), Check(medico_NIF>=0), Check(utente_NIF>=0), Check(db_NIPC>=0)
 );
@@ -25,7 +27,7 @@ CREATE TABLE db.Pessoa(
 		email     		VARCHAR(30),
         telefone        INT,
 		PRIMARY KEY (NIF),
-		Check(NIF>=0),
+		Check(NIF>=0)
 );
 
 CREATE TABLE db.Funcionario(
@@ -33,21 +35,21 @@ CREATE TABLE db.Funcionario(
 		num_funcionario		INT UNIQUE NOT NULL,
 		password			VARCHAR(30) NOT NULL,
 		NIF           		INT NOT NULL CHECK(NIF>=0),
-		PRIMARY KEY(NIF),
+		PRIMARY KEY(NIF)
 );
 
 CREATE TABLE db.Utente(
         morada			    VARCHAR(30),
         num_utente  		INT UNIQUE NOT NULL,
         NIF           		INT NOT NULL CHECK(NIF>=0),
-        PRIMARY KEY(NIF),
+        PRIMARY KEY(NIF)
 );
 
 CREATE TABLE db.Medico(
         especialidade	    VARCHAR(30) NOT NULL,
         numSNS      		INT UNIQUE NOT NULL,
         NIF           		INT NOT NULL CHECK(NIF>=0),
-        PRIMARY KEY(NIF),
+        PRIMARY KEY(NIF)
 );
 
 CREATE TABLE db.Medicamento(
@@ -59,8 +61,7 @@ CREATE TABLE db.Medicamento(
         unidades            INT NOT NULL CHECK(unidades>=0),
         categoria_id        INT NOT NULL CHECK(categoria_id>=0),
         tipo_id             INT NOT NULL CHECK(tipo_id>=0),
-        num_venda           INT NOT NULL CHECK(num_venda>=0),
-        PRIMARY KEY(nome,lab_id),
+        PRIMARY KEY(nome,lab_id)
 );
 
 CREATE TABLE db.Laboratorio(
@@ -68,13 +69,13 @@ CREATE TABLE db.Laboratorio(
 		email	    	VARCHAR(30)	NOT NULL,
         nome		    VARCHAR(30)	NOT NULL,
 		localizacao		VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(NIPC),
+		PRIMARY KEY(NIPC)
 );
 
 CREATE TABLE db.Ingredientes(
 		ID        		INT,
 		nome      		VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(ID),
+		PRIMARY KEY(ID)
 );
 
 CREATE TABLE db.Distribuidor(
@@ -82,19 +83,19 @@ CREATE TABLE db.Distribuidor(
 		nome    		VARCHAR(30)	NOT NULL,
 		telefone		INT			NOT NULL,
 		morada    		VARCHAR(30),
-		PRIMARY KEY(NIPC),
+		PRIMARY KEY(NIPC)
 );
 
 CREATE TABLE db.Categoria(
 		ID    		INT,
 		nome		VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(ID),
+		PRIMARY KEY(ID)
 );
 
 CREATE TABLE db.Tipo(
         ID    		INT,
         nome		VARCHAR(30)	NOT NULL,
-        PRIMARY KEY(ID),
+        PRIMARY KEY(ID)
 
 );
 CREATE TABLE db.Farmacia(
@@ -104,7 +105,7 @@ CREATE TABLE db.Farmacia(
 		nome		    VARCHAR(30)	NOT NULL,
         localizacao		VARCHAR(30)	NOT NULL,
         email		    VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(NIPC),
+		PRIMARY KEY(NIPC)
 );
 
 CREATE TABLE db.Periodo(
@@ -113,15 +114,13 @@ CREATE TABLE db.Periodo(
         fim    		        INT			NOT NULL,
         dia_da_semana       INT			NOT NULL,
 		db_NIPC             INT			NOT NULL,
-        disponibilidade_ID  INT			NOT NULL,
-		PRIMARY KEY(ID),
+		PRIMARY KEY(ID, db_NIPC)
 );
 
 CREATE TABLE db.Disponibilidade(
         ID        		    INT,
         disponibilidade     INT			NOT NULL,
-        db_NIPC       		INT			NOT NULL,
-        PRIMARY KEY(ID),
+        PRIMARY KEY(ID)
 );
 
 CREATE TABLE db.Vende(
@@ -131,19 +130,14 @@ CREATE TABLE db.Vende(
         medicamento_nome     VARCHAR(30),
         db_NIPC              INT,
         lab_NIPC             INT,
-		PRIMARY KEY(medicamento_nome,db_NIPC,lab_NIPC),
+		PRIMARY KEY(medicamento_nome,db_NIPC,lab_NIPC)
 );
 
-CREATE TABLE db.TemPF(
-		periodo_ID		    INT,
-		db_NIPC		        INT,
-		PRIMARY KEY(periodo_ID,db_NIPC),
-);
 
 CREATE TABLE db.TemPD(
 		periodo_ID		    INT,
 		disponibilidade_ID	INT,
-		PRIMARY KEY(periodo_ID,disponibilidade_ID),
+		PRIMARY KEY(periodo_ID,disponibilidade_ID)
 );
 
 CREATE TABLE db.Contem(
@@ -154,7 +148,7 @@ CREATE TABLE db.Contem(
         num_prescricao          INT	NOT NULL,
         nome_medicamento        VARCHAR(30)	NOT NULL,
         lab_NIPC                INT	NOT NULL,
-		PRIMARY KEY(nome_medicamento,num_prescricao,lab_NIPC),
+		PRIMARY KEY(nome_medicamento,num_prescricao,lab_NIPC)
 );
 
 CREATE TABLE db.Venda(
@@ -165,63 +159,89 @@ CREATE TABLE db.Venda(
         lab_NIPC                INT			NOT NULL,
         data                    Date NOT NULL,
         num_venda               INT NOT NULL CHECK(num_venda>=0),
-		PRIMARY KEY(utente_NIF,medicamento_nome,func_NIF,lab_NIPC),
+		PRIMARY KEY(utente_NIF,medicamento_nome,func_NIF,lab_NIPC,num_venda)
 );
 
 CREATE TABLE db.AIM(
 		distribuidor_NIPC		INT			NOT NULL,
 		lab_NIPC                INT			NOT NULL,
 		medicamento_nome		VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(distribuidor_NIPC,lab_NIPC,medicamento_nome),
+		PRIMARY KEY(distribuidor_NIPC,lab_NIPC,medicamento_nome)
 );
 
 CREATE TABLE db.Trabalha(
 		Farmacia_NIPC			INT			NOT NULL,
 		func_NIF                INT			NOT NULL,
 		periodo_trab 			INT     	NOT NULL,
-		PRIMARY KEY(Farmacia_NIPC,func_NIF,periodo_trab),
+		PRIMARY KEY(Farmacia_NIPC,func_NIF)
 );
 
 CREATE TABLE db.Direcao(
-		db_NIPC		INT			NOT NULL,
+		db_NIPC				INT			NOT NULL,
 		funcionario_NIF		INT			NOT NULL,
-		PRIMARY KEY(db_NIPC,funcionario_NIF),
+		periodo_direcao		INT			NOT NULL,
+		PRIMARY KEY(db_NIPC,funcionario_NIF)
 );
 
 CREATE TABLE db.Formula(
 		ingrediente_ID    		INT			NOT NULL,
 		lab_NIPC		        INT			NOT NULL,
 		medicamento_nome		VARCHAR(30)	NOT NULL,
-		PRIMARY KEY(ingrediente_ID,lab_NIPC,medicamento_nome),
-);
-
-CREATE TABLE db.TemVP(
-		num_prescricao		INT			NOT NULL,
-		num_venda			INT			NOT NULL,
-		PRIMARY KEY(num_prescricao,num_venda),
+		PRIMARY KEY(ingrediente_ID,lab_NIPC,medicamento_nome)
 );
 
 CREATE TABLE db.TemMV(
 		nome		    	VARCHAR(30)	NOT NULL,
 		num_venda			INT			NOT NULL,
 		num_unidades		INT			NOT NULL,
-		PRIMARY KEY(nome,num_venda),
+		lab_NIPC			INT			NOT NULL,
+
+		PRIMARY KEY(nome,num_venda,lab_NIPC)
 );
 
 
 -- FOREIGN KEY:
-ALTER TABLE db.Funcionario ADD CONSTRAINT NIFF FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Utente ADD CONSTRAINT NIFU FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Medico ADD CONSTRAINT NIFM FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Medicamento ADD CONSTRAINT NIPCM FOREIGN KEY(lab_id) REFERENCES db.Laboratorio(NIPC) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Medicamento ADD CONSTRAINT CIDM FOREIGN KEY(categoria_id) REFERENCES db.Categoria(ID) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Medicamento ADD CONSTRAINT IIDM FOREIGN KEY(tipo_id) REFERENCES db.TIPO(ID) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Periodo ADD CONSTRAINT NIPCF FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC)ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Periodo ADD CONSTRAINT IDD FOREIGN KEY(disponibilidade_ID) REFERENCES db.Disponibilidade(ID)ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.Disponibilidade ADD CONSTRAINT NIPCFD FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC) ON UPDATE NO ACTION;
+
+-- Prescrição
+ALTER TABLE db.Prescricao ADD CONSTRAINT MEDICO_NIF FOREIGN KEY(medico_NIF) REFERENCES db.Medico(NIF) ON UPDATE NO ACTION;
+ALTER TABLE db.Prescricao ADD CONSTRAINT UTENTE_NIF FOREIGN KEY(utente_NIF) REFERENCES db.Utente(NIF) ON UPDATE NO ACTION;
+ALTER TABLE db.Prescricao ADD CONSTRAINT FARMACIA_NIPC FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC) ON UPDATE NO ACTION;
+ALTER TABLE db.Prescricao ADD CONSTRAINT NUM_VENDA FOREIGN KEY(num_venda) REFERENCES db.Venda(num_venda) ON UPDATE NO ACTION;
+
+--Funcionario
+ALTER TABLE db.Funcionario ADD CONSTRAINT NIFF FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON UPDATE NO ACTION;
+
+--Utente
+ALTER TABLE db.Utente ADD CONSTRAINT NIFU FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON UPDATE NO ACTION;
+
+--Medico
+ALTER TABLE db.Medico ADD CONSTRAINT NIFM FOREIGN KEY(NIF) REFERENCES db.Pessoa(NIF) ON UPDATE NO ACTION;
+
+--Medicamento
+ALTER TABLE db.Medicamento ADD CONSTRAINT NIPCM FOREIGN KEY(lab_id) REFERENCES db.Laboratorio(NIPC) ON UPDATE NO ACTION;
+ALTER TABLE db.Medicamento ADD CONSTRAINT CIDM FOREIGN KEY(categoria_id) REFERENCES db.Categoria(ID) ON UPDATE NO ACTION;
+ALTER TABLE db.Medicamento ADD CONSTRAINT IIDM FOREIGN KEY(tipo_id) REFERENCES db.TIPO(ID) ON UPDATE NO ACTION;
+
+--Periodo
+ALTER TABLE db.Periodo ADD CONSTRAINT NIPCF FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC) ON UPDATE NO ACTION;
+
+--Vende
+--ALTER TABLE db.Vende ADD CONSTRAINT NOME_MEDICAMENTO FOREIGN KEY(medicamento_nome) REFERENCES db.Medicamento(nome) ON UPDATE NO ACTION;
 ALTER TABLE db.Vende ADD CONSTRAINT NIPCV FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC) ON UPDATE NO ACTION;
 ALTER TABLE db.Vende ADD CONSTRAINT NIPCL FOREIGN KEY(lab_NIPC) REFERENCES db.Laboratorio(NIPC) ON UPDATE NO ACTION;
-ALTER TABLE db.TemPF ADD CONSTRAINT NIPCFARM FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC)ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+--TemPD
+--ALTER TABLE db.TemPD ADD CONSTRAINT PID FOREIGN KEY(periodo_ID) REFERENCES db.Periodo(ID) ON UPDATE NO ACTION;
+--ALTER TABLE db.TemPD ADD CONSTRAINT DID FOREIGN KEY(disponibilidade_ID) REFERENCES db.Periodo(disponibilidade) ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+
 ALTER TABLE db.Contem ADD CONSTRAINT NUMP FOREIGN KEY(num_prescricao) REFERENCES db.Prescricao (num_prescricao)ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.Contem ADD CONSTRAINT LABNIPC FOREIGN KEY(lab_NIPC) REFERENCES db.Laboratorio (NIPC) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.Venda ADD CONSTRAINT UtenteNIF FOREIGN KEY(utente_NIF) REFERENCES db.Utente(NIF)ON DELETE CASCADE ON UPDATE CASCADE;
@@ -236,8 +256,6 @@ ALTER TABLE db.Formula ADD CONSTRAINT FORNOME	FOREIGN KEY(medicamento_nome, lab_
 ALTER TABLE db.Medicamento ADD CONSTRAINT NVENDA FOREIGN KEY(num_venda) REFERENCES db.VENDA(num_venda) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.AIM ADD CONSTRAINT Naim FOREIGN KEY(distribuidor_NIPC) REFERENCES db.Farmacia(NIPC) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.AIM ADD CONSTRAINT Naim FOREIGN KEY(distribuidor_NIPC) REFERENCES db.Funcionario(NIF) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.TemPD ADD CONSTRAINT PID FOREIGN KEY(periodo_ID) REFERENCES db.Periodo(ID) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE db.TemPD ADD CONSTRAINT DID FOREIGN KEY(disponibilidade_ID) REFERENCES db.Periodo(disponibilidade) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.TemVP ADD CONSTRAINT NV FOREIGN KEY(num_venda) REFERENCES db.Venda(num_venda) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.TemVP ADD CONSTRAINT NP FOREIGN KEY(um_prescricao) REFERENCES db.Prescricao(num_prescricao) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE db.TemMV ADD CONSTRAINT NV FOREIGN KEY(num_venda) REFERENCES db.Venda(num_venda) ON DELETE CASCADE ON UPDATE CASCADE;
