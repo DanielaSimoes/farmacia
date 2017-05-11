@@ -49,6 +49,13 @@ namespace WpfApplication1
                 this.NavigateTo(dadosUtente_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Lista de Contactos de Fornecedores"))
+            {
+                listaFornecedores listaFornecedores_frame = new listaFornecedores();
+                this.NavigateTo(listaFornecedores_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }

@@ -18,9 +18,9 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for Page2.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class listaFornecedores : Page
     {
-        public Page2()
+        public listaFornecedores()
         {
             InitializeComponent();
         }
