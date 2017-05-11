@@ -7,15 +7,16 @@ CREATE PROCEDURE db.sp_createMedicamento
 				@dose                INT,
 				@unidades            INT,
 				@categoria_id        INT,
-				@tipo_id             INT
+				@tipo_id             INT,
+				@codigo				 INT
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null 
+	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null 
 
 	BEGIN
 
-		PRINT 'The quantity, dosage, units, category_ID and type_ID cannot be empty!'
+		PRINT 'The quantity, dosage, units, category_ID, type_ID and code cannot be empty!'
 		RETURN
 
 	END
@@ -35,13 +36,20 @@ AS
 		RAISERROR('The LAB ID already exists!', 14, 1)
 	END
 
+	SELECT @count = count(codigo) FROM db.Medicamento WHERE codigo=@codigo
+
+	IF @count != 0
+	BEGIN
+		RAISERROR('The code already exists!', 14, 1)
+	END
+	
 
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO db.Medicamento([nome],[lab_id],[quantidade],[validade],[dose],[unidades],[categoria_id],[tipo_id])
-		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id)
+		INSERT INTO db.Medicamento([nome],[lab_id],[quantidade],[validade],[dose],[unidades],[categoria_id],[tipo_id],[codigo])
+		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
 
 	COMMIT TRANSACTION;
 

@@ -77,6 +77,13 @@ namespace WpfApplication1
                 this.NavigateTo(historico_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Adicionar Pessoa"))
+            {
+                criar criar_frame = new criar();
+                this.NavigateTo(criar_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }

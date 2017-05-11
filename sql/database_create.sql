@@ -1,4 +1,4 @@
---use db;
+use farmacia;
 go
 CREATE SCHEMA db;
 
