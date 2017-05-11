@@ -56,6 +56,13 @@ namespace WpfApplication1
                 this.NavigateTo(listaFornecedores_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Verificar Encomendas Realizadas"))
+            {
+                listaEncomendas listaEncomendas_frame = new listaEncomendas();
+                this.NavigateTo(listaEncomendas_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }
