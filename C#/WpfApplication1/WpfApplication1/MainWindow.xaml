@@ -12,6 +12,7 @@
             <ComboBoxItem>Verificar Preços</ComboBoxItem>
             <ComboBoxItem>Lista de Contactos de Fornecedores</ComboBoxItem>
             <ComboBoxItem>Verificar Encomendas Realizadas</ComboBoxItem>
+            <ComboBoxItem>Adicionar pessoa</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="190,0,0,0"></Frame>
     </Grid>

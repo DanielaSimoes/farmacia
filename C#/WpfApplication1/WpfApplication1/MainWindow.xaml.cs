@@ -41,7 +41,6 @@ namespace WpfApplication1
                 produtos produtos_frame = new produtos();
                 this.NavigateTo(produtos_frame);
             }
-
             Console.WriteLine(selectedText);
         }
     }
