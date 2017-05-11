@@ -33,15 +33,12 @@ namespace WpfApplication1
 
         private void FillProdutos()
         {
-            /*
-            string CmdString = "SELECT nome AS Nome, quantidade as Quantidade, dose as Dose, unidades as Unidades FROM db.Medicamento;";
+            string CmdString = "SELECT * FROM db.udf_stock_data_grid(DEFAULT)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("produtos");
+            DataTable dt = new DataTable("stock");
             sda.Fill(dt);
             produtosGrid.ItemsSource = dt.DefaultView;
-
-             */ 
         }
 
         private void InsertProduto()
@@ -77,37 +74,19 @@ namespace WpfApplication1
             {
                 MessageBox.Show(exc.Message);
             }  
-    }
-
-        private void select_from_udf_example(){
-            /*
-            string CmdString = "SELECT * FROM football.udf_players_data_grid(DEFAULT)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("players");
-            sda.Fill(dt);
-            playersGrid.ItemsSource = dt.DefaultView;
-
-            // fill the teams of the player
-            CmdString = "SELECT * FROM football.udf_team_names()";
-            cmd = new SqlCommand(CmdString, con);
-            sda = new SqlDataAdapter(cmd);
-            dt = new DataTable("teams");
-            sda.Fill(dt);
-
-            playerTeams.Items.Clear();
-            foreach (DataRow team in dt.Rows)
-            {
-                ListBoxItem itm = new ListBoxItem();
-                itm.Content = team[0].ToString();
-                playerTeams.Items.Add(itm);
-            }
-             * */
         }
 
+  
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            string CmdString = "SELECT * FROM db.udf_stock_data_grid(@nome)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("stock");
+            sda.Fill(dt);
+            produtosGrid.ItemsSource = dt.DefaultView;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
