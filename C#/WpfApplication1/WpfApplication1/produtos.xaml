@@ -5,7 +5,22 @@
            x:Class="WpfApplication1.produtos"
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
-        <Label Content="Stock" HorizontalAlignment="Left" Margin="45,47,0,0" VerticalAlignment="Top" Height="35" Width="119" FontSize="20" Background="White" Foreground="#FF961212"/>
-        <DataGrid Name="produtosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,100,0,0" VerticalAlignment="Top" Height="292" Width="418"/>
+        <Label Content="Verificar Stock" HorizontalAlignment="Left" Margin="45,28,0,0" VerticalAlignment="Top" Height="35" Width="142" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
+        <DataGrid Name="produtosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" Height="292" Width="418">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nome" Width="80"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Quantidade" Width="90"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Categoria" Width="80"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Tipo" Width="60"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Validade" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
+        <Label Content="Código" HorizontalAlignment="Left" Margin="45,91,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="178,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="178,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="332,99,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.5,0.5"/>
+        <ScrollBar HorizontalAlignment="Left" Margin="437,181,0,0" VerticalAlignment="Top" Height="265" Width="24"/>
     </Grid>
 </Page>
