@@ -15,8 +15,8 @@ namespace WpfApplication1
         static ConnectionDB()
         {
 
-            string ConString = ConfigurationManager.ConnectionStrings["ConStringDaniela"].ConnectionString; 
-            // string ConString = ConfigurationManager.ConnectionStrings["ConStringCristiana"].ConnectionString;
+            //string ConString = ConfigurationManager.ConnectionStrings["ConStringDaniela"].ConnectionString; 
+            string ConString = ConfigurationManager.ConnectionStrings["ConStringCristiana"].ConnectionString;
             con = new SqlConnection(ConString);
         }
         public static SqlConnection getConnection()
