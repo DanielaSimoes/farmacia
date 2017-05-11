@@ -1,12 +1,19 @@
 CREATE FUNCTION db.udf_pessoa_data_grid(@NIF INT)
-RETURNS @table TABLE ("nome" varchar(1), "NIF" int, "telefone" int, "dataNasc" date, "email" varchar(1))
+RETURNS @table TABLE ("Nome" varchar(30), "NIF" int, "Telefone" int, "Data Nascimento" date, "E-mail" varchar(30))
 
 WITH SCHEMABINDING, ENCRYPTION
 AS
+
 BEGIN
-
-INSERT @table SELECT pessoa.nome, pessoa.NIF, pessoa.telefone, pessoa.dataNasc, pessoa.email
-FROM db.pessoa
-
-END;
+	IF (@NIF is null)
+		BEGIN
+			INSERT @table SELECT pessoa.nome, pessoa.NIF, pessoa.telefone, pessoa.dataNasc, pessoa.email
+			FROM db.pessoa;
+		END;
+	ELSE
+		BEGIN
+			INSERT @table SELECT pessoa.nome, pessoa.NIF, pessoa.telefone, pessoa.dataNasc, pessoa.email
+			FROM db.pessoa WHERE db.pessoa.NIF=@NIF;
+		END;
 RETURN;
+END;
