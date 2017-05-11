@@ -7,16 +7,10 @@
     <Grid>
         <Grid Margin="10,10,8,13">
             <Label Content="Lista de Contactos de Fornecedores" HorizontalAlignment="Left" Margin="45,53,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
-            <DataGrid Name="listaFornecedoresGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="385" IsEnabled="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nome" Width="130" CanUserResize="False"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Número de Fornecedor" CanUserResize="False" Width="150"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Telefone" Width="80"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <DataGrid Name="listaFornecedoresGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="385" IsEnabled="False"/>
             <ScrollBar HorizontalAlignment="Left" Margin="405,165,0,0" VerticalAlignment="Top" Height="264" Width="24"/>
-            <Button Content="Editar" HorizontalAlignment="Left" Margin="354,435,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Content="Adicionar" HorizontalAlignment="Left" Margin="274,435,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.426,0.437"/>
+            <Button Content="Editar" HorizontalAlignment="Left" Margin="354,435,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Content="Adicionar" HorizontalAlignment="Left" Margin="274,435,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Page>
