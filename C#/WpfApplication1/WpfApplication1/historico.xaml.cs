@@ -67,9 +67,18 @@ namespace WpfApplication1
             }
             else
             {
+                int NIFInt;
+
+                if (!Int32.TryParse(TextBoxNIF.Text, out NIFInt))
+                {
+                    MessageBox.Show("The NIF must be an Integer!");
+                    return;
+                }
+
+
                 string CmdString = "SELECT * FROM db.udf_historico_pres_data_grid(@nif)";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
-                cmd.Parameters.AddWithValue("@nif", TextBoxNIF.Text);
+                cmd.Parameters.AddWithValue("@nif", NIFInt);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("prescricoes");
                 sda.Fill(dt);
@@ -77,11 +86,11 @@ namespace WpfApplication1
 
                 CmdString = "SELECT * FROM db.udf_historico_meds_data_grid(@nif)";
                 cmd = new SqlCommand(CmdString, con);
-                cmd.Parameters.AddWithValue("@nif", TextBoxNIF.Text);
+                cmd.Parameters.AddWithValue("@nif", NIFInt);
                 sda = new SqlDataAdapter(cmd);
                 dt = new DataTable("meds");
                 sda.Fill(dt);
-                historicoPrescrGrid.ItemsSource = dt.DefaultView;
+                historicoMedsGrid.ItemsSource = dt.DefaultView;
             }
         }
     }
