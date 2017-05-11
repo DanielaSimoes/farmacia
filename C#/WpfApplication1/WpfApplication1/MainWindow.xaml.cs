@@ -73,7 +73,7 @@ namespace WpfApplication1
 
             if (selectedText.Equals("Adicionar Pessoa"))
             {
-                criar criar_frame = new criar();
+                criarFuncionario criar_frame = new criarFuncionario();
                 this.NavigateTo(criar_frame);
             }
             Console.WriteLine(selectedText);
