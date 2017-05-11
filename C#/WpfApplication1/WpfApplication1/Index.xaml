@@ -5,6 +5,15 @@
            x:Class="WpfApplication1.Index"
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
-        <Label Content="Página Inicial" HorizontalAlignment="Left" Margin="33,31,0,0" VerticalAlignment="Top" Height="38" Width="146" FontSize="20" Background="White" Foreground="#FF961212"/>
+        <Label Content="Gestor de Farmácias" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="White" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.614"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Page>

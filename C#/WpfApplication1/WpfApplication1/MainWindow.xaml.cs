@@ -42,6 +42,13 @@ namespace WpfApplication1
                 this.NavigateTo(produtos_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Ver Dados do Utente"))
+            {
+                dadosUtente dadosUtente_frame = new dadosUtente();
+                this.NavigateTo(dadosUtente_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }
