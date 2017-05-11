@@ -21,11 +21,11 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class criar : Page
+    public partial class criarFuncionario : Page
     {
         private SqlConnection con;
 
-        public criar()
+        public criarFuncionario()
         {
             InitializeComponent();
             con = ConnectionDB.getConnection();
