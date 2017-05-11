@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WpfApplication1
 {
@@ -20,14 +22,34 @@ namespace WpfApplication1
     /// </summary>
     public partial class precos : Page
     {
+        private SqlConnection con;
+
         public precos()
         {
             InitializeComponent();
+            con = ConnectionDB.getConnection();
+            FillPrecos();
+        }
+
+        private void FillPrecos()
+        {
+            string CmdString = "SELECT * FROM db.udf_preco_data_grid(DEFAULT)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("precos");
+            sda.Fill(dt);
+            precosGrid.ItemsSource = dt.DefaultView;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            string CmdString = "SELECT * FROM db.udf_preco_data_grid(@nome)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("precos");
+            sda.Fill(dt);
+            precosGrid.ItemsSource = dt.DefaultView;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

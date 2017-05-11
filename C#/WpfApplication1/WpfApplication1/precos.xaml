@@ -7,19 +7,12 @@
     <Grid>
         <Grid Margin="0,23,18,0">
             <Label Content="Verificar Preços" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
-            <DataGrid Name="precosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="400" IsEnabled="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nome" Width="80"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Código" Width="70"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Categoria" CanUserResize="False" Width="90"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Tipo" CanUserResize="False" Width="70"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Preço" Width="60"/>
-                </DataGrid.Columns>
+            <DataGrid Name="precosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="400" IsEnabled="True">
             </DataGrid>
             <ScrollBar HorizontalAlignment="Left" Margin="418,163,0,0" VerticalAlignment="Top" Height="265" Width="25"/>
             <Label Content="Nome" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
             <Label Content="Código" HorizontalAlignment="Left" Margin="45,91,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="178,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
+            <TextBox Name="TextBoxNome" HorizontalAlignment="Left" Height="23" Margin="178,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="178,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
             <Button Content="Ok" HorizontalAlignment="Left" Margin="332,99,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 

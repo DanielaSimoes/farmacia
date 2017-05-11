@@ -7,7 +7,7 @@
     <Grid>
         <Grid Margin="10,10,8,13">
             <Label Content="Dados de Utente" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
-            <DataGrid Name="dadosUtenteGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="460" IsEnabled="False">
+            <DataGrid Name="dadosUtenteGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="460" IsEnabled="True">
             </DataGrid>
             <ScrollBar HorizontalAlignment="Left" Margin="505,138,0,0" VerticalAlignment="Top" Height="292" Width="25"/>
             <Label Content="NIF do Utente" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
