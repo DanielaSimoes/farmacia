@@ -63,6 +63,13 @@ namespace WpfApplication1
                 this.NavigateTo(listaEncomendas_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Verificar Preços"))
+            {
+                precos precos_frame = new precos();
+                this.NavigateTo(precos_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }
