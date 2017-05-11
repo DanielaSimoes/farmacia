@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data;
-using System.Data.SqlClient;
-
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class criar : Page
+    public partial class login : Page
     {
-        private SqlConnection con;
-
-        public criar()
+        public login()
         {
             InitializeComponent();
-            con = ConnectionDB.getConnection();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -57,13 +57,6 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Verificar Encomendas Realizadas"))
-            {
-                listaEncomendas listaEncomendas_frame = new listaEncomendas();
-                this.NavigateTo(listaEncomendas_frame);
-            }
-            Console.WriteLine(selectedText);
-
             if (selectedText.Equals("Verificar Preços"))
             {
                 precos precos_frame = new precos();
@@ -82,6 +75,14 @@ namespace WpfApplication1
             {
                 criar criar_frame = new criar();
                 this.NavigateTo(criar_frame);
+            }
+            Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Sair"))
+            {
+                login login_frame = new login();
+                this.NavigateTo(login_frame);
+                this.Visibility.Equals("Hidden");
             }
             Console.WriteLine(selectedText);
         }
