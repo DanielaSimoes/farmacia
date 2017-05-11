@@ -61,6 +61,7 @@ CREATE TABLE db.Medicamento(
         unidades            INT NOT NULL CHECK(unidades>=0),
         categoria_id        INT NOT NULL CHECK(categoria_id>=0),
         tipo_id             INT NOT NULL CHECK(tipo_id>=0),
+		codigo				INT UNIQUE NOT NULL,
         PRIMARY KEY(nome,lab_id)
 );
 
