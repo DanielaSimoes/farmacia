@@ -87,11 +87,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="criar.xaml">
+    <Page Include="criarFuncionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="criarMedicamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,11 +124,14 @@
     <Compile Include="historico.xaml.cs">
       <DependentUpon>historico.xaml</DependentUpon>
     </Compile>
-    <Compile Include="criar.xaml.cs">
-      <DependentUpon>criar.xaml</DependentUpon>
+    <Compile Include="criarFuncionario.xaml.cs">
+      <DependentUpon>criarFuncionario.xaml</DependentUpon>
     </Compile>
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="criarMedicamento.xaml.cs">
+      <DependentUpon>criarMedicamento.xaml</DependentUpon>
     </Compile>
     <Compile Include="precos.xaml.cs">
       <DependentUpon>precos.xaml</DependentUpon>
