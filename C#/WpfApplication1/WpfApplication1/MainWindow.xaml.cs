@@ -70,6 +70,13 @@ namespace WpfApplication1
                 this.NavigateTo(precos_frame);
             }
             Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Histórico do Utente"))
+            {
+                historico historico_frame = new historico();
+                this.NavigateTo(historico_frame);
+            }
+            Console.WriteLine(selectedText);
         }
     }
 }

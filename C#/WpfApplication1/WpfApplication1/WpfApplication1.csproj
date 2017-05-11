@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="historico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="precos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +108,9 @@
     </Compile>
     <Compile Include="listaEncomendas.xaml.cs">
       <DependentUpon>listaEncomendas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="historico.xaml.cs">
+      <DependentUpon>historico.xaml</DependentUpon>
     </Compile>
     <Compile Include="precos.xaml.cs">
       <DependentUpon>precos.xaml</DependentUpon>

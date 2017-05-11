@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
            x:Class="WpfApplication1.listaEncomendas"
-        Title="Dados de Utente" Height="536.552" Width="717.239">
+        Title="Lista de Encomendas" Height="536.552" Width="717.239">
 
     <Grid>
         <Grid Margin="10,10,8,13">
