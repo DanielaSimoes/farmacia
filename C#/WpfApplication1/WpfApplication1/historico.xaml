@@ -7,12 +7,13 @@
     <Grid Margin="0,0,10,0">
         <Grid Margin="0,10,18,13">
             <Label Content="Histórico do Utente" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="184" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
-            <DataGrid Name="historicoGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,156,0,0" VerticalAlignment="Top" Height="320" Width="251" IsEnabled="False">
+            <DataGrid Name="historicoPrescrGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,156,0,0" VerticalAlignment="Top" Height="320" Width="251" IsEnabled="True">
             </DataGrid>
             <Label Content="NIF do Utente" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="23" Margin="157,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
             <Button Content="Ok" HorizontalAlignment="Left" Margin="202,103,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <DataGrid x:Name="historicoGrid_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="397,156,0,0" VerticalAlignment="Top" Height="320" Width="251" IsEnabled="False"/>
+            <DataGrid x:Name="historicoMedsGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="397,156,0,0" VerticalAlignment="Top" Height="320" Width="251" IsEnabled="True">
+            </DataGrid>
             <Label Content="Receitas Médicas" HorizontalAlignment="Left" Margin="45,128,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
             <Label Content="Medicamentos não prescritos" HorizontalAlignment="Left" Margin="397,128,0,0" VerticalAlignment="Top" Height="35" Width="196" FontSize="14" Background="{x:Null}" Foreground="#FF131313"/>
         </Grid>

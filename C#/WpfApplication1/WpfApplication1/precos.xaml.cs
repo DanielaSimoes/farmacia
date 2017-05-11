@@ -43,13 +43,20 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string CmdString = "SELECT * FROM db.udf_preco_data_grid(@nome)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("precos");
-            sda.Fill(dt);
-            precosGrid.ItemsSource = dt.DefaultView;
+            if (TextBoxNome.Text.Length == 0)
+            {
+                FillPrecos();
+            }
+            else
+            {
+                string CmdString = "SELECT * FROM db.udf_preco_data_grid(@nome)";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("precos");
+                sda.Fill(dt);
+                precosGrid.ItemsSource = dt.DefaultView;
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

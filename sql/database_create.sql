@@ -15,7 +15,7 @@ CREATE TABLE db.Prescricao(
         utente_NIF                   INT NOT NULL,
         db_NIPC                      INT NOT NULL,
         data_processa				 DATE,
-        num_venda					 INT NOT NULL,
+        num_venda					 INT,
 		PRIMARY KEY(num_prescricao),
 		Check(num_prescricao>=0), Check(codigo_acesso_dispensa>=0), Check(codigo_opcao>=0), Check(medico_NIF>=0), Check(utente_NIF>=0), Check(db_NIPC>=0)
 );
@@ -202,7 +202,7 @@ CREATE TABLE db.TemMV(
 
 -- FOREIGN KEY:
 
--- Prescrição
+-- Prescriï¿½ï¿½o
 ALTER TABLE db.Prescricao ADD CONSTRAINT MEDICO_NIF FOREIGN KEY(medico_NIF) REFERENCES db.Medico(NIF) ON UPDATE NO ACTION;
 ALTER TABLE db.Prescricao ADD CONSTRAINT UTENTE_NIF FOREIGN KEY(utente_NIF) REFERENCES db.Utente(NIF) ON UPDATE NO ACTION;
 ALTER TABLE db.Prescricao ADD CONSTRAINT FARMACIA_NIPC FOREIGN KEY(db_NIPC) REFERENCES db.Farmacia(NIPC) ON UPDATE NO ACTION;

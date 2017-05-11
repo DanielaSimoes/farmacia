@@ -79,14 +79,20 @@ namespace WpfApplication1
   
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            string CmdString = "SELECT * FROM db.udf_stock_data_grid(@nome)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("stock");
-            sda.Fill(dt);
-            produtosGrid.ItemsSource = dt.DefaultView;
+            if (TextBoxNome.Text.Length == 0)
+            {
+                FillProdutos();
+            }
+            else
+            {
+                string CmdString = "SELECT * FROM db.udf_stock_data_grid(@nome)";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("stock");
+                sda.Fill(dt);
+                produtosGrid.ItemsSource = dt.DefaultView;
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

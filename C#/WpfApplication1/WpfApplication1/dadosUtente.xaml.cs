@@ -57,13 +57,20 @@ namespace WpfApplication1
                 return;
             }
 
-            string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            cmd.Parameters.AddWithValue("@nif", NIFInt);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("person");
-            sda.Fill(dt);
-            dadosUtenteGrid.ItemsSource = dt.DefaultView;
+            if (TextBoxNIF.Text.Length == 0)
+            {
+                FillDadosUtente();
+            }
+            else
+            {
+                string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd.Parameters.AddWithValue("@nif", NIFInt);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("person");
+                sda.Fill(dt);
+                dadosUtenteGrid.ItemsSource = dt.DefaultView;
+            }
 
         }
     }
