@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_preco_data_grid(@nome varchar(30) = null)
-RETURNS @table TABLE ("Nome" varchar(30), "Laboratório" int, "PVP" int, "Preço" int, "IVA" int)
+RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "PVP" int, "Price" int, "IVA" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS

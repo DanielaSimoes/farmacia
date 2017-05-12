@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_pessoa_data_grid(@NIF INT)
-RETURNS @table TABLE ("Nome" varchar(30), "NIF" int, "Telefone" int, "Data Nascimento" date, "E-mail" varchar(30))
+RETURNS @table TABLE ("Name" varchar(30), "NIF" int, "Phone" int, "Date of Birth" date, "E-mail" varchar(30))
 
 WITH SCHEMABINDING, ENCRYPTION
 AS

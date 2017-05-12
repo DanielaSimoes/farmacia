@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_historico_pres_data_grid(@nif int = null)
-RETURNS @table TABLE ("Nº Prescrição" int, "Código Acesso e Dispensa" int, "Data" date, "Local" varchar(30), "Código Opção" int, "Validade" date, "Telefone" int, "Médico NIF" int, "Utente NIF" int, "Data Levantamento" date, "Número de Venda" int)
+RETURNS @table TABLE ("Prescription number" int, "Access code and dispense" int, "Date" date, "Local" varchar(30), "Option Code" int, "Validity" date, "Phone" int, "Doctor NIF" int, "User NIF" int, "Sale Date" date, "Sale number" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS

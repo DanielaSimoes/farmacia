@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_historico_meds_data_grid(@nif int = null)
-RETURNS @table TABLE ("Utente NIF" int, "Funcionário NIF" int, "Data" date, "Nº Venda" int, "Nome Medicamento" varchar(30), "Laboratório" int)
+RETURNS @table TABLE ("User NIF" int, "Employee NIF" int, "Date" date, "Sale number" int, "Medicine" varchar(30), "Lab" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS

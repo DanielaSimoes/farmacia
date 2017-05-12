@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_stock_data_grid(@nome varchar(30) = null)
-RETURNS @table TABLE ("Nome" varchar(30), "Laboratório" int, "Quantidade" int, "Validade" date, "Dose" int, "Unidades" int, "Categoria" int, "Tipo" int)
+RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Validity" date, "Dose" int, "Units" int, "Category" int, "Type" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS
