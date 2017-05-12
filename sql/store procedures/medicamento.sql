@@ -48,7 +48,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Medicamento([nome],[lab_id],[quantidade],[validade],[dose],[unidades],[categoria_id],[tipo_id],[codigo])
+		INSERT INTO [farmacia].[db].[Medicamento]
 		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
 
 	COMMIT TRANSACTION;
@@ -56,6 +56,6 @@ AS
 	END TRY
 
 	BEGIN CATCH
-		RAISERROR('An error occurred when creating the medicament!', 14, 1)
 		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when creating the medicament!', 14, 1)
 	END CATCH;
