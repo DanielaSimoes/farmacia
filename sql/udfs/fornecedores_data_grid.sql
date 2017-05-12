@@ -1,5 +1,5 @@
 CREATE FUNCTION db.udf_fornecedor_data_grid(@NIPC INT)
-RETURNS @table TABLE ("Name" varchar(30), "Provider ID" int, "Phone" int)
+RETURNS @table TABLE ("Name" varchar(30), "Provider ID" int, "Telefone" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS

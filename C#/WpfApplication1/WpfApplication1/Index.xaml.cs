@@ -24,6 +24,7 @@ namespace WpfApplication1
     {
         bool LabelNIF_Bool = true;
         private SqlConnection con;
+        SqlCommand cmd;
         DataTable dt_grid_produtos = new DataTable("meds");
 
         public Index()
@@ -179,45 +180,32 @@ namespace WpfApplication1
 
         private void pay(object sender, RoutedEventArgs e)
         {
-            // aqui tem que ir buscar todos os produtos que estão na grid e subtrair ao stock através de uma store procedure
-                produtosGrid.SelectAll();
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int dr_code = (int)dr["Code"];
 
-                DataRowView selectedItems = (DataRowView)produtosGrid.SelectedItems;
-                int item_code = (int)selectedItems.Row.ItemArray[8];
-                int item_quantidade = (int)selectedItems.Row.ItemArray[2];
-                    for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
-                    {
-                        DataRow dr = dt_grid_produtos.Rows[i];
-                        int dr_code = (int)dr["Code"];
-                        if (dr_code == item_code)
-                        {
-                            //Atualizar o stock
-                            string CmdString = "db.sp_modifyMedicamento";
-                            SqlCommand cmd_member = new SqlCommand(CmdString, con);
-                            cmd_member.CommandType = CommandType.StoredProcedure;
-                            cmd_member.Parameters.AddWithValue("@quantidade", item_quantidade - 1);
+                string CmdString = "db.sp_decrementMedicamento";
+                cmd = new SqlCommand(CmdString, con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@codigo", dr_code);
 
-                            try
-                            {
-                                con.Open();
-                                cmd_member.ExecuteNonQuery();
-                                con.Close();
-                            }
-                            catch (Exception exc)
-                            {
-                                con.Close();
-                                MessageBox.Show(exc.Message);
-                            }
-                        }
-                    }
-
-            //Apagar todos o items da lista
-                for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+                try
                 {
-                    DataRow dr = dt_grid_produtos.Rows[i];
-                    int dr_code = (int)dr["Code"];
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                     dr.Delete();
                 }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+
+
+
+            MessageBox.Show("Payment completed!");
         }
     }
 }

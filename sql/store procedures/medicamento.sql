@@ -61,32 +61,22 @@ AS
 	END CATCH;
 
 
-CREATE PROCEDURE db.sp_modifyMedicamento
-				
-				@nome                VARCHAR(30),
-				@lab_id              INT,
-				@quantidade          INT,
-				@validade            DATE,
-				@dose                INT,
-				@unidades            INT,
-				@categoria_id        INT,
-				@tipo_id             INT,
+CREATE PROCEDURE db.sp_decrementMedicamento
+
 				@codigo				 INT
 
 WITH ENCRYPTION
-AS 
-	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null
+AS
+	IF @codigo is null
 
 	BEGIN
-
-		PRINT 'The quantity, dosage, units, category_ID, type_ID and code cannot be empty!'
+		PRINT 'The code cannot be empty!'
 		RETURN
-
 	END
-	
+
 	DECLARE @count int
 
-	-- verificar se o medicamento existe pelo código
+	-- verificar se o medicamento existe pelo codigo
 	SELECT @count = count(codigo) FROM db.medicamento WHERE codigo = @codigo;
 
 	IF @count = 0
@@ -95,20 +85,33 @@ AS
 		RETURN
 	END
 
-	-- verificar se existe stock
-	SELECT @quantidade FROM db.medicamento WHERE codigo = @codigo;
+	BEGIN TRANSACTION;
 
-	IF @count = 0
+	DECLARE @units int
+
+	-- verificar se existe stock
+	SELECT @units = unidades FROM db.medicamento WHERE codigo = @codigo;
+
+	IF @units = 0
 	BEGIN
+		ROLLBACK TRANSACTION
 		RAISERROR ('No stock!', 14, 1)
 		RETURN
 	END
 
 	BEGIN TRY
+		SET @units = @units - 1;
 		UPDATE  [farmacia].[db].[Medicamento] SET
-				quantidade = @quantidade
+				unidades = @units
 		WHERE codigo = @codigo;
+
+	COMMIT TRANSACTION;
+
 	END TRY
+
 	BEGIN CATCH
-		RAISERROR ('An error occurred when updating the medicaments!', 14, 1)
+		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when updating the medicament!', 14, 1)
 	END CATCH;
+
+

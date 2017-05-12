@@ -118,7 +118,7 @@ namespace WpfApplication1
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        MessageBox.Show("ucesso!");
+                        MessageBox.Show("Sucesso!");
                     }
                     catch (Exception exc)
                     {
