@@ -25,6 +25,67 @@ namespace WpfApplication1
             InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
         }
 
+
+        private void T0_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("0");
+        }
+
+        private void T1_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("1");
+        }
+
+        private void T2_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("2");
+        }
+
+        private void T3_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("3");
+        }
+
+        private void T4_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("4");
+        }
+
+        private void T5_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("5");
+        }
+
+        private void T6_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("6");
+        }
+
+        private void T7_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("7");
+        }
+
+        private void T8_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("8");
+        }
+
+        private void T9_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.AppendText("9");
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DEL_Click(object sender, RoutedEventArgs e)
+        {
+            SeeNIF.Text = SeeNIF.Text.Substring(0, SeeNIF.Text.Length - 1);
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

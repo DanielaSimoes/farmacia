@@ -30,19 +30,19 @@
                 <Label Content="NIF" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="96"/>
             </Border>
         </Border>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="420,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184"/>
-        <Button Content="1" HorizontalAlignment="Left" Margin="420,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="2" HorizontalAlignment="Left" Margin="486,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="3" HorizontalAlignment="Left" Margin="554,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="4" HorizontalAlignment="Left" Margin="420,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="5" HorizontalAlignment="Left" Margin="486,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="6" HorizontalAlignment="Left" Margin="554,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="7" HorizontalAlignment="Left" Margin="420,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="8" HorizontalAlignment="Left" Margin="486,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="9" HorizontalAlignment="Left" Margin="554,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="*" HorizontalAlignment="Left" Margin="420,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="0" HorizontalAlignment="Left" Margin="486,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
-        <Button Content="#" HorizontalAlignment="Left" Margin="554,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16"/>
+        <TextBox Name="SeeNIF"  HorizontalAlignment="Left" Height="36" Margin="420,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184"/>
+        <Button Name="T1" Content="1" HorizontalAlignment="Left" Margin="420,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T1_Click"/>
+        <Button Name="T2" Content="2" HorizontalAlignment="Left" Margin="486,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T2_Click"/>
+        <Button Name="T3" Content="3" HorizontalAlignment="Left" Margin="554,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T3_Click"/>
+        <Button Name="T4" Content="4" HorizontalAlignment="Left" Margin="420,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T4_Click"/>
+        <Button Name="T5" Content="5" HorizontalAlignment="Left" Margin="486,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T5_Click"/>
+        <Button Name="T6" Content="6" HorizontalAlignment="Left" Margin="554,283,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T6_Click"/>
+        <Button Name="T7" Content="7" HorizontalAlignment="Left" Margin="420,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T7_Click"/>
+        <Button Name="T8" Content="8" HorizontalAlignment="Left" Margin="486,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T8_Click"/>
+        <Button Name="T9" Content="9" HorizontalAlignment="Left" Margin="554,334,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T9_Click"/>
+        <Button Name="OK"  Content="OK" HorizontalAlignment="Left" Margin="420,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="OK_Click"/>
+        <Button Name="T0" Content="0" HorizontalAlignment="Left" Margin="486,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T0_Click"/>
+        <Button Name="DEL" Content="DEL" HorizontalAlignment="Left" Margin="554,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="DEL_Click"/>
         <DataGrid HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="209"/>
         <Button Content="-" HorizontalAlignment="Left" Margin="24,430,0,0" VerticalAlignment="Top" Width="38" Click="Button_Click" FontSize="16" FontWeight="Bold"/>
         <Button Content="Digitar Código" HorizontalAlignment="Left" Margin="174,467,0,0" VerticalAlignment="Top" Width="102"/>
