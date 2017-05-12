@@ -100,5 +100,11 @@ namespace WpfApplication1
             this.NavigateTo(definicoes_frame);
 
         }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            detalhes_prescricoes detalhes_frame = new detalhes_prescricoes();
+            this.NavigateTo(detalhes_frame);
+        }
     }
 }

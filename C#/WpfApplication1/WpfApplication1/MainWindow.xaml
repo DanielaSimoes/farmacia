@@ -24,6 +24,6 @@
         <Button Content="Definições de Farmácia" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
         <DataGrid HorizontalAlignment="Left" Margin="23,275,0,0" VerticalAlignment="Top" Height="131" Width="140"/>
         <Label Content="Cliente" HorizontalAlignment="Left" Margin="23,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.928,-4.897"/>
-        <Button Content="Prescrições ativas" HorizontalAlignment="Left" Margin="23,406,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
+        <Button Content="Prescrições ativas" HorizontalAlignment="Left" Margin="23,406,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click1"/>
     </Grid>
 </Window>
