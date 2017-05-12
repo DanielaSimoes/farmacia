@@ -9,19 +9,19 @@
             <Label Content="Adicionar Funcionario" HorizontalAlignment="Left" Margin="45,53,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
             <Button Content="Adicionar" HorizontalAlignment="Left" Margin="319,442,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
             <Label Content="Nome" HorizontalAlignment="Left" Margin="45,132,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="nome" HorizontalAlignment="Left" Height="36" Margin="222,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
             <Label Content="NIF" HorizontalAlignment="Left" Margin="45,173,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="nif" HorizontalAlignment="Left" Height="36" Margin="222,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
             <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="45,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
+            <TextBox Name="data" HorizontalAlignment="Left" Height="36" Margin="222,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="45,255,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="email" HorizontalAlignment="Left" Height="36" Margin="222,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Telefone" HorizontalAlignment="Left" Margin="45,301,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="telefone" HorizontalAlignment="Left" Height="36" Margin="222,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Número de Funcionário" HorizontalAlignment="Left" Margin="45,378,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="numero" HorizontalAlignment="Left" Height="36" Margin="222,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Função" HorizontalAlignment="Left" Margin="45,337,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="222,337,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="funcao" HorizontalAlignment="Left" Height="36" Margin="222,337,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
         </Grid>
     </Grid>
 </Page>

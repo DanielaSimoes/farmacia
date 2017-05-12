@@ -23,19 +23,18 @@ AS
 		RAISERROR('The NIF already exists!', 14, 1)
 	END
 
-
+	SET XACT_ABORT ON; --> the only change
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO db.Person([NIF],[nome],[dataNasc], [email], [telefone], [dataNasc])
-		VALUES (@NIF, @nome, @dataNasc, @email, @telefone, @dataNasc)
+		INSERT INTO [farmacia].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
 
-	COMMIT TRANSACTION;
+	    COMMIT TRANSACTION;
 
 	END TRY
 
 	BEGIN CATCH
+        ROLLBACK TRANSACTION
 		RAISERROR('An error occurred when creating the person!', 14, 1)
-		ROLLBACK TRANSACTION
 	END CATCH;

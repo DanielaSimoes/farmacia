@@ -1,13 +1,14 @@
+--DROP PROCEDURE db.sp_createFuncionario
 CREATE PROCEDURE db.sp_createFuncionario
 
 				@funcao			    VARCHAR(30),
 				@num_funcionario	INT,
-				@password			VARCHAR(30),
+				@pass			VARCHAR(30),
 				@NIF           		INT
 
 WITH ENCRYPTION
 AS
-	IF @NIF is null OR @funcao is null OR @num_funcionario is null OR @password is null
+	IF @NIF is null OR @funcao is null OR @num_funcionario is null OR @pass is null
 
 	BEGIN
 
@@ -31,19 +32,17 @@ AS
 		RAISERROR('The Employee number already exists!', 14, 1)
 	END
 
-
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO db.Funcionario([NIF],[funcao],[num_funcionario],[password])
-		VALUES (@NIF, @funcao, @num_funcionario, @password)
+		INSERT INTO [farmacia].[db].[Funcionario] VALUES (@funcao, @num_funcionario, @pass, @NIF)
 
 	COMMIT TRANSACTION;
 
 	END TRY
 
 	BEGIN CATCH
-		RAISERROR('An error occurred when creating the employee!', 14, 1)
 		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when creating the employee!', 14, 1)
 	END CATCH;
