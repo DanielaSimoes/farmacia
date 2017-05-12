@@ -40,6 +40,10 @@ namespace WpfApplication1
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt_grid_produtos);
             produtosGrid.ItemsSource = dt_grid_produtos.DefaultView;
+
+            if (codigo == null){
+                MessageBox.Show("The code does not exist!");
+            }
         }
 
         private void T0_Click(object sender, RoutedEventArgs e)
@@ -176,6 +180,44 @@ namespace WpfApplication1
         private void pay(object sender, RoutedEventArgs e)
         {
             // aqui tem que ir buscar todos os produtos que estão na grid e subtrair ao stock através de uma store procedure
+                produtosGrid.SelectAll();
+
+                DataRowView selectedItems = (DataRowView)produtosGrid.SelectedItems;
+                int item_code = (int)selectedItems.Row.ItemArray[8];
+                int item_quantidade = (int)selectedItems.Row.ItemArray[2];
+                    for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+                    {
+                        DataRow dr = dt_grid_produtos.Rows[i];
+                        int dr_code = (int)dr["Code"];
+                        if (dr_code == item_code)
+                        {
+                            //Atualizar o stock
+                            string CmdString = "db.sp_modifyMedicamento";
+                            SqlCommand cmd_member = new SqlCommand(CmdString, con);
+                            cmd_member.CommandType = CommandType.StoredProcedure;
+                            cmd_member.Parameters.AddWithValue("@quantidade", item_quantidade - 1);
+
+                            try
+                            {
+                                con.Open();
+                                cmd_member.ExecuteNonQuery();
+                                con.Close();
+                            }
+                            catch (Exception exc)
+                            {
+                                con.Close();
+                                MessageBox.Show(exc.Message);
+                            }
+                        }
+                    }
+
+            //Apagar todos o items da lista
+                for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow dr = dt_grid_produtos.Rows[i];
+                    int dr_code = (int)dr["Code"];
+                    dr.Delete();
+                }
         }
     }
 }
