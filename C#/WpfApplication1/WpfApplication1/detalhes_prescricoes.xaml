@@ -10,8 +10,8 @@
             </DataGrid>
             <DataGrid x:Name="historicoMedsGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="344,134,0,0" VerticalAlignment="Top" Height="80" Width="321" IsEnabled="True">
             </DataGrid>
-            <DataGrid x:Name="historicoMedsGrid_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,134,0,0" VerticalAlignment="Top" Height="80" Width="321" IsEnabled="True"/>
-            <Label Content="Nome do Utente" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top" Width="642"/>
+            <DataGrid x:Name="historicoMedsGrid_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,134,0,0" VerticalAlignment="Top" Height="80" Width="321" IsEnabled="True" SelectionChanged="historicoMedsGrid_Copy_SelectionChanged"/>
+            <Label Name="Utente" Content="Nome do Utente" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top" Width="642"/>
             <Label Content="Prescrições" HorizontalAlignment="Left" Margin="23,108,0,0" VerticalAlignment="Top"/>
             <Label Content="Data de Emissão" HorizontalAlignment="Left" Margin="344,108,0,0" VerticalAlignment="Top"/>
         </Grid>

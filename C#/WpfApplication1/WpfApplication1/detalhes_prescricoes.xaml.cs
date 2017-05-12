@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace WpfApplication1
 {
@@ -20,9 +22,24 @@ namespace WpfApplication1
     /// </summary>
     public partial class detalhes_prescricoes : Page
     {
+        private SqlConnection con;
+
         public detalhes_prescricoes()
         {
             InitializeComponent();
+            con = ConnectionDB.getConnection();
         }
+
+        private void historicoMedsGrid_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void historicoPrescrGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+
     }
 }

@@ -24,6 +24,10 @@ namespace WpfApplication1
     {
 
         private SqlConnection con;
+        SqlCommandBuilder cmb;
+        DataTable dt = new DataTable("person");
+        SqlCommand cmd;
+        SqlDataAdapter sda;
 
         public dadosUtente()
         {
@@ -35,9 +39,8 @@ namespace WpfApplication1
         private void FillDadosUtente()
         {
             string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(DEFAULT)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("person");
+            cmd = new SqlCommand(CmdString, con);
+            sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             dadosUtenteGrid.ItemsSource = dt.DefaultView;
         }
@@ -64,12 +67,68 @@ namespace WpfApplication1
             else
             {
                 string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd = new SqlCommand(CmdString, con);
+                sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("person");
                 sda.Fill(dt);
                 dadosUtenteGrid.ItemsSource = dt.DefaultView;
+            }
+
+        }
+
+        private void dadosUtenteGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DataRowView selectedItem = (DataRowView)dadosUtenteGrid.SelectedItem;
+                int item_name = (int)selectedItem.Row.ItemArray[0];
+                int item_NIF = (int)selectedItem.Row.ItemArray[1];
+                int item_telefone = (int)selectedItem.Row.ItemArray[2];
+                int item_data = (int)selectedItem.Row.ItemArray[3];
+                int item_email = (int)selectedItem.Row.ItemArray[4];
+
+                for (int i = dt.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow dr = dt.Rows[i];
+                    int dr_name = (int)dr["Name"];
+                    int dr_NIF = (int)dr["NIF"];
+                    int dr_telefone = (int)dr["Phone"];
+                    int dr_data = (int)dr["Date of Birth"];
+                    int dr_email = (int)dr["E-mail"];
+
+
+
+                    string CmdString = "db.sp_ModifyUtente";
+                    cmd = new SqlCommand(CmdString, con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nome", dr_name);
+                    cmd.Parameters.AddWithValue("@dataNasc,", dr_data);
+                    cmd.Parameters.AddWithValue("@email", dr_email);
+                    cmd.Parameters.AddWithValue("@telefone", dr_telefone);
+                    cmd.Parameters.AddWithValue("@NIF", dr_NIF);
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("ucesso!");
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.Message);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
             }
 
         }
