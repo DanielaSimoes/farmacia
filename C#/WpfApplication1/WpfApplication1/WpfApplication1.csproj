@@ -107,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="detalhes prescricoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="precos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +150,9 @@
     </Compile>
     <Compile Include="definicoes.xaml.cs">
       <DependentUpon>definicoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="detalhes prescricoes.xaml.cs">
+      <DependentUpon>detalhes prescricoes.xaml</DependentUpon>
     </Compile>
     <Compile Include="precos.xaml.cs">
       <DependentUpon>precos.xaml</DependentUpon>
