@@ -36,7 +36,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Periodo([ID],[inicio],[fim],[dia_da_semana],[db_NIPC])
+		INSERT INTO [farmacia].[db].[Periodo]
 		VALUES (@ID, @inicio, @fim, @dia_da_semana, @db_NIPC)
 
 	COMMIT TRANSACTION;
@@ -44,6 +44,6 @@ AS
 	END TRY
 
 	BEGIN CATCH
-		RAISERROR('An error occurred when creating the period!', 14, 1)
 		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when creating the period!', 14, 1)
 	END CATCH;

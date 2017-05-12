@@ -113,14 +113,14 @@ CREATE TABLE db.Periodo(
 		ID        		    INT,
 		inicio    		    INT			NOT NULL,
         fim    		        INT			NOT NULL,
-        dia_da_semana       INT			NOT NULL,
+        dia_da_semana       VARCHAR(30)	NOT NULL,
 		db_NIPC             INT			NOT NULL,
 		PRIMARY KEY(ID, db_NIPC)
 );
 
 CREATE TABLE db.Disponibilidade(
         ID        		    INT,
-        disponibilidade     INT			NOT NULL,
+        disponibilidade     VARCHAR(30)	NOT NULL,
         PRIMARY KEY(ID)
 );
 

@@ -93,5 +93,12 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            definicoes definicoes_frame = new definicoes();
+            this.NavigateTo(definicoes_frame);
+
+        }
     }
 }

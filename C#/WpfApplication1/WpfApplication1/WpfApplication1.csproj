@@ -103,6 +103,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="definicoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="precos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +143,9 @@
     </Compile>
     <Compile Include="criarUtente.xaml.cs">
       <DependentUpon>criarUtente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="definicoes.xaml.cs">
+      <DependentUpon>definicoes.xaml</DependentUpon>
     </Compile>
     <Compile Include="precos.xaml.cs">
       <DependentUpon>precos.xaml</DependentUpon>

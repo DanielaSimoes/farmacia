@@ -21,5 +21,6 @@
             <ComboBoxItem>Sair</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>
+        <Button Content="Definições de Farmácia" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
     </Grid>
 </Window>

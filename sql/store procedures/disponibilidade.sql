@@ -26,7 +26,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Disponibilidade([ID],[disponibilidade])
+		INSERT INTO [farmacia].[db].[Disponibilidade]
 		VALUES (@ID, @disponibilidade)
 
 	COMMIT TRANSACTION;
@@ -34,6 +34,6 @@ AS
 	END TRY
 
 	BEGIN CATCH
-		RAISERROR('An error occurred when creating the availability!', 14, 1)
 		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when creating the availability!', 14, 1)
 	END CATCH;

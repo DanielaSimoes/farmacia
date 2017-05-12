@@ -1,0 +1,23 @@
+﻿<Page  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+           x:Class="WpfApplication1.definicoes"
+        Title="Definições de Farmácia" Height="536.552" Width="717.239">
+
+    <Grid>
+        <Grid Margin="8,10,10,13">
+            <Label Content="Definições de Farmácia" HorizontalAlignment="Left" Margin="45,21,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
+            <Button Content="Editar" HorizontalAlignment="Left" Margin="302,317,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
+            <Label Content="Início" HorizontalAlignment="Left" Margin="45,108,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <TextBox Name="inicio" HorizontalAlignment="Left" Height="36" Margin="205,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <Label Content="Fim" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <TextBox Name="fim" HorizontalAlignment="Left" Height="36" Margin="205,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <Label Content="Dia da Semana" HorizontalAlignment="Left" Margin="45,185,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <TextBox Name="dia" HorizontalAlignment="Left" Height="36" Margin="205,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
+            <Label Content="Disponibilidade" HorizontalAlignment="Left" Margin="46,262,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <TextBox Name="disponibilidade" HorizontalAlignment="Left" Height="36" Margin="205,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <Label Content="Período" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+            <Label Content="Disponibilidade" HorizontalAlignment="Left" Margin="45,226,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Page>
