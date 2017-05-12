@@ -5,7 +5,7 @@
            x:Class="WpfApplication1.Index"
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
-        <Label Content="Gestor de Farmácias" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Drugstore Manager" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -15,7 +15,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="PAGAMENTO" HorizontalAlignment="Left" Margin="415,77,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="22" Background="{x:Null}" Foreground="#FF406414" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+        <Label Content="PAYMENT" HorizontalAlignment="Left" Margin="415,77,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="22" Background="{x:Null}" Foreground="#FF406414" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -27,10 +27,10 @@
         </Label>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="317" Margin="408,138,0,0" VerticalAlignment="Top" Width="210">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="266" Margin="0,-1,-1,0">
-                <Label Content="NIF" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="96"/>
+                <Label Name="LabelNIF" Content="NIF" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="96" Height="84" VerticalAlignment="Bottom"/>
             </Border>
         </Border>
-        <TextBox Name="SeeNIF"  HorizontalAlignment="Left" Height="36" Margin="420,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="SeeNIF"  HorizontalAlignment="Left" Height="36" Margin="420,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184" TextChanged="SeeNIF_TextChanged"/>
         <Button Name="T1" Content="1" HorizontalAlignment="Left" Margin="420,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T1_Click"/>
         <Button Name="T2" Content="2" HorizontalAlignment="Left" Margin="486,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T2_Click"/>
         <Button Name="T3" Content="3" HorizontalAlignment="Left" Margin="554,232,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T3_Click"/>
@@ -43,8 +43,9 @@
         <Button Name="OK"  Content="OK" HorizontalAlignment="Left" Margin="420,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="OK_Click"/>
         <Button Name="T0" Content="0" HorizontalAlignment="Left" Margin="486,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T0_Click"/>
         <Button Name="DEL" Content="DEL" HorizontalAlignment="Left" Margin="554,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="DEL_Click"/>
-        <DataGrid HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="209"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="24,430,0,0" VerticalAlignment="Top" Width="38" Click="Button_Click" FontSize="16" FontWeight="Bold"/>
-        <Button Content="Digitar Código" HorizontalAlignment="Left" Margin="174,467,0,0" VerticalAlignment="Top" Width="102"/>
+        <DataGrid Name="produtosGrid" HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="209" IsReadOnly="True"/>
+        <Button Name="DelRow" Content="-" HorizontalAlignment="Left" Margin="24,430,0,0" VerticalAlignment="Top" Width="38" Click="DelRow_Click" FontSize="16" FontWeight="Bold"/>
+        <Button Content="Digit Code" HorizontalAlignment="Left" Margin="174,467,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
+        <Button Content="Pay" HorizontalAlignment="Left" Margin="554,467,0,0" VerticalAlignment="Top" Width="102" Click="pay"/>
     </Grid>
 </Page>

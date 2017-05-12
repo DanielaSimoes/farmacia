@@ -12,7 +12,7 @@ CREATE PROCEDURE db.sp_createMedicamento
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null 
+	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null
 
 	BEGIN
 
@@ -42,7 +42,7 @@ AS
 	BEGIN
 		RAISERROR('The code already exists!', 14, 1)
 	END
-	
+
 
 	BEGIN TRANSACTION;
 
