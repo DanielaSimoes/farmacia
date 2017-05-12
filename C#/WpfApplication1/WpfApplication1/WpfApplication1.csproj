@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="criarUtente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="precos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +136,9 @@
     </Compile>
     <Compile Include="criarMedicamento.xaml.cs">
       <DependentUpon>criarMedicamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="criarUtente.xaml.cs">
+      <DependentUpon>criarUtente.xaml</DependentUpon>
     </Compile>
     <Compile Include="precos.xaml.cs">
       <DependentUpon>precos.xaml</DependentUpon>

@@ -71,10 +71,17 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Adicionar Pessoa"))
+            if (selectedText.Equals("Adicionar Funcionário"))
             {
                 criarFuncionario criar_frame = new criarFuncionario();
                 this.NavigateTo(criar_frame);
+            }
+            Console.WriteLine(selectedText);
+
+            if (selectedText.Equals("Adicionar Utente"))
+            {
+                criarUtente criarUtente_frame = new criarUtente();
+                this.NavigateTo(criarUtente_frame);
             }
             Console.WriteLine(selectedText);
 

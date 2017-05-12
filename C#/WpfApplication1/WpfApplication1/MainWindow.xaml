@@ -16,7 +16,8 @@
             <ComboBoxItem>Verificar Preços</ComboBoxItem>
             <ComboBoxItem>Ver Dados do Utente</ComboBoxItem>
             <ComboBoxItem>Lista de Contactos de Fornecedores</ComboBoxItem>
-            <ComboBoxItem>Adicionar Pessoa</ComboBoxItem>
+            <ComboBoxItem>Adicionar Funcionário</ComboBoxItem>
+            <ComboBoxItem>Adicionar Utente</ComboBoxItem>
             <ComboBoxItem>Sair</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>

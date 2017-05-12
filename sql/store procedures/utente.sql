@@ -35,7 +35,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO db.Utente([NIF],[morada],[num_utente])
+		INSERT INTO [farmacia].[db].[Utente]
 		VALUES (@NIF, @morada, @num_utente)
 
 	COMMIT TRANSACTION;
@@ -43,6 +43,6 @@ AS
 	END TRY
 
 	BEGIN CATCH
-		RAISERROR('An error occurred when creating the Utente!', 14, 1)
 		ROLLBACK TRANSACTION
+		RAISERROR('An error occurred when creating the Utente!', 14, 1)
 	END CATCH;
