@@ -84,53 +84,33 @@ namespace WpfApplication1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            DataRowView selectedItem = (DataRowView)dadosUtenteGrid.SelectedItem;
+            string item_name = (string)selectedItem.Row.ItemArray[0];
+            int item_NIF = (int)selectedItem.Row.ItemArray[1];
+            int item_telefone = (int)selectedItem.Row.ItemArray[2];
+            DateTime item_data = (DateTime)selectedItem.Row.ItemArray[3];
+            string item_email = (string)selectedItem.Row.ItemArray[4];
+
+            string CmdString = "db.sp_modifyPessoa";
+            cmd = new SqlCommand(CmdString, con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nome", item_name);
+            cmd.Parameters.AddWithValue("@NIF", item_NIF);
+            cmd.Parameters.AddWithValue("@telefone", item_telefone);
+            cmd.Parameters.AddWithValue("@dataNasc", item_data);
+            cmd.Parameters.AddWithValue("@email", item_email);
+            
             try
             {
-                DataRowView selectedItem = (DataRowView)dadosUtenteGrid.SelectedItem;
-                int item_name = (int)selectedItem.Row.ItemArray[0];
-                int item_NIF = (int)selectedItem.Row.ItemArray[1];
-                int item_telefone = (int)selectedItem.Row.ItemArray[2];
-                int item_data = (int)selectedItem.Row.ItemArray[3];
-                int item_email = (int)selectedItem.Row.ItemArray[4];
-
-                for (int i = dt.Rows.Count - 1; i >= 0; i--)
-                {
-                    DataRow dr = dt.Rows[i];
-                    int dr_name = (int)dr["Name"];
-                    int dr_NIF = (int)dr["NIF"];
-                    int dr_telefone = (int)dr["Phone"];
-                    int dr_data = (int)dr["Date of Birth"];
-                    int dr_email = (int)dr["E-mail"];
-
-
-
-                    string CmdString = "db.sp_ModifyUtente";
-                    cmd = new SqlCommand(CmdString, con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nome", dr_name);
-                    cmd.Parameters.AddWithValue("@dataNasc,", dr_data);
-                    cmd.Parameters.AddWithValue("@email", dr_email);
-                    cmd.Parameters.AddWithValue("@telefone", dr_telefone);
-                    cmd.Parameters.AddWithValue("@NIF", dr_NIF);
-
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        MessageBox.Show("Sucesso!");
-                    }
-                    catch (Exception exc)
-                    {
-                        MessageBox.Show(exc.Message);
-                    }
-                }
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
-            catch (Exception)
+            catch (Exception exc)
             {
-
+                MessageBox.Show(exc.Message);
+                con.Close();
             }
-
         }
     }
 }
