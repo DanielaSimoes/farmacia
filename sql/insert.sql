@@ -3,7 +3,7 @@ use farmacia;
 -- Pessoa add
 INSERT INTO db.Pessoa VALUES(2, 'Daniela', NULL, NULL, NULL);
 -- Pessoa add
-INSERT INTO db.Pessoa VALUES(120, 'Cristiana', '01/01/0100', 'cristiana@ua.pt', 1233);
+INSERT INTO db.Pessoa VALUES(19, 'Cristiana', '01/01/0100', 'cristiana@ua.pt', 1233);
 -- Laboratorio add
 INSERT INTO db.Laboratorio VALUES(3, 'lab@lab.pt', 'Lab', 'Aveiro');
 -- Categoria add
