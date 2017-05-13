@@ -30,6 +30,7 @@ namespace WpfApplication1
             con = ConnectionDB.getConnection();
         }
 
+
         private void historicoPrescrGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

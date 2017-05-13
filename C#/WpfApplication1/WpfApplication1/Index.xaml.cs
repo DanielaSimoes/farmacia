@@ -30,6 +30,7 @@ namespace WpfApplication1
         SqlDataAdapter sda;
         int NIFInt;
         static MainWindow mwind;
+        static criarUtente mdet;
 
         public Index()
         {
@@ -40,6 +41,13 @@ namespace WpfApplication1
         public Index(MainWindow mwindow)
         {
             mwind = mwindow;
+            InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
+            con = ConnectionDB.getConnection();
+        }
+
+        public Index(criarUtente det)
+        {
+            mdet = det;
             InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
             con = ConnectionDB.getConnection();
         }
@@ -121,12 +129,19 @@ namespace WpfApplication1
                 }
 
                 string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
-                cmd = new SqlCommand(CmdString, con);
-                sda = new SqlDataAdapter(cmd);
-                cmd.Parameters.AddWithValue("@nif", NIFInt);
-                DataTable dt = new DataTable("person");
-                sda.Fill(dt);
-                mwind.dados.ItemsSource = dt.DefaultView;
+                if (CmdString == null)
+                {
+                    this.NavigationService.Navigate(mdet);
+                }
+                else
+                {
+                    cmd = new SqlCommand(CmdString, con);
+                    sda = new SqlDataAdapter(cmd);
+                    cmd.Parameters.AddWithValue("@nif", NIFInt);
+                    DataTable dt = new DataTable("person");
+                    sda.Fill(dt);
+                    mwind.dados.ItemsSource = dt.DefaultView;
+                }
             }
             else { 
                 // é para procurar pelo produto

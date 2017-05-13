@@ -22,7 +22,7 @@
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>
         <Button Content="Definições de Farmácia" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
         <DataGrid Name="dados" HorizontalAlignment="Left" Margin="23,275,0,0" VerticalAlignment="Top" Height="131" Width="140" SelectionChanged="dados_SelectionChanged"/>
-        <Label Content="Cliente" HorizontalAlignment="Left" Margin="23,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.928,-4.897"/>
+        <Label Name="Cliente" Content="Cliente" HorizontalAlignment="Left" Margin="23,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.928,-4.897"/>
         <Button Content="Prescrições ativas" HorizontalAlignment="Left" Margin="23,406,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click1"/>
     </Grid>
 </Window>
