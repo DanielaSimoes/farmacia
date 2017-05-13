@@ -5,10 +5,11 @@
         Title="Detalhes da Prescricao" Height="536.552" Width="717.239">
 
     <Grid Margin="0,0,10,0">
-        <Grid Margin="0,13,18,10">
+        <Grid Margin="10,10,8,13">
             <DataGrid Name="historicoPrescrGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,69,0,0" VerticalAlignment="Top" Height="212" Width="642" IsEnabled="True" SelectionChanged="historicoPrescrGrid_SelectionChanged">
             </DataGrid>
-            <Label Name="Utente" Content="Nome do Utente" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top" Width="642"/>
+            <Label Name="Utente" Content="NIF do Utente:" HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" Width="120"/>
+            <TextBlock Name="numero" HorizontalAlignment="Left" Margin="117,28,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </Page>

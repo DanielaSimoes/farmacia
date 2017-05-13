@@ -125,11 +125,12 @@ namespace WpfApplication1
             cmd = new SqlCommand(CmdString, con);
             sda = new SqlDataAdapter(cmd);
             Index index = new Index();
-            cmd.Parameters.AddWithValue("@utente_NIF", index.SeeNIF);
+            cmd.Parameters.AddWithValue("@utente_NIF", index.SeeNIF.Text);
             DataTable dt = new DataTable("person");
             sda.Fill(dt);
             detalhes_prescricoes det = new detalhes_prescricoes();
             det.historicoPrescrGrid.ItemsSource = dt.DefaultView;
+            det.numero.Text = index.SeeNIF.Text;
 
 
             detalhes_prescricoes detalhes_frame = new detalhes_prescricoes();
