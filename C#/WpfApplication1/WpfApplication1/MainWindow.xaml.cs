@@ -126,7 +126,7 @@ namespace WpfApplication1
             sda = new SqlDataAdapter(cmd);
             Index index = new Index();
             cmd.Parameters.AddWithValue("@utente_NIF", index.SeeNIF.Text);
-            DataTable dt = new DataTable("person");
+            DataTable dt = new DataTable("prescricao");
             sda.Fill(dt);
             detalhes_prescricoes det = new detalhes_prescricoes();
             det.historicoPrescrGrid.ItemsSource = dt.DefaultView;
