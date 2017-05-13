@@ -2,15 +2,19 @@ CREATE PROCEDURE db.sp_createMedico
 
 				@especialidade	    VARCHAR(30),
 				@numSNS      		INT,
-				@NIF           		INT
-              
+				@NIF           		INT,
+				@nome 				VARCHAR(30),
+				@telefone 			INT = null,
+                @dataNasc 			DATE = null,
+                @email 				VARCHAR(30) = null
+
 WITH ENCRYPTION
 AS
-	IF @NIF is null OR @especialidade is null OR @numSNS is null
+	IF @NIF is null OR @especialidade is null OR @numSNS is null or @nome is null
 
 	BEGIN
 
-		PRINT 'The NIF, the Specialty and the SNS number cannot be empty!'
+		PRINT 'The NIF, the Name, the Specialty or the SNS number cannot be empty!'
 		RETURN
 
 	END
@@ -20,7 +24,7 @@ AS
 
 	IF @count != 0
 	BEGIN
-		RAISERROR('The NIF already exists!', 14, 1)
+		RAISERROR('The NIF as a doctor already exists!', 14, 1)
 	END
 
 	SELECT @count = count(numSNS) FROM db.Medico WHERE numSNS=@numSNS
@@ -30,6 +34,26 @@ AS
 		RAISERROR('The SNS number already exists!', 14, 1)
 	END
 
+	SELECT @count = count(NIF) FROM db.Pessoa WHERE NIF=@NIF
+
+	IF @count = 0
+	BEGIN
+		SET XACT_ABORT ON; --> the only change
+		BEGIN TRANSACTION;
+
+		BEGIN TRY
+
+			INSERT INTO [farmacia].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
+
+			COMMIT TRANSACTION;
+
+		END TRY
+
+		BEGIN CATCH
+			ROLLBACK TRANSACTION
+			RAISERROR('An error occurred when creating the person!', 14, 1)
+		END CATCH;
+	END
 
 	BEGIN TRANSACTION;
 

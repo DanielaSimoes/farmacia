@@ -60,49 +60,33 @@ namespace WpfApplication1
                 return;
             }
 
-            string CmdString = "db.sp_createPessoa";
+            string CmdString = "db.sp_createFuncionario";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
-            cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
-            cmd_member.Parameters.AddWithValue("@NIF", nif_int);
-            cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
-            cmd_member.Parameters.AddWithValue("@dataNasc", dt);
-            cmd_member.Parameters.AddWithValue("@email", email.Text);
-
-            try
-            {
-                con.Open();
-                cmd_member.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception exc)
-            {
-                con.Close();
-                MessageBox.Show(exc.Message);
-            }
-
-            CmdString = "db.sp_createFuncionario";
-            cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
             cmd_member.Parameters.AddWithValue("@funcao", nif_int);
             cmd_member.Parameters.AddWithValue("@num_funcionario", numero_int);
             cmd_member.Parameters.AddWithValue("@pass", funcao.Text);
             cmd_member.Parameters.AddWithValue("@NIF", nif_int);
+            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
+            cmd_member.Parameters.AddWithValue("@dataNasc", dt);
+            cmd_member.Parameters.AddWithValue("@email", email.Text);
+            
 
             try
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
-               
+
                 con.Close();
-                MessageBox.Show("The employee has been inserted successfully!");
             }
             catch (Exception exc)
             {
                 con.Close();
                 MessageBox.Show(exc.Message);
             }
+
+            MessageBox.Show("Employee created!");
         }
     }
 }
