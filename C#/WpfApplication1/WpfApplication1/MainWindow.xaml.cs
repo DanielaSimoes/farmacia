@@ -65,13 +65,6 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Lista de Contactos de Fornecedores"))
-            {
-                listaFornecedores listaFornecedores_frame = new listaFornecedores();
-                this.NavigateTo(listaFornecedores_frame);
-            }
-            Console.WriteLine(selectedText);
-
             if (selectedText.Equals("Verificar Preços"))
             {
                 precos precos_frame = new precos();

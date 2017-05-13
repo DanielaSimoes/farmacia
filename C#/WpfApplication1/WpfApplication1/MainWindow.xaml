@@ -15,7 +15,6 @@
             <ComboBoxItem>Verificar Stock</ComboBoxItem>
             <ComboBoxItem>Verificar Preços</ComboBoxItem>
             <ComboBoxItem>Ver Dados do Utente</ComboBoxItem>
-            <ComboBoxItem>Lista de Contactos de Fornecedores</ComboBoxItem>
             <ComboBoxItem>Adicionar Funcionário</ComboBoxItem>
             <ComboBoxItem>Adicionar Utente</ComboBoxItem>
             <ComboBoxItem>Sair</ComboBoxItem>
