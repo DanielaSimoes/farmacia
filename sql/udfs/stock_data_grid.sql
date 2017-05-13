@@ -8,19 +8,19 @@ BEGIN
 	IF (@nome is null and @codigo is null)
 		BEGIN
 			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo
-			FROM db.Medicamento;
+			FROM db.Medicamento WHERE Medicamento.unidades > 0;
 		END;
 	ELSE
 		BEGIN
 			IF (@nome is not null)
 			BEGIN
 	            INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo
-	            FROM db.Medicamento WHERE db.Medicamento.nome = @nome;
+	            FROM db.Medicamento WHERE db.Medicamento.nome = @nome AND Medicamento.unidades > 0;
 			END;
 			ELSE
 			BEGIN
 				INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo
-				FROM db.Medicamento WHERE db.Medicamento.codigo = @codigo;
+				FROM db.Medicamento WHERE db.Medicamento.codigo = @codigo AND Medicamento.unidades > 0;
 			END;
 		END;
 RETURN;
