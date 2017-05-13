@@ -32,6 +32,7 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            Farmacia.initFarmacia();
             Index index = new Index();
             this.NavigateTo(index);
         }

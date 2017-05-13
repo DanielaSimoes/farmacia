@@ -9,7 +9,7 @@ CREATE PROCEDURE db.sp_createFarmacia
 
 WITH ENCRYPTION
 AS
-	IF @nome is null OR @localizacao is null OR @email is null 
+	IF @nome is null OR @localizacao is null OR @email is null
 
 	BEGIN
 
@@ -24,6 +24,7 @@ AS
 	IF @count != 0
 	BEGIN
 		RAISERROR('The NIPC already exists!', 14, 1)
+		RETURN
 	END
 
 	BEGIN TRANSACTION;
