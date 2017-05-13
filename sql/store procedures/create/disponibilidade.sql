@@ -1,11 +1,9 @@
 CREATE PROCEDURE db.sp_createDisponibilidade
+				@disponibilidade    varchar(30)
 
-				@ID			 		INT,
-				@disponibilidade    INT
-              
 WITH ENCRYPTION
 AS
-	IF @disponibilidade is null  
+	IF @disponibilidade is null
 
 	BEGIN
 
@@ -14,20 +12,12 @@ AS
 
 	END
 
-	DECLARE @count int
-	SELECT @count = count(ID) FROM db.Disponibilidade WHERE ID=@ID
-
-	IF @count != 0
-	BEGIN
-		RAISERROR('The ID already exists!', 14, 1)
-	END
-
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO [farmacia].[db].[Disponibilidade]
-		VALUES (@ID, @disponibilidade)
+		INSERT INTO [farmacia].[db].[Disponibilidade] ([disponibilidade])
+		VALUES (@disponibilidade)
 
 	COMMIT TRANSACTION;
 

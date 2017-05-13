@@ -1,14 +1,12 @@
 CREATE PROCEDURE db.sp_createPeriodo
-
-				@ID        		    INT,
 				@inicio    		    INT,
 				@fim    		    INT,
-				@dia_da_semana      INT,
+				@dia_da_semana      VARCHAR(30),
 				@db_NIPC            INT
 
 WITH ENCRYPTION
 AS
-	IF @inicio is null OR @fim is null OR @dia_da_semana is null OR @db_NIPC is null 
+	IF @inicio is null OR @fim is null OR @dia_da_semana is null OR @db_NIPC is null
 
 	BEGIN
 
@@ -25,19 +23,15 @@ AS
 		RAISERROR('The NIPC already exists!', 14, 1)
 	END
 
-	SELECT @count = count(ID) FROM db.Periodo WHERE ID=@ID
-
-	IF @count != 0
-	BEGIN
-		RAISERROR('The ID already exists!', 14, 1)
-	END
-
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO [farmacia].[db].[Periodo]
-		VALUES (@ID, @inicio, @fim, @dia_da_semana, @db_NIPC)
+		INSERT INTO [farmacia].[db].[Periodo] ([inicio],
+					 [fim],
+					 [dia_da_semana],
+					 [db_NIPC])
+		VALUES (@inicio, @fim, @dia_da_semana, @db_NIPC)
 
 	COMMIT TRANSACTION;
 

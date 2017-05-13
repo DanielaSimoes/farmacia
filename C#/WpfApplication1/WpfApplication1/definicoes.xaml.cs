@@ -51,8 +51,9 @@ namespace WpfApplication1
             cmd_member.CommandType = CommandType.StoredProcedure;
             cmd_member.Parameters.AddWithValue("@inicio", inicio_int);
             cmd_member.Parameters.AddWithValue("@fim", fim_int);
-            cmd_member.Parameters.AddWithValue("@dia", dia.Text);
-
+            cmd_member.Parameters.AddWithValue("@dia_da_semana", dia.Text);
+            cmd_member.Parameters.AddWithValue("@db_NIPC", 1);
+         
             try
             {
                 con.Open();
@@ -77,7 +78,6 @@ namespace WpfApplication1
                 cmd_member.ExecuteNonQuery();
                
                 con.Close();
-                MessageBox.Show("The employee has been inserted successfully!");
             }
             catch (Exception exc)
             {
