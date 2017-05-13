@@ -57,7 +57,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    Index index = new Index();
+                    Index index = new Index(this);
                     this.NavigateTo(index);
                 }
                 catch (Exception)

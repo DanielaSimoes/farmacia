@@ -29,9 +29,17 @@ namespace WpfApplication1
         DataTable dt = new DataTable("person");
         SqlDataAdapter sda;
         int NIFInt;
+        static MainWindow mwind;
 
         public Index()
         {
+            InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
+            con = ConnectionDB.getConnection();
+        }
+
+        public Index(MainWindow mwindow)
+        {
+            mwind = mwindow;
             InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
             con = ConnectionDB.getConnection();
         }
@@ -106,22 +114,19 @@ namespace WpfApplication1
             {
                 // é para adicionar o NIF
 
-                
-
                 if (!Int32.TryParse(SeeNIF.Text, out NIFInt))
                 {
                     MessageBox.Show("The NIF must be an Integer!");
                     return;
                 }
 
-                string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
+                string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
                 DataTable dt = new DataTable("person");
                 sda.Fill(dt);
-                MainWindow dados_frame = new MainWindow();
-                dados_frame.dados.ItemsSource = dt.DefaultView;
+                mwind.dados.ItemsSource = dt.DefaultView;
             }
             else { 
                 // é para procurar pelo produto
