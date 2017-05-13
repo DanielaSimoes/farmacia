@@ -1,9 +1,9 @@
 use farmacia;
 
 -- Pessoa add
-INSERT INTO db.Pessoa VALUES(1, 'Daniela', NULL, NULL, NULL);
+INSERT INTO db.Pessoa VALUES(2, 'Daniela', NULL, NULL, NULL);
 -- Pessoa add
-INSERT INTO db.Pessoa VALUES(100, 'Cristiana', NULL, NULL, NULL);
+INSERT INTO db.Pessoa VALUES(120, 'Cristiana', '01/01/0100', 'cristiana@ua.pt', 1233);
 -- Laboratorio add
 INSERT INTO db.Laboratorio VALUES(3, 'lab@lab.pt', 'Lab', 'Aveiro');
 -- Categoria add

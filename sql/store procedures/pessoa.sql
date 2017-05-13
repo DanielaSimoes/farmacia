@@ -61,7 +61,7 @@ AS
 
 	IF @count = 0
 	BEGIN
-		RAISERROR('The NIF doesn\'t exists!', 14, 1)
+		RAISERROR('The NIF doesnt exists!', 14, 1)
 	END
 
     BEGIN TRANSACTION;

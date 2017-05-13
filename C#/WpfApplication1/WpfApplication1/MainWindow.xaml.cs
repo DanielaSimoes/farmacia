@@ -106,5 +106,10 @@ namespace WpfApplication1
             detalhes_prescricoes detalhes_frame = new detalhes_prescricoes();
             this.NavigateTo(detalhes_frame);
         }
+
+        public void dados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
