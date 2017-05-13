@@ -43,6 +43,13 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
+            if (selectedText.Equals("Página Inicial"))
+            {
+                Index index = new Index();
+                this.NavigateTo(index);
+            }
+            Console.WriteLine(selectedText);
+            
             if (selectedText.Equals("Ver Dados do Utente"))
             {
                 dadosUtente dadosUtente_frame = new dadosUtente();

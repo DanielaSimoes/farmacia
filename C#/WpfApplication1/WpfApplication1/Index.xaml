@@ -46,6 +46,6 @@
         <DataGrid Name="produtosGrid" HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="209" IsReadOnly="True"/>
         <Button Name="DelRow" Content="-" HorizontalAlignment="Left" Margin="24,430,0,0" VerticalAlignment="Top" Width="38" Click="DelRow_Click" FontSize="16" FontWeight="Bold"/>
         <Button Content="Digit Code" HorizontalAlignment="Left" Margin="174,467,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
-        <Button Content="Pay" HorizontalAlignment="Left" Margin="554,467,0,0" VerticalAlignment="Top" Width="102" Click="pay"/>
+        <Button Content="Pay" HorizontalAlignment="Left" Margin="516,467,0,0" VerticalAlignment="Top" Width="102" Click="pay"/>
     </Grid>
 </Page>
