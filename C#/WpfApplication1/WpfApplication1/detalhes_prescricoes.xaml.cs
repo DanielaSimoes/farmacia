@@ -30,14 +30,9 @@ namespace WpfApplication1
             con = ConnectionDB.getConnection();
         }
 
-        private void historicoMedsGrid_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void historicoPrescrGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
 

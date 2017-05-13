@@ -28,6 +28,7 @@ namespace WpfApplication1
         DataTable dt_grid_produtos = new DataTable("meds");
         DataTable dt = new DataTable("person");
         SqlDataAdapter sda;
+        int NIFInt;
 
         public Index()
         {
@@ -105,7 +106,7 @@ namespace WpfApplication1
             {
                 // é para adicionar o NIF
 
-                int NIFInt;
+                
 
                 if (!Int32.TryParse(SeeNIF.Text, out NIFInt))
                 {

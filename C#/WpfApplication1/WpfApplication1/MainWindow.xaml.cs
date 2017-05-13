@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace WpfApplication1
 {
@@ -20,6 +23,12 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SqlConnection con;
+        SqlCommandBuilder cmb;
+        DataTable dt = new DataTable("perscricao");
+        SqlCommand cmd;
+        SqlDataAdapter sda;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -111,8 +120,21 @@ namespace WpfApplication1
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            
+            string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@utente_NIF)";
+            cmd = new SqlCommand(CmdString, con);
+            sda = new SqlDataAdapter(cmd);
+            Index index = new Index();
+            cmd.Parameters.AddWithValue("@utente_NIF", index.SeeNIF);
+            DataTable dt = new DataTable("person");
+            sda.Fill(dt);
+            detalhes_prescricoes det = new detalhes_prescricoes();
+            det.historicoPrescrGrid.ItemsSource = dt.DefaultView;
+
+
             detalhes_prescricoes detalhes_frame = new detalhes_prescricoes();
             this.NavigateTo(detalhes_frame);
+
         }
 
         public void dados_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -5,15 +5,10 @@
         Title="Detalhes da Prescricao" Height="536.552" Width="717.239">
 
     <Grid Margin="0,0,10,0">
-        <Grid Margin="8,13,10,10">
-            <DataGrid Name="historicoPrescrGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,257,0,0" VerticalAlignment="Top" Height="212" Width="642" IsEnabled="True">
+        <Grid Margin="0,13,18,10">
+            <DataGrid Name="historicoPrescrGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,69,0,0" VerticalAlignment="Top" Height="212" Width="642" IsEnabled="True" SelectionChanged="historicoPrescrGrid_SelectionChanged">
             </DataGrid>
-            <DataGrid x:Name="historicoMedsGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="344,134,0,0" VerticalAlignment="Top" Height="80" Width="321" IsEnabled="True">
-            </DataGrid>
-            <DataGrid x:Name="historicoMedsGrid_Copy" IsReadOnly="True" HorizontalAlignment="Left" Margin="23,134,0,0" VerticalAlignment="Top" Height="80" Width="321" IsEnabled="True" SelectionChanged="historicoMedsGrid_Copy_SelectionChanged"/>
             <Label Name="Utente" Content="Nome do Utente" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top" Width="642"/>
-            <Label Content="Prescrições" HorizontalAlignment="Left" Margin="23,108,0,0" VerticalAlignment="Top"/>
-            <Label Content="Data de Emissão" HorizontalAlignment="Left" Margin="344,108,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Page>

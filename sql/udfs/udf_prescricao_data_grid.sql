@@ -8,7 +8,7 @@ BEGIN
 	IF (@utente_NIF is not null)
 		BEGIN
 			INSERT @table SELECT Prescricao.num_prescricao, Prescricao.data
-			FROM farmacia.db.Prescricao  WHERE  farmacia.db.Prescricao.utente_NIF = @utente_NIF;
+			FROM db.Prescricao WHERE  farmacia.db.Prescricao.utente_NIF = @utente_NIF;
 		END;
 RETURN;
 END;
