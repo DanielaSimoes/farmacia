@@ -104,6 +104,23 @@ namespace WpfApplication1
             if (LabelNIF_Bool)
             {
                 // é para adicionar o NIF
+
+                int NIFInt;
+
+                if (!Int32.TryParse(SeeNIF.Text, out NIFInt))
+                {
+                    MessageBox.Show("The NIF must be an Integer!");
+                    return;
+                }
+
+                string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
+                cmd = new SqlCommand(CmdString, con);
+                sda = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@nif", NIFInt);
+                DataTable dt = new DataTable("person");
+                sda.Fill(dt);
+                MainWindow dados_frame = new MainWindow();
+                dados_frame.dados.ItemsSource = dt.DefaultView;
             }
             else { 
                 // é para procurar pelo produto
@@ -170,26 +187,6 @@ namespace WpfApplication1
             }
         }
 
-        private void OK_Click(object sender, TextChangedEventArgs e)
-        {
-            int NIFInt;
-
-            if (!Int32.TryParse(SeeNIF.Text, out NIFInt))
-            {
-                MessageBox.Show("The NIF must be an Integer!");
-                return;
-            }
-
-                string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
-                cmd = new SqlCommand(CmdString, con);
-                sda = new SqlDataAdapter(cmd);
-                cmd.Parameters.AddWithValue("@nif", NIFInt);
-                DataTable dt = new DataTable("person");
-                sda.Fill(dt);
-                MainWindow dados_frame = new MainWindow();
-                dados_frame.dados.ItemsSource = dt.DefaultView;
-            
-        }
 
         private void SeeNIF_TextChanged(object sender, TextChangedEventArgs e)
         {
