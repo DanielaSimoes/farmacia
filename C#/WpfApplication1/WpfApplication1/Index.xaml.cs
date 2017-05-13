@@ -29,8 +29,6 @@ namespace WpfApplication1
         DataTable dt = new DataTable("person");
         SqlDataAdapter sda;
         int NIFInt;
-        static MainWindow mwind;
-        static criarUtente mdet;
 
         public Index()
         {
@@ -38,19 +36,6 @@ namespace WpfApplication1
             con = ConnectionDB.getConnection();
         }
 
-        public Index(MainWindow mwindow)
-        {
-            mwind = mwindow;
-            InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
-            con = ConnectionDB.getConnection();
-        }
-
-        public Index(criarUtente det)
-        {
-            mdet = det;
-            InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
-            con = ConnectionDB.getConnection();
-        }
 
         private void FillGridProdutos(int codigo)
         {
@@ -128,19 +113,35 @@ namespace WpfApplication1
                     return;
                 }
 
-                string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
-                if (CmdString == null)
+                try
                 {
-                    this.NavigationService.Navigate(mdet);
-                }
-                else
-                {
+                    string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
                     cmd = new SqlCommand(CmdString, con);
                     sda = new SqlDataAdapter(cmd);
                     cmd.Parameters.AddWithValue("@nif", NIFInt);
                     DataTable dt = new DataTable("person");
                     sda.Fill(dt);
-                    mwind.dados.ItemsSource = dt.DefaultView;
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("NIF not found!");
+                    }
+                    else
+                    {
+                        // search for prescriptions
+                        CmdString = "SELECT * FROM db.udf_prescricao_data_grid(@utente_NIF)";
+                        cmd = new SqlCommand(CmdString, con);
+                        sda = new SqlDataAdapter(cmd);
+                        cmd.Parameters.AddWithValue("@utente_NIF", NIFInt);
+                        DataTable dt_pres = new DataTable("prescriptions");
+                        sda.Fill(dt);
+
+                        UserForm uf = new UserForm(dt, dt_pres);
+                        uf.Show();
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
                 }
             }
             else { 
@@ -153,20 +154,21 @@ namespace WpfApplication1
                 }
 
                 FillGridProdutos(cod);
-
-            }
-
-            LabelNIF_Bool = !LabelNIF_Bool;
-            if (LabelNIF_Bool)
-            {
+                LabelNIF_Bool = !LabelNIF_Bool;
                 LabelNIF.Content = "NIF";
+
             }
+
 
         }
 
         private void DEL_Click(object sender, RoutedEventArgs e)
         {
-            SeeNIF.Text = SeeNIF.Text.Substring(0, SeeNIF.Text.Length - 1);
+            try
+            {
+                SeeNIF.Text = SeeNIF.Text.Substring(0, SeeNIF.Text.Length - 1);
+            }
+            catch (Exception) { }
         }
 
         private void DelRow_Click(object sender, RoutedEventArgs e)
@@ -243,5 +245,11 @@ namespace WpfApplication1
 
             MessageBox.Show("Payment completed!");
         }
+
+        public void dados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
     }
 }

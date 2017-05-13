@@ -42,6 +42,12 @@ namespace WpfApplication1
             Frame1.Navigate(o);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            definicoes definicoes_frame = new definicoes();
+
+        }
+
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedText = (sender as ComboBox).SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
@@ -57,7 +63,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    Index index = new Index(this);
+                    Index index = new Index();
                     this.NavigateTo(index);
                 }
                 catch (Exception)
@@ -110,38 +116,6 @@ namespace WpfApplication1
                 this.Visibility.Equals("Hidden");
             }
             Console.WriteLine(selectedText);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            definicoes definicoes_frame = new definicoes();
-            this.NavigateTo(definicoes_frame);
-
-        }
-
-        private void Button_Click1(object sender, RoutedEventArgs e)
-        {
-            
-            string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@utente_NIF)";
-            cmd = new SqlCommand(CmdString, con);
-            sda = new SqlDataAdapter(cmd);
-            Index index = new Index();
-            cmd.Parameters.AddWithValue("@utente_NIF", index.SeeNIF.Text);
-            DataTable dt = new DataTable("prescricao");
-            sda.Fill(dt);
-            detalhes_prescricoes det = new detalhes_prescricoes();
-            det.historicoPrescrGrid.ItemsSource = dt.DefaultView;
-            det.numero.Text = index.SeeNIF.Text;
-
-
-            detalhes_prescricoes detalhes_frame = new detalhes_prescricoes();
-            this.NavigateTo(detalhes_frame);
-
-        }
-
-        public void dados_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

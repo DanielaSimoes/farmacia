@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
@@ -18,24 +17,20 @@ using System.Data;
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for UserForm.xaml
     /// </summary>
-    public partial class detalhes_prescricoes : Page
+    public partial class UserForm : Window
     {
-        private SqlConnection con;
-
-        public detalhes_prescricoes()
+        public UserForm()
         {
             InitializeComponent();
-            con = ConnectionDB.getConnection();
         }
 
-
-        private void historicoPrescrGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public UserForm(DataTable dt, DataTable dt_pres)
         {
-
+            InitializeComponent();
+            users.ItemsSource = dt.DefaultView;
+            prescriptions.ItemsSource = dt_pres.DefaultView;
         }
-
-
     }
 }
