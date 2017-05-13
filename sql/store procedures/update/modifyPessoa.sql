@@ -1,9 +1,9 @@
 CREATE PROCEDURE db.sp_modifyPessoa
 				@nome VARCHAR(30) ,
                 @NIF INT ,
-				@telefone INT,
-                @dataNasc DATE ,
-                @email VARCHAR(30)
+				@telefone INT = null,
+                @dataNasc DATE = null,
+                @email VARCHAR(30) = null
 
 WITH ENCRYPTION
 AS

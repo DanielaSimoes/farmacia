@@ -85,21 +85,70 @@ namespace WpfApplication1
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             DataRowView selectedItem = (DataRowView)dadosUtenteGrid.SelectedItem;
-            string item_name = (string)selectedItem.Row.ItemArray[0];
-            int item_NIF = (int)selectedItem.Row.ItemArray[1];
-            int item_telefone = (int)selectedItem.Row.ItemArray[2];
-            DateTime item_data = (DateTime)selectedItem.Row.ItemArray[3];
-            string item_email = (string)selectedItem.Row.ItemArray[4];
 
             string CmdString = "db.sp_modifyPessoa";
             cmd = new SqlCommand(CmdString, con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@nome", item_name);
-            cmd.Parameters.AddWithValue("@NIF", item_NIF);
-            cmd.Parameters.AddWithValue("@telefone", item_telefone);
-            cmd.Parameters.AddWithValue("@dataNasc", item_data);
-            cmd.Parameters.AddWithValue("@email", item_email);
-            
+
+            // nome
+            try
+            {
+                string item_name = (string)selectedItem.Row.ItemArray[0];
+                cmd.Parameters.AddWithValue("@nome", item_name);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The name must be provided!");
+                return;
+            }
+
+
+            // NIF
+            int NIFInt;
+
+            try
+            {
+                NIFInt = (int)selectedItem.Row.ItemArray[1];
+                cmd.Parameters.AddWithValue("@NIF", NIFInt);
+            }
+            catch
+            {
+                MessageBox.Show("The NIF must be an Integer!");
+                return;
+            }
+
+            // telefone
+            try
+            {
+                int item_telefone = (int)selectedItem.Row.ItemArray[2];
+                cmd.Parameters.AddWithValue("@telefone", item_telefone);
+            }
+            catch (Exception)
+            {
+            }
+
+            // date
+            try
+            {
+                DateTime item_data = (DateTime)selectedItem.Row.ItemArray[3];
+                cmd.Parameters.AddWithValue("@dataNasc", item_data);
+            }
+            catch (Exception)
+            {
+            }
+
+
+            //email
+            try
+            {
+                string item_email = (string)selectedItem.Row.ItemArray[4];
+                cmd.Parameters.AddWithValue("@email", item_email);
+            }
+            catch (Exception)
+            {
+            }
+
+           
             try
             {
                 con.Open();
