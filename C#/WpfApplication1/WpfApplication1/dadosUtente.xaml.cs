@@ -38,7 +38,7 @@ namespace WpfApplication1
 
         private void FillDadosUtente()
         {
-            string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(DEFAULT)";
+            string CmdString = "SELECT * FROM db.utente_data_grid(DEFAULT)";
             cmd = new SqlCommand(CmdString, con);
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
@@ -66,7 +66,7 @@ namespace WpfApplication1
             }
             else
             {
-                string CmdString = "SELECT * FROM db.udf_pessoa_data_grid(@nif)";
+                string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
