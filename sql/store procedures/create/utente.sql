@@ -1,16 +1,20 @@
 CREATE PROCEDURE db.sp_createUtente
 
-				@morada			    VARCHAR(30),
 				@num_utente  		INT,
-				@NIF           		INT
-              
+				@NIF           		INT,
+				@nome 				VARCHAR(30),
+				@morada			    VARCHAR(30) = null,
+				@telefone 			INT = null,
+                @dataNasc 			DATE = null,
+                @email 				VARCHAR(30) = null
+
 WITH ENCRYPTION
 AS
-	IF @NIF is null OR @num_utente is null 
+	IF @NIF is null OR @num_utente is null OR @nome is null
 
 	BEGIN
 
-		PRINT 'The NIF and the Utente number cannot be empty!'
+		PRINT 'The NIF or the User number or the Name cannot be empty!'
 		RETURN
 
 	END
@@ -20,23 +24,43 @@ AS
 
 	IF @count != 0
 	BEGIN
-		RAISERROR('The NIF already exists!', 14, 1)
+		RAISERROR('The NIF already exists as user!', 14, 1)
 	END
 
 	SELECT @count = count(num_utente) FROM db.Utente WHERE num_utente=@num_utente
 
 	IF @count != 0
 	BEGIN
-		RAISERROR('The Utente number already exists!', 14, 1)
+		RAISERROR('The User number already exists!', 14, 1)
 	END
 
+	SELECT @count = count(NIF) FROM db.Pessoa WHERE NIF=@NIF
+
+	IF @count = 0
+	BEGIN
+		SET XACT_ABORT ON; --> the only change
+		BEGIN TRANSACTION;
+
+		BEGIN TRY
+
+			INSERT INTO [farmacia].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
+
+			COMMIT TRANSACTION;
+
+		END TRY
+
+		BEGIN CATCH
+			ROLLBACK TRANSACTION
+			RAISERROR('An error occurred when creating the person!', 14, 1)
+		END CATCH;
+	END
 
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
 		INSERT INTO [farmacia].[db].[Utente]
-		VALUES (@NIF, @morada, @num_utente)
+		VALUES (@morada, @num_utente, @NIF)
 
 	COMMIT TRANSACTION;
 

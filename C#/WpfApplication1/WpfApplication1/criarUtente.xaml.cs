@@ -59,11 +59,13 @@ namespace WpfApplication1
                 return;
             }
 
-            string CmdString = "db.sp_createPessoa";
+            string CmdString = "db.sp_createUtente";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            cmd_member.Parameters.AddWithValue("@num_utente", numero_int);
             cmd_member.Parameters.AddWithValue("@NIF", nif_int);
+            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            cmd_member.Parameters.AddWithValue("@morada", morada.Text);
             cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
             cmd_member.Parameters.AddWithValue("@dataNasc", dt);
             cmd_member.Parameters.AddWithValue("@email", email.Text);
@@ -81,26 +83,7 @@ namespace WpfApplication1
                 MessageBox.Show(exc.Message);
             }
 
-            CmdString = "db.sp_createUtente";
-            cmd_member = new SqlCommand(CmdString, con);
-            cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@morada", morada.Text);
-            cmd_member.Parameters.AddWithValue("@num_utente", numero_int);
-            cmd_member.Parameters.AddWithValue("@NIF", nif_int);
-
-            try
-            {
-                con.Open();
-                cmd_member.ExecuteNonQuery();
-               
-                con.Close();
-                MessageBox.Show("The utente has been inserted successfully!");
-            }
-            catch (Exception exc)
-            {
-                con.Close();
-                MessageBox.Show(exc.Message);
-            }
+            MessageBox.Show("User added!");
         }
     }
 }
