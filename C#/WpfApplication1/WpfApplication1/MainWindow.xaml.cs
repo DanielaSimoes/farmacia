@@ -42,12 +42,20 @@ namespace WpfApplication1
                 this.NavigateTo(produtos_frame);
             }
             Console.WriteLine(selectedText);
-
+            
             if (selectedText.Equals("Página Inicial"))
             {
-                Index index = new Index();
-                this.NavigateTo(index);
+                try
+                {
+                    Index index = new Index();
+                    this.NavigateTo(index);
+                }
+                catch (Exception)
+                {
+
+                }
             }
+            
             Console.WriteLine(selectedText);
             
             if (selectedText.Equals("Ver Dados do Utente"))
