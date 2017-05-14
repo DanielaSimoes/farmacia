@@ -150,6 +150,7 @@ CREATE TABLE db.Contem(
         num_prescricao          INT	NOT NULL,
         nome_medicamento        VARCHAR(30)	NOT NULL,
         lab_NIPC                INT	NOT NULL,
+		unidades				INT DEFAULT 1,
 		PRIMARY KEY(nome_medicamento,num_prescricao,lab_NIPC)
 );
 
