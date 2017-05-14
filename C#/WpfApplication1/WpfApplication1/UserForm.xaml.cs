@@ -55,29 +55,35 @@ namespace WpfApplication1
                 return;
             }
 
-            if (item_code != null)
-            {
-                // listar medicamentos por numero perscricao
-                string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
-                cmd.Parameters.AddWithValue("@num_prescricao", item_code);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            // listar medicamentos por numero perscricao
+            string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            cmd.Parameters.AddWithValue("@num_prescricao", item_code);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 
-                DateTime expires_at = (DateTime)selectedItem.Row.ItemArray[3];
-                DateTime thisDay = DateTime.Today;
-                int result = DateTime.Compare(expires_at, thisDay);
-                if (result < 0)
-                {
-                    System.Windows.MessageBox.Show("The prescription has expired!");
-                    return; 
-                }
-
-                sda.Fill(idx_page.dt_grid_produtos);
-                idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
-
-
-                this.Close();
+            DateTime expires_at = (DateTime)selectedItem.Row.ItemArray[3];
+            DateTime thisDay = DateTime.Today;
+            int result = DateTime.Compare(expires_at, thisDay);
+            if (result < 0)
+            {
+                System.Windows.MessageBox.Show("The prescription has expired!");
+                return; 
             }
+
+            sda.Fill(idx_page.dt_grid_produtos);
+            idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
+
+            int soma = 0;
+            for (int i = idx_page.dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = idx_page.dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            idx_page.show_price.Text = soma.ToString() + "€";
+
+            this.Close();
         }
     }
 }

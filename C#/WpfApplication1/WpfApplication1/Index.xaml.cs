@@ -49,6 +49,16 @@ namespace WpfApplication1
             if (codigo == null){
                 MessageBox.Show("The code does not exist!");
             }
+
+            int soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            show_price.Text = soma.ToString() + "€";
         }
 
         private void T0_Click(object sender, RoutedEventArgs e)
@@ -194,6 +204,16 @@ namespace WpfApplication1
             {
 
             }
+
+            int soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            show_price.Text = soma.ToString() + "€";
         }
 
         private void Codigo(object sender, RoutedEventArgs e)
@@ -221,6 +241,7 @@ namespace WpfApplication1
             {
                 DataRow dr = dt_grid_produtos.Rows[i];
                 int dr_code = (int)dr["Code"];
+                int price = (int)dr["Price"];
 
                 string CmdString = "db.sp_processPurchase";
                 cmd = new SqlCommand(CmdString, con);
@@ -228,7 +249,7 @@ namespace WpfApplication1
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
                 cmd.Parameters.AddWithValue("@func_NIF", login.GetNIF());
                 int pres;
-
+                
                 try
                 {
                     pres = (int)dr.ItemArray[12];
@@ -253,6 +274,16 @@ namespace WpfApplication1
                     return;
                 }
             }
+
+            int soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            show_price.Text = soma.ToString() + "€";
 
             MessageBox.Show("Payment completed!");
         }
