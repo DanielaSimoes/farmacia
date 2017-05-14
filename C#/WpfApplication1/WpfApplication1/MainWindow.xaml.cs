@@ -54,14 +54,14 @@ namespace WpfApplication1
         {
             string selectedText = (sender as ComboBox).SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
 
-            if (selectedText.Equals("Verificar Stock"))
+            if (selectedText.Equals("Check Stock"))
             {
                 produtos produtos_frame = new produtos();
                 this.NavigateTo(produtos_frame);
             }
             Console.WriteLine(selectedText);
             
-            if (selectedText.Equals("Página Inicial"))
+            if (selectedText.Equals("Home"))
             {
                 try
                 {
@@ -75,43 +75,43 @@ namespace WpfApplication1
             }
             
             Console.WriteLine(selectedText);
-            
-            if (selectedText.Equals("Ver Dados do Utente"))
+
+            if (selectedText.Equals("View User Data"))
             {
                 dadosUtente dadosUtente_frame = new dadosUtente();
                 this.NavigateTo(dadosUtente_frame);
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Verificar Preços"))
+            if (selectedText.Equals("Check Prices"))
             {
                 precos precos_frame = new precos();
                 this.NavigateTo(precos_frame);
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Histórico do Utente"))
+            if (selectedText.Equals("User History"))
             {
                 historico historico_frame = new historico();
                 this.NavigateTo(historico_frame);
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Adicionar Funcionário"))
+            if (selectedText.Equals("Add Employee"))
             {
                 criarFuncionario criar_frame = new criarFuncionario();
                 this.NavigateTo(criar_frame);
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Adicionar Utente"))
+            if (selectedText.Equals("Add User"))
             {
                 criarUtente criarUtente_frame = new criarUtente();
                 this.NavigateTo(criarUtente_frame);
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Sair"))
+            if (selectedText.Equals("Exit"))
             {
                 login login_frame = new login();
                 this.NavigateTo(login_frame);
