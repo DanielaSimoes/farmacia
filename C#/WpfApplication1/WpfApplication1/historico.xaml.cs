@@ -93,5 +93,41 @@ namespace WpfApplication1
                 historicoMedsGrid.ItemsSource = dt.DefaultView;
             }
         }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedItem = (DataRowView)historicoPrescrGrid.SelectedItem;
+            int item_code;
+
+            try
+            {
+                item_code = (int)selectedItem.Row.ItemArray[0];
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Select one prescription!");
+                return;
+            }
+
+            if (item_code != null)
+            {
+                det_presc det = new det_presc();
+                string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd.Parameters.AddWithValue("@num_prescricao", item_code);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(det.detpresc);
+                det.presc.ItemsSource = det.detpresc.DefaultView;
+
+                det.Show();
+            }
+        }
+
+        private void historicoPrescrGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+       
     }
 }

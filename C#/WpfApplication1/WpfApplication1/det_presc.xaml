@@ -1,0 +1,8 @@
+﻿<Window x:Class="WpfApplication1.det_presc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="User Prescriptions" Height="310.448" Width="300">
+    <Grid Margin="10,10,10,10">
+        <DataGrid Name="presc" IsReadOnly="True" />
+    </Grid>
+</Window>
