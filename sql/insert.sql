@@ -16,3 +16,5 @@ INSERT INTO db.Medicamento VALUES('Ben-u-ron', 3, 1, NULL, 9,3,4,1);
 INSERT INTO db.Funcionario VALUES('direcao',1,1);
 -- Fornecedor add
 INSERT INTO db.Distribuidor VALUES(1,'Distribuidor XPTO', 234111111, 'Aveiro');
+
+INSERT INTO db.Utente VALUES('xoxox', 1233, 19);

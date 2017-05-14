@@ -10,16 +10,16 @@
         </Grid.ColumnDefinitions>
         <Image Source="/1491319877_pharmacy.png" HorizontalAlignment="Left" Height="100" Margin="23,26,0,0" VerticalAlignment="Top" Width="100"/>
         <ComboBox SelectedIndex="0" Name="menu" HorizontalAlignment="Left" Margin="23,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="menu_SelectionChanged" Grid.ColumnSpan="2">
-            <ComboBoxItem>Página Inicial</ComboBoxItem>
-            <ComboBoxItem>Histórico do Utente</ComboBoxItem>
-            <ComboBoxItem>Verificar Stock</ComboBoxItem>
-            <ComboBoxItem>Verificar Preços</ComboBoxItem>
-            <ComboBoxItem>Ver Dados do Utente</ComboBoxItem>
-            <ComboBoxItem>Adicionar Funcionário</ComboBoxItem>
-            <ComboBoxItem>Adicionar Utente</ComboBoxItem>
-            <ComboBoxItem>Sair</ComboBoxItem>
+            <ComboBoxItem>Home</ComboBoxItem>
+            <ComboBoxItem>User History</ComboBoxItem>
+            <ComboBoxItem>Check Stock</ComboBoxItem>
+            <ComboBoxItem>Check Prices</ComboBoxItem>
+            <ComboBoxItem>View User Data</ComboBoxItem>
+            <ComboBoxItem>Add Employee</ComboBoxItem>
+            <ComboBoxItem>Add User</ComboBoxItem>
+            <ComboBoxItem>Exit</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>
-        <Button Content="Definições de Farmácia" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
+        <Button Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
     </Grid>
 </Window>

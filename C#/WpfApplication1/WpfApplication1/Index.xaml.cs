@@ -130,6 +130,7 @@ namespace WpfApplication1
                     }
                     else
                     {
+
                         // search for prescriptions
                         CmdString = "SELECT * FROM db.udf_prescricao_data_grid(@utente_NIF)";
                         cmd = new SqlCommand(CmdString, con);
@@ -140,6 +141,9 @@ namespace WpfApplication1
 
                         UserForm uf = new UserForm(dt, dt_pres, this);
                         uf.Show();
+
+                        
+                       
                     }
                 }
                 catch (Exception exc)
