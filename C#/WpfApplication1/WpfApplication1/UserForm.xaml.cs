@@ -65,9 +65,17 @@ namespace WpfApplication1
                 sda.Fill(idx_page.dt_grid_produtos);
                 idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
 
+                DateTime expires_at = (DateTime)selectedItem.Row.ItemArray[3];
+                DateTime thisDay = DateTime.Today;
+                int result = DateTime.Compare(expires_at, thisDay);
+                if (result > 0)
+                {
+                    System.Windows.MessageBox.Show("The prescription has expired!");
+                }
+
+
                 this.Close();
             }
-            
         }
     }
 }
