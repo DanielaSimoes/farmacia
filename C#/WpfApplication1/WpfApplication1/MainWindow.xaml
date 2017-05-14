@@ -9,7 +9,7 @@
             <ColumnDefinition Width="553*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/1491319877_pharmacy.png" HorizontalAlignment="Left" Height="100" Margin="23,26,0,0" VerticalAlignment="Top" Width="100"/>
-        <ComboBox SelectedIndex="0" Name="menu" HorizontalAlignment="Left" Margin="23,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="menu_SelectionChanged" Grid.ColumnSpan="2">
+        <ComboBox SelectedIndex="0" Visibility="Hidden" Name="menu" HorizontalAlignment="Left" Margin="23,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="menu_SelectionChanged" Grid.ColumnSpan="2">
             <ComboBoxItem>Home</ComboBoxItem>
             <ComboBoxItem>User History</ComboBoxItem>
             <ComboBoxItem>Check Stock</ComboBoxItem>
@@ -17,9 +17,9 @@
             <ComboBoxItem>View User Data</ComboBoxItem>
             <ComboBoxItem>Add Employee</ComboBoxItem>
             <ComboBoxItem>Add User</ComboBoxItem>
-            <ComboBoxItem>Exit</ComboBoxItem>
+            <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>
-        <Button Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
+        <Button Name="definitions" Visibility="Hidden" Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
     </Grid>
 </Window>

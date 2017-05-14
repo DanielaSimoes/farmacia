@@ -25,14 +25,14 @@ namespace WpfApplication1
     {
         private SqlConnection con;
         SqlCommandBuilder cmb;
-        DataTable dt = new DataTable("perscricao");
+        DataTable dt = new DataTable("prescricao");
         SqlCommand cmd;
         SqlDataAdapter sda;
          
 
         public MainWindow()
         {
-            login log = new login();
+            login log = new login(this);
             InitializeComponent();
             con = ConnectionDB.getConnection();
             Farmacia.initFarmacia();
@@ -111,11 +111,12 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Exit"))
+            if (selectedText.Equals("Logout"))
             {
-                login login_frame = new login();
+                login login_frame = new login(this);
                 this.NavigateTo(login_frame);
-                this.Visibility.Equals("Hidden");
+                this.menu.Visibility = Visibility.Hidden;
+                this.definitions.Visibility = Visibility.Hidden;
             }
             Console.WriteLine(selectedText);
         }

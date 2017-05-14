@@ -24,9 +24,16 @@ namespace WpfApplication1
     {
         private static int NIFInt;
         private SqlConnection con;
-        SqlCommandBuilder cmb;
         SqlCommand cmd;
         SqlDataAdapter sda;
+        private MainWindow main_window;
+
+        public login(MainWindow mw)
+        {
+            main_window = mw;
+            InitializeComponent();
+            con = ConnectionDB.getConnection();
+        }
 
         public login()
         {
@@ -61,6 +68,8 @@ namespace WpfApplication1
                 else
                 {
                     Index index = new Index();
+                    main_window.menu.Visibility = Visibility.Visible;
+                    main_window.definitions.Visibility = Visibility.Visible;
                     this.NavigationService.Navigate(index);
                 }
            
