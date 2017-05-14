@@ -124,6 +124,9 @@ namespace WpfApplication1
                     if (dt.Rows.Count == 0)
                     {
                         MessageBox.Show("NIF not found!");
+                        criarUtente utente = new criarUtente();
+                        this.NavigationService.Navigate(utente);
+                        
                     }
                     else
                     {
