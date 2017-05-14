@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace WpfApplication1
 {
@@ -21,16 +22,52 @@ namespace WpfApplication1
     /// </summary>
     public partial class UserForm : Window
     {
+        private static Index idx_page;
+        private SqlConnection con;
+
         public UserForm()
         {
             InitializeComponent();
+            con = ConnectionDB.getConnection();
         }
 
-        public UserForm(DataTable dt, DataTable dt_pres)
+        public UserForm(DataTable dt, DataTable dt_pres, Index idx)
         {
             InitializeComponent();
             users.ItemsSource = dt.DefaultView;
             prescriptions.ItemsSource = dt_pres.DefaultView;
+            idx_page = idx;
+            con = ConnectionDB.getConnection();
+        }
+
+        private void selected_btn_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedItem = (DataRowView)prescriptions.SelectedItem;
+            int item_code;
+
+            try
+            {
+                item_code = (int)selectedItem.Row.ItemArray[0];
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Select one prescription!");
+                return;
+            }
+
+            if (item_code != null)
+            {
+                // listar medicamentos por numero perscricao
+                string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd.Parameters.AddWithValue("@num_prescricao", item_code);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(idx_page.dt_grid_produtos);
+                idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
+
+                this.Close();
+            }
+            
         }
     }
 }

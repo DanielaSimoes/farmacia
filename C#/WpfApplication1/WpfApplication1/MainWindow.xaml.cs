@@ -32,6 +32,8 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            con = ConnectionDB.getConnection();
+       
             Farmacia.initFarmacia();
             Index index = new Index();
             this.NavigateTo(index);

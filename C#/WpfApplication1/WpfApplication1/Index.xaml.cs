@@ -25,7 +25,7 @@ namespace WpfApplication1
         bool LabelNIF_Bool = true;
         private SqlConnection con;
         SqlCommand cmd;
-        DataTable dt_grid_produtos = new DataTable("meds");
+        public DataTable dt_grid_produtos = new DataTable("meds");
         DataTable dt = new DataTable("person");
         SqlDataAdapter sda;
         int NIFInt;
@@ -133,9 +133,9 @@ namespace WpfApplication1
                         sda = new SqlDataAdapter(cmd);
                         cmd.Parameters.AddWithValue("@utente_NIF", NIFInt);
                         DataTable dt_pres = new DataTable("prescriptions");
-                        sda.Fill(dt);
+                        sda.Fill(dt_pres);
 
-                        UserForm uf = new UserForm(dt, dt_pres);
+                        UserForm uf = new UserForm(dt, dt_pres, this);
                         uf.Show();
                     }
                 }
@@ -227,6 +227,9 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
+
+                CmdString = "db.sp_decrementMedicamento";
+
 
                 try
                 {

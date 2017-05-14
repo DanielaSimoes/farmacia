@@ -5,7 +5,7 @@
            x:Class="WpfApplication1.Index"
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
-        <Label Content="Drugstore Manager" HorizontalAlignment="Left" Margin="33,32,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Drugstore Manager" HorizontalAlignment="Left" Margin="64,28,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -43,9 +43,9 @@
         <Button Name="OK"  Content="OK" HorizontalAlignment="Left" Margin="420,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="OK_Click"/>
         <Button Name="T0" Content="0" HorizontalAlignment="Left" Margin="486,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="T0_Click"/>
         <Button Name="DEL" Content="DEL" HorizontalAlignment="Left" Margin="554,385,0,0" VerticalAlignment="Top" Width="50" Height="46" FontWeight="Bold" FontSize="16" Click="DEL_Click"/>
-        <DataGrid Name="produtosGrid" HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="209" IsReadOnly="True"/>
+        <DataGrid Name="produtosGrid" HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="317" Width="278" IsReadOnly="True"/>
         <Button Name="DelRow" Content="-" HorizontalAlignment="Left" Margin="24,430,0,0" VerticalAlignment="Top" Width="38" Click="DelRow_Click" FontSize="16" FontWeight="Bold"/>
-        <Button Content="Digit Code" HorizontalAlignment="Left" Margin="174,467,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
+        <Button Content="Digit Code" HorizontalAlignment="Left" Margin="243,467,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
         <Button Content="Pay" HorizontalAlignment="Left" Margin="516,467,0,0" VerticalAlignment="Top" Width="102" Click="pay"/>
     </Grid>
 </Page>
