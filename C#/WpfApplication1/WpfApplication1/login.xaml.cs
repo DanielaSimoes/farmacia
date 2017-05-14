@@ -22,7 +22,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class login : Page
     {
-        public int NIFInt;
+        private static int NIFInt;
         private SqlConnection con;
         SqlCommandBuilder cmb;
         SqlCommand cmd;
@@ -35,7 +35,7 @@ namespace WpfApplication1
 
         }
 
-        public int Get(){
+        public static int GetNIF(){
             return NIFInt;
         }
 
@@ -51,7 +51,7 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
-                cmd.Parameters.AddWithValue("@password", TextBoxPassword.Text);
+                cmd.Parameters.AddWithValue("@password", TextBoxPassword.Password);
                 DataTable dt = new DataTable("login");
                 sda.Fill(dt);
                 if (dt.Rows.Count == 0)

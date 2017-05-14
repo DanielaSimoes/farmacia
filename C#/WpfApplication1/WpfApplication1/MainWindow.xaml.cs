@@ -33,7 +33,6 @@ namespace WpfApplication1
         public MainWindow()
         {
             login log = new login();
-            int num_funcionario = log.Get();
             InitializeComponent();
             con = ConnectionDB.getConnection();
             Farmacia.initFarmacia();

@@ -226,7 +226,7 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
-                cmd.Parameters.AddWithValue("@func_NIF", 2000);
+                cmd.Parameters.AddWithValue("@func_NIF", login.GetNIF());
                 int pres;
 
                 try
