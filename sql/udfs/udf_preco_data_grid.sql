@@ -20,7 +20,7 @@ BEGIN
 			ELSE
 			BEGIN
 				INSERT @table SELECT Vende.medicamento_nome, Vende.lab_NIPC, Vende.PVP, Vende.Preco, Vende.IVA
-				FROM db.Vende JOIN db.Medicamento ON db.Vende.medicamento_nome=db.Medicamento.medicamento_nome AND db.Vende.lab_NIPC=db.Medicamento.lab_id WHERE db.Medicamento.codigo = @codigo;
+				FROM db.Vende JOIN db.Medicamento ON db.Vende.medicamento_nome=db.Medicamento.nome AND db.Vende.lab_NIPC=db.Medicamento.lab_id WHERE db.Medicamento.codigo = @codigo;
 			END;
 		END;
 RETURN;
