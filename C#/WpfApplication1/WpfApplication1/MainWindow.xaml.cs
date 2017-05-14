@@ -28,15 +28,16 @@ namespace WpfApplication1
         DataTable dt = new DataTable("perscricao");
         SqlCommand cmd;
         SqlDataAdapter sda;
+         
 
         public MainWindow()
         {
+            login log = new login();
+            int num_funcionario = log.Get();
             InitializeComponent();
             con = ConnectionDB.getConnection();
-       
             Farmacia.initFarmacia();
-            Index index = new Index();
-            this.NavigateTo(index);
+            this.NavigateTo(log);
         }
 
         public void NavigateTo(object o)

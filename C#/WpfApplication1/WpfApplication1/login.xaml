@@ -8,11 +8,10 @@
         <Grid Margin="10,10,8,13">
             <Label Content="Login" HorizontalAlignment="Left" Margin="240,48,0,0" VerticalAlignment="Top" Height="45" Width="60" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
             <Label Content="Employee Number:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299"/>
-            <TextBox HorizontalAlignment="Left" Height="36" Margin="200,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299"/>
+            <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged"/>
+            <TextBox Name="TextBoxPassword" HorizontalAlignment="Left" Height="36" Margin="200,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged_1" IsHitTestVisible="True"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
             <Button Content="Ok" HorizontalAlignment="Left" Height="22" Margin="514,255,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.26,0.545" Click="Button_Click"/>
-            <Button Content="I forgot my password..." HorizontalAlignment="Left" Margin="200,303,0,0" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.027,0.5" Height="30"/>
         </Grid>
     </Grid>
 </Page>
