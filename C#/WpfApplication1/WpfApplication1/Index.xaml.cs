@@ -222,27 +222,37 @@ namespace WpfApplication1
                 DataRow dr = dt_grid_produtos.Rows[i];
                 int dr_code = (int)dr["Code"];
 
-                string CmdString = "db.sp_decrementMedicamento";
+                string CmdString = "db.sp_processPurchase";
                 cmd = new SqlCommand(CmdString, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
-                CmdString = "db.sp_decrementMedicamento";
+                cmd.Parameters.AddWithValue("@func_NIF", 2000);
+                int pres;
 
+                try
+                {
+                    pres = (int)dr.ItemArray[12];
+                    cmd.Parameters.AddWithValue("@num_prescricao", pres);
+                }
+                catch
+                {
 
+                }
+                
                 try
                 {
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    dt_grid_produtos.Rows.RemoveAt(i);
                     dr.Delete();
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
+                    return;
                 }
             }
-
-
 
             MessageBox.Show("Payment completed!");
         }

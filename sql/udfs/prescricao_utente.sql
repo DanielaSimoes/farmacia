@@ -4,7 +4,7 @@ RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Validity" date,
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
-    DECLARE db_cursor CURSOR FOR SELECT  Contem.nome_medicamento as nome, Contem.lab_NIPC, Contem.unidades as num_unidades FROM db.Contem WHERE db.Contem.num_prescricao=@num_prescricao
+    DECLARE db_cursor CURSOR FOR SELECT Contem.nome_medicamento as nome, Contem.lab_NIPC, Contem.unidades as num_unidades FROM db.Contem WHERE db.Contem.num_prescricao=@num_prescricao
     DECLARE @nome VARCHAR(30);
     DECLARE @lab_NIPC INT;
     DECLARE @num_unidades INT;

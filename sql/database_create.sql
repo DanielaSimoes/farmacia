@@ -159,7 +159,7 @@ CREATE TABLE db.Venda(
 		utente_NIF		        INT			NOT NULL,
         func_NIF                INT			NOT NULL,
         data                    Date NOT NULL,
-        num_venda               INT NOT NULL CHECK(num_venda>=0),
+        num_venda               INT IDENTITY,
 		PRIMARY KEY(num_venda)
 );
 
