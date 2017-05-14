@@ -56,12 +56,12 @@ namespace WpfApplication1
                 }
                 else
                 {
-                    MessageBox.Show("The utente number must be an Integer!");
+                    MessageBox.Show("The user number must be an Integer!");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("The name must be provided!");
+                MessageBox.Show("The user number must be provided!");
                 return;
             }
 
@@ -86,6 +86,7 @@ namespace WpfApplication1
                     cmd_member.Parameters.AddWithValue("@dataNasc", dt);
                 }
             }
+            
             catch (Exception)
             {
                 MessageBox.Show("Please insert a valid date!");
@@ -105,7 +106,7 @@ namespace WpfApplication1
             }
             catch (Exception)
             {
-                MessageBox.Show("The name must be provided!");
+                MessageBox.Show("The NIF must be provided!");
                 return;
             }
 

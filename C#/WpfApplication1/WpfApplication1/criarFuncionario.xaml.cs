@@ -34,43 +34,98 @@ namespace WpfApplication1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int telefone_int, nif_int, numero_int;
+            DateTime dt;
 
-            if (!Int32.TryParse(telefone.Text, out telefone_int))
+            string CmdString = "db.sp_createFuncionario";
+            SqlCommand cmd_member = new SqlCommand(CmdString, con);
+            cmd_member.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                if (Int32.TryParse(numero.Text, out numero_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@num_funcionario", numero_int);
+                }
+                else
+                {
+                    MessageBox.Show("The employee number must be an Integer!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The employee number must be provided!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(telefone.Text, out telefone_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
+                }
+            }
+            catch (Exception)
             {
                 MessageBox.Show("The telefone number must be an Integer!");
                 return;
             }
 
-            if (!Int32.TryParse(nif.Text, out nif_int))
+            try
             {
-                MessageBox.Show("The NIF number must be an Integer!");
-                return;
-            }
+                if (DateTime.TryParse(data.Text, out dt))
+                {
 
-            if (!Int32.TryParse(numero.Text, out numero_int))
-            {
-                MessageBox.Show("The employee number must be an Integer!");
-                return;
+                    cmd_member.Parameters.AddWithValue("@dataNasc", dt);
+                }
             }
-
-            DateTime dt;
-            if (!DateTime.TryParse(data.Text, out dt))
+            catch (Exception)
             {
                 MessageBox.Show("Please insert a valid date!");
                 return;
             }
 
-            string CmdString = "db.sp_createFuncionario";
-            SqlCommand cmd_member = new SqlCommand(CmdString, con);
-            cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@funcao", nif_int);
-            cmd_member.Parameters.AddWithValue("@num_funcionario", numero_int);
-            cmd_member.Parameters.AddWithValue("@pass", funcao.Text);
-            cmd_member.Parameters.AddWithValue("@NIF", nif_int);
-            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
-            cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
-            cmd_member.Parameters.AddWithValue("@dataNasc", dt);
-            cmd_member.Parameters.AddWithValue("@email", email.Text);
+            try
+            {
+                if (Int32.TryParse(nif.Text, out nif_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@NIF", nif_int);
+                }
+                else
+                {
+                    MessageBox.Show("The NIF number must be an Integer!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The name must be provided!");
+                return;
+            }
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@funcao", funcao.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The function must be provided!");
+                return;
+            }
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@email", email.Text);
+            }
+            catch (Exception)
+            {
+            }
             
 
             try
