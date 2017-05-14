@@ -62,16 +62,18 @@ namespace WpfApplication1
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@num_prescricao", item_code);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sda.Fill(idx_page.dt_grid_produtos);
-                idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
-
+                
                 DateTime expires_at = (DateTime)selectedItem.Row.ItemArray[3];
                 DateTime thisDay = DateTime.Today;
                 int result = DateTime.Compare(expires_at, thisDay);
-                if (result > 0)
+                if (result < 0)
                 {
                     System.Windows.MessageBox.Show("The prescription has expired!");
+                    return; 
                 }
+
+                sda.Fill(idx_page.dt_grid_produtos);
+                idx_page.produtosGrid.ItemsSource = idx_page.dt_grid_produtos.DefaultView;
 
 
                 this.Close();
