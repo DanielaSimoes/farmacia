@@ -175,19 +175,11 @@ namespace WpfApplication1
         {
             try
             {
-                DataRowView selectedItem = (DataRowView)produtosGrid.SelectedItem;
-                int item_code = (int)selectedItem.Row.ItemArray[8];
-                if (item_code != null)
+                int selectedItem = produtosGrid.SelectedIndex;
+
+                if (selectedItem != null)
                 {
-                    for(int i = dt_grid_produtos.Rows.Count-1; i >= 0; i--)
-                    {
-                        DataRow dr = dt_grid_produtos.Rows[i];
-                        int dr_code = (int)dr["Code"];
-                        if (dr_code == item_code)
-                        {
-                            dr.Delete();
-                        }
-                    }
+                    dt_grid_produtos.Rows.RemoveAt(selectedItem);
                 }
                 produtosGrid.ItemsSource = dt_grid_produtos.DefaultView;
             }
@@ -227,7 +219,6 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
-
                 CmdString = "db.sp_decrementMedicamento";
 
 
