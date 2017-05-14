@@ -33,43 +33,99 @@ namespace WpfApplication1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int telefone_int, nif_int, numero_int;
+            DateTime dt;
 
-            if (!Int32.TryParse(telefone.Text, out telefone_int))
+            string CmdString = "db.sp_createUtente";
+            SqlCommand cmd_member = new SqlCommand(CmdString, con);
+            cmd_member.CommandType = CommandType.StoredProcedure;
+
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                if (Int32.TryParse(numero.Text, out numero_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@num_utente", numero_int);
+                }
+                else
+                {
+                    MessageBox.Show("The utente number must be an Integer!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The name must be provided!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(telefone.Text, out telefone_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
+                }
+            }
+            catch (Exception)
             {
                 MessageBox.Show("The telefone number must be an Integer!");
                 return;
             }
 
-            if (!Int32.TryParse(nif.Text, out nif_int))
+            try
             {
-                MessageBox.Show("The NIF number must be an Integer!");
-                return;
+                if (DateTime.TryParse(data.Text, out dt))
+                {
+                    
+                    cmd_member.Parameters.AddWithValue("@dataNasc", dt);
+                }
             }
-
-            if (!Int32.TryParse(numero.Text, out numero_int))
-            {
-                MessageBox.Show("The utente number must be an Integer!");
-                return;
-            }
-
-            DateTime dt;
-            if (!DateTime.TryParse(data.Text, out dt))
+            catch (Exception)
             {
                 MessageBox.Show("Please insert a valid date!");
                 return;
             }
 
-            string CmdString = "db.sp_createUtente";
-            SqlCommand cmd_member = new SqlCommand(CmdString, con);
-            cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@num_utente", numero_int);
-            cmd_member.Parameters.AddWithValue("@NIF", nif_int);
-            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
-            cmd_member.Parameters.AddWithValue("@morada", morada.Text);
-            cmd_member.Parameters.AddWithValue("@telefone", telefone_int);
-            cmd_member.Parameters.AddWithValue("@dataNasc", dt);
-            cmd_member.Parameters.AddWithValue("@email", email.Text);
+            try
+            {
+                if (Int32.TryParse(nif.Text, out nif_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@NIF", nif_int);
+                }
+                else
+                {
+                    MessageBox.Show("The NIF number must be an Integer!");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The name must be provided!");
+                return;
+            }
 
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@morada", morada.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@email", email.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+       
             try
             {
                 con.Open();
@@ -84,6 +140,11 @@ namespace WpfApplication1
             }
 
             MessageBox.Show("User added!");
+        }
+
+        private void nome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
