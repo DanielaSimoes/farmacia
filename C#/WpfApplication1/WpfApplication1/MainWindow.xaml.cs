@@ -47,6 +47,7 @@ namespace WpfApplication1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             definicoes definicoes_frame = new definicoes();
+            this.NavigateTo(definicoes_frame);
 
         }
 

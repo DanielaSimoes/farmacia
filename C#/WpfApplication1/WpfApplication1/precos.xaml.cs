@@ -23,6 +23,10 @@ namespace WpfApplication1
     public partial class precos : Page
     {
         private SqlConnection con;
+        SqlCommandBuilder cmb;
+        DataTable dt = new DataTable("precos");
+        SqlCommand cmd;
+        SqlDataAdapter sda;
 
         public precos()
         {
@@ -34,9 +38,8 @@ namespace WpfApplication1
         private void FillPrecos()
         {
             string CmdString = "SELECT * FROM db.udf_preco_data_grid(DEFAULT)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("precos");
+            cmd = new SqlCommand(CmdString, con);
+            sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             precosGrid.ItemsSource = dt.DefaultView;
         }
@@ -50,20 +53,18 @@ namespace WpfApplication1
             else if (TextBoxCodigo.Text.Length == 0)
             {
                 string CmdString = "SELECT * FROM db.udf_preco_data_grid(@nome)";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
+                cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("precos");
+                sda = new SqlDataAdapter(cmd);
                 sda.Fill(dt);
                 precosGrid.ItemsSource = dt.DefaultView;
             }
             else
             {
-                string CmdString = "SELECT * FROM db.udf_preco_data_grid(@codigo)";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
+                string CmdString = "SELECT * FROM db.preco_code(@codigo)";
+                cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@codigo", TextBoxNome.Text);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("precos");
+                sda = new SqlDataAdapter(cmd);
                 sda.Fill(dt);
                 precosGrid.ItemsSource = dt.DefaultView;
             }
@@ -75,6 +76,11 @@ namespace WpfApplication1
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void precosGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

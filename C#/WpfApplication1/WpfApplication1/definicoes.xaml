@@ -6,15 +6,15 @@
 
     <Grid>
         <Grid Margin="8,10,10,13">
-            <Label Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="45,21,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
+            <Label Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="45,21,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
             <Button Content="Edit" HorizontalAlignment="Left" Margin="302,317,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
-            <Label Content="Begin" HorizontalAlignment="Left" Margin="45,108,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <Label Content="Begin" HorizontalAlignment="Left" Margin="45,108,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="inicio" HorizontalAlignment="Left" Height="36" Margin="205,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
-            <Label Content="End" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <Label Content="End" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="fim" HorizontalAlignment="Left" Height="36" Margin="205,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
-            <Label Content="Day of the week" HorizontalAlignment="Left" Margin="45,185,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <Label Content="Day of the week" HorizontalAlignment="Left" Margin="45,185,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="dia" HorizontalAlignment="Left" Height="36" Margin="205,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
-            <Label Content="Availability" HorizontalAlignment="Left" Margin="46,262,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
+            <Label Content="Availability" HorizontalAlignment="Left" Margin="46,262,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="disponibilidade" HorizontalAlignment="Left" Height="36" Margin="205,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Period" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
             <Label Content="Availability" HorizontalAlignment="Left" Margin="45,226,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>

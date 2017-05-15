@@ -5,13 +5,14 @@
         Title="Login" Height="536.552" Width="717.239">
 
     <Grid>
-        <Grid Margin="10,10,8,13">
-            <Label Content="Login" HorizontalAlignment="Left" Margin="240,48,0,0" VerticalAlignment="Top" Height="45" Width="60" FontSize="20" Background="{x:Null}" Foreground="#FF961212"/>
-            <Label Content="Employee Number:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged"/>
-            <PasswordBox Name="TextBoxPassword" PasswordChar="*" Margin="200,241,200,237"/>
-            <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black"/>
-            <Button Content="Ok" HorizontalAlignment="Left" Height="22" Margin="514,255,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.26,0.545" Click="Button_Click"/>
+        <Grid Margin="-109,10,127,13">
+            <Label Content="Login" HorizontalAlignment="Left" Margin="292,50,0,0" VerticalAlignment="Top" Height="45" Width="76" FontSize="24" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
+            <Label Content="Employee Number:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged" RenderTransformOrigin="1,0.5"/>
+            <PasswordBox Name="TextBoxPassword"  PasswordChar="*" Margin="200,241,200,237"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Button Content="_Ok"  HorizontalAlignment="Left" Height="22" Margin="403,282,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1,0" Click="Button_Click"  UseLayoutRounding="True">
+            </Button>
         </Grid>
     </Grid>
 </Page>

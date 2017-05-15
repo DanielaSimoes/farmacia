@@ -5,7 +5,7 @@
            x:Class="WpfApplication1.Index"
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
-        <Label Content="Drugstore Manager" HorizontalAlignment="Left" Margin="64,28,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="20" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Drugstore Manager" HorizontalAlignment="Left" Margin="64,49,0,0" VerticalAlignment="Top" Height="48" Width="260" FontSize="24" Background="{x:Null}" Foreground="#FF961212" RenderTransformOrigin="0.5,0.5" FontFamily="Microsoft YaHei UI" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -15,7 +15,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="PAYMENT" HorizontalAlignment="Left" Margin="415,77,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="22" Background="{x:Null}" Foreground="#FF406414" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+        <Label Content="PAYMENT" HorizontalAlignment="Left" Margin="408,81,0,0" VerticalAlignment="Top" Height="38" Width="201" FontSize="22" Background="{x:Null}" Foreground="#FF567E56" RenderTransformOrigin="0.5,0.5" FontFamily="Microsoft YaHei" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -26,7 +26,7 @@
             </Label.RenderTransform>
         </Label>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="317" Margin="408,138,0,0" VerticalAlignment="Top" Width="210">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="266" Margin="0,-1,-1,0">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="86" VerticalAlignment="Top" Width="210" Margin="-1,-1,-1,0">
                 <Label Name="LabelNIF" Content="NIF" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Width="96" Height="84" VerticalAlignment="Bottom"/>
             </Border>
         </Border>

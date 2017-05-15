@@ -2,14 +2,15 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WpfApplication1.MainWindow"
-        Title="Gestor de Farmacias" Height="557.552" Width="985.764">
+        Title="Gestor de Farmacias" Height="557.552" Width="985.764" Background="#FFF3ECEC" Visibility="Visible" BorderThickness="0" WindowStartupLocation="CenterScreen" Icon="1491319877_pharmacy.png">
     <Grid Margin="0,0,18.2,22.6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="138*"/>
-            <ColumnDefinition Width="553*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="256*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/1491319877_pharmacy.png" HorizontalAlignment="Left" Height="100" Margin="23,26,0,0" VerticalAlignment="Top" Width="100"/>
-        <ComboBox SelectedIndex="0" Visibility="Hidden" Name="menu" HorizontalAlignment="Left" Margin="23,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="menu_SelectionChanged" Grid.ColumnSpan="2">
+        <Image Source="/1491319877_pharmacy.png" HorizontalAlignment="Left" Height="138" Margin="42,26,0,0" VerticalAlignment="Top" Width="140" Grid.ColumnSpan="2"/>
+        <ComboBox SelectedIndex="0" Visibility="Hidden" Name="menu" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="menu_SelectionChanged" Grid.Column="1">
             <ComboBoxItem>Home</ComboBoxItem>
             <ComboBoxItem>User History</ComboBoxItem>
             <ComboBoxItem>Check Stock</ComboBoxItem>
@@ -19,7 +20,7 @@
             <ComboBoxItem>Add User</ComboBoxItem>
             <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>
-        <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52.209,0,-0.2,0.4" Grid.Column="1"></Frame>
-        <Button Name="definitions" Visibility="Hidden" Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
+        <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52,0,0,0.4" Grid.Column="2"></Frame>
+        <Button Name="definitions" Visibility="Hidden" Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="23,474,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
