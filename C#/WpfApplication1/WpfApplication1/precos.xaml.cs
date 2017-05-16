@@ -23,10 +23,6 @@ namespace WpfApplication1
     public partial class precos : Page
     {
         private SqlConnection con;
-        SqlCommandBuilder cmb;
-        DataTable dt = new DataTable("precos");
-        SqlCommand cmd;
-        SqlDataAdapter sda;
 
         public precos()
         {
@@ -38,8 +34,9 @@ namespace WpfApplication1
         private void FillPrecos()
         {
             string CmdString = "SELECT * FROM db.udf_preco_data_grid(DEFAULT)";
-            cmd = new SqlCommand(CmdString, con);
-            sda = new SqlDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("preco");
             sda.Fill(dt);
             precosGrid.ItemsSource = dt.DefaultView;
             //precosGrid.Columns[2].ClipboardContentBinding.StringFormat = "$00.00";
@@ -54,18 +51,20 @@ namespace WpfApplication1
             else if (TextBoxCodigo.Text.Length == 0)
             {
                 string CmdString = "SELECT * FROM db.udf_preco_data_grid(@nome)";
-                cmd = new SqlCommand(CmdString, con);
+                SqlCommand cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@nome", TextBoxNome.Text);
-                sda = new SqlDataAdapter(cmd);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("preco");
                 sda.Fill(dt);
                 precosGrid.ItemsSource = dt.DefaultView;
             }
             else
             {
                 string CmdString = "SELECT * FROM db.preco_code(@codigo)";
-                cmd = new SqlCommand(CmdString, con);
+                SqlCommand cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@codigo", TextBoxNome.Text);
-                sda = new SqlDataAdapter(cmd);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("preco");
                 sda.Fill(dt);
                 precosGrid.ItemsSource = dt.DefaultView;
             }

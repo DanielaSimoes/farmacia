@@ -8,7 +8,7 @@
     <Grid>
         <Grid Margin="0,23,18,0">
             <Label Content="Check Prices" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <DataGrid Name="precosGrid" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Left" Margin="45,169,0,0" VerticalAlignment="Top" Height="292" Width="618" IsEnabled="True" SelectionChanged="precosGrid_SelectionChanged">
+            <DataGrid Name="precosGrid" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Left" Margin="45,169,0,0" VerticalAlignment="Top" Height="292" Width="381" IsEnabled="True" SelectionChanged="precosGrid_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Lab" Binding="{Binding Lab}"/>

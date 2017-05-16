@@ -6,7 +6,7 @@
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
         <Label Content="Check Stock" HorizontalAlignment="Left" Margin="45,28,0,0" VerticalAlignment="Top" Height="35" Width="142" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-        <DataGrid Name="produtosGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" Height="292" Width="418">
+        <DataGrid Name="produtosGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" Height="292" Width="589">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Lab" Binding="{Binding Lab}"/>
