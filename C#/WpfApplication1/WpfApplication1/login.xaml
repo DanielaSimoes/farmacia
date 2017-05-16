@@ -12,7 +12,7 @@
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged" RenderTransformOrigin="1,0.5"/>
             <PasswordBox Name="TextBoxPassword" VerticalContentAlignment="Center"  PasswordChar="*" Margin="200,241,200,237"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <Button Content="Login"  HorizontalAlignment="Left"  Margin="403,282,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1,0" Click="Button_Click"  UseLayoutRounding="True" Background="#46b0df">
+            <Button Content="Login"  HorizontalAlignment="Left"  Margin="403,282,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1,0" Click="Button_Click"  UseLayoutRounding="True" Background="#00cc66">
             </Button>
         </Grid>
     </Grid>

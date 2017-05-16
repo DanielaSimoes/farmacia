@@ -34,6 +34,13 @@ AS
 		RAISERROR('The SNS number already exists!', 14, 1)
 	END
 
+	SELECT @count = DATALENGTH(nif) FROM db.Medico WHERE nif=@NIF
+
+	IF @count != 8
+	BEGIN
+		RAISERROR('The NIF need to have 8 digits!', 14, 1)
+	END
+
 	SELECT @count = count(NIF) FROM db.Pessoa WHERE NIF=@NIF
 
 	IF @count = 0

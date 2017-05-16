@@ -11,7 +11,8 @@
             <Label Content="User NIF" HorizontalAlignment="Left" Margin="61,68,0,0" VerticalAlignment="Top" Height="35" Width="90" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light" RenderTransformOrigin="0.578,0.857"/>
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="35" Margin="156,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
             <Button Background="#00cc66" Content="Search" HorizontalAlignment="Left" Margin="334,70,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.375,2.951"/>
-            <Button Background="#00cc66" Content="Edit" HorizontalAlignment="Left" Margin="489,453,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Background="#00cc66" Content="Edit" HorizontalAlignment="Left" Margin="430,453,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Background="#00cc66" Content="Add User" HorizontalAlignment="Left" Margin="350,453,0,0" VerticalAlignment="Top" Width="75" Click="AddUser"/>
         </Grid>
     </Grid>
 </Page>
