@@ -12,6 +12,7 @@ INSERT INTO db.Categoria VALUES(4, 'Medicamento');
 INSERT INTO db.Tipo VALUES(1, 'Medicamento');
 -- Medicamento add
 INSERT INTO db.Medicamento VALUES('Ben-u-ron', 1, 1, NULL, 9,3,4,1,3);
+INSERT INTO db.Medicamento VALUES('XPTO', 1, 1, NULL, 9,3,4,1,4);
 INSERT INTO db.Laboratorio VALUES(1, 'sjhdshd', 'skjsd', 'sjdfh');
 INSERT INTO db.Categoria VALUES(4, 'sjhdshd');
 INSERT INTO db.Tipo VALUES(1, 'sjhdshd');
@@ -25,3 +26,10 @@ INSERT INTO db.Utente VALUES('xoxox', 1233, 19);
 INSERT INTO db.Medico VALUES('xoxox', 1, 2);
 
 INSERT INTO db.Prescricao VALUES(1,2,'10/10/2010', 'SJJJ', 2, '10/10/2018', 1233222, 2, 19, NULL, NULL, NULL);
+
+INSERT INTO db.Vende VALUES(1,2,3, 'Ben-u-ron', 1,1);
+
+INSERT INTO db.Vende VALUES(1,2,3, 'XPTO', 1,1);
+
+INSERT INTO db.contem VALUES ('DJSHDHS','ADSD',2,'RIUI',1,'Ben-u-ron',1, 1);
+

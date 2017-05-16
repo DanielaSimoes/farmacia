@@ -161,5 +161,11 @@ namespace WpfApplication1
                 con.Close();
             }
         }
+
+        private void AddUser(object sender, RoutedEventArgs e)
+        {
+            criarUtente criarUtente_frame = new criarUtente();
+            this.NavigationService.Navigate(criarUtente_frame);
+        }
     }
 }

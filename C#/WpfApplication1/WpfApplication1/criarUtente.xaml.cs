@@ -141,6 +141,9 @@ namespace WpfApplication1
             }
 
             MessageBox.Show("User added!");
+
+            dadosUtente Utente_frame = new dadosUtente();
+            this.NavigationService.Navigate(Utente_frame);
         }
 
         private void nome_TextChanged(object sender, TextChangedEventArgs e)

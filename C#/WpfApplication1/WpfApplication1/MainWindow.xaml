@@ -19,7 +19,7 @@
             <ColumnDefinition Width="256*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/1491319877_pharmacy.png" HorizontalAlignment="Left" Height="138" Margin="5,26,0,0" VerticalAlignment="Top" Width="144" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <ComboBox SelectedIndex="0"  Name="menu" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="menu_SelectionChanged" Grid.Column="1">
+        <ComboBox Visibility="Hidden" SelectedIndex="0"  Name="menu" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top" Width="147" SelectionChanged="menu_SelectionChanged" Grid.Column="1">
             <ComboBoxItem>Home</ComboBoxItem>
             <ComboBoxItem>User History</ComboBoxItem>
             <ComboBoxItem>List Stock</ComboBoxItem>
@@ -30,6 +30,6 @@
             <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52,0,0,0.4" Grid.Column="2"></Frame>
-        <Button Name="definitions"  Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="0,465,0,0" VerticalAlignment="Top" Width="147" Click="Button_Click" Grid.Column="1"/>
+        <Button Visibility="Hidden" Name="definitions"  Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="0,465,0,0" VerticalAlignment="Top" Width="147" Click="Button_Click" Grid.Column="1"/>
     </Grid>
 </Controls:MetroWindow>
