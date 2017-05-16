@@ -126,6 +126,16 @@ namespace WpfApplication1
             catch (Exception)
             {
             }
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@pass", pass.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The function must be provided!");
+                return;
+            }
             
 
             try
@@ -142,6 +152,9 @@ namespace WpfApplication1
             }
 
             MessageBox.Show("Employee created!");
+
+            Index index_frame = new Index();
+            this.NavigationService.Navigate(index_frame);
         }
     }
 }
