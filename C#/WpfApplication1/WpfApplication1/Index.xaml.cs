@@ -221,7 +221,7 @@ namespace WpfApplication1
             LabelNIF_Bool = !LabelNIF_Bool;
             if (!LabelNIF_Bool)
             {
-                LabelNIF.Content = "Código";
+                LabelNIF.Content = "Code";
             }
             else
             {

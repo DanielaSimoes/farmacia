@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using MahApps.Metro.Controls;
 
 
 namespace WpfApplication1
@@ -21,7 +22,7 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         private SqlConnection con;
         SqlCommandBuilder cmb;

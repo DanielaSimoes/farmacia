@@ -1,17 +1,18 @@
 ﻿<Page  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
-           x:Class="WpfApplication1.login"
+        x:Class="WpfApplication1.login"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="Login" Height="536.552" Width="717.239">
 
     <Grid>
         <Grid Margin="-109,10,127,13">
-            <Label Content="Login" HorizontalAlignment="Left" Margin="292,50,0,0" VerticalAlignment="Top" Height="45" Width="76" FontSize="24" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
+            <Label Content="Authentication" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Height="45" Width="198" FontSize="24" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
             <Label Content="Employee Number:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged" RenderTransformOrigin="1,0.5"/>
-            <PasswordBox Name="TextBoxPassword"  PasswordChar="*" Margin="200,241,200,237"/>
+            <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged" RenderTransformOrigin="1,0.5"/>
+            <PasswordBox Name="TextBoxPassword" VerticalContentAlignment="Center"  PasswordChar="*" Margin="200,241,200,237"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <Button Content="_Ok"  HorizontalAlignment="Left" Height="22" Margin="403,282,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1,0" Click="Button_Click"  UseLayoutRounding="True">
+            <Button Content="Login" Controls:ButtonHelper.PreserveTextCase="True" Style="{StaticResource AccentedSquareButtonStyle}"   HorizontalAlignment="Left"  Margin="403,282,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1,0" Click="Button_Click"  UseLayoutRounding="True">
             </Button>
         </Grid>
     </Grid>
