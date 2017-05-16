@@ -2,18 +2,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
            x:Class="WpfApplication1.precos"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="Verificar Preços" Height="536.552" Width="717.239">
 
     <Grid>
         <Grid Margin="0,23,18,0">
             <Label Content="Check Prices" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <DataGrid Name="precosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,138,0,0" VerticalAlignment="Top" Height="292" Width="400" IsEnabled="True" SelectionChanged="precosGrid_SelectionChanged">
+            <DataGrid Name="precosGrid" AutoGenerateColumns="False"  IsReadOnly="True" HorizontalAlignment="Left" Margin="45,169,0,0" VerticalAlignment="Top" Height="292" Width="618" IsEnabled="True" SelectionChanged="precosGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Lab" Binding="{Binding Lab}"/>
+                    <DataGridTextColumn Header="PVP" Binding="{Binding PVP, StringFormat={}{0}€}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat={}{0}€}"/>
+                    <DataGridTextColumn Header="IVA" Binding="{Binding IVA, StringFormat={}{0}%}"/>
+                </DataGrid.Columns>
             </DataGrid>
             <Label Content="Name" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
             <Label Content="Code" HorizontalAlignment="Left" Margin="45,91,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="TextBoxNome" HorizontalAlignment="Left" Height="23" Margin="178,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
             <TextBox Name="TextBoxCodigo" HorizontalAlignment="Left" Height="23" Margin="178,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
-            <Button Content="Ok" HorizontalAlignment="Left" Margin="332,99,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Content="Search" HorizontalAlignment="Left" Margin="332,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Background="#46b0df"/>
 
         </Grid>
     </Grid>

@@ -39,7 +39,7 @@ namespace WpfApplication1
 
         private void FillGridProdutos(int codigo)
         {
-            string CmdString = "SELECT * FROM db.udf_stock_data_grid(DEFAULT, @codigo)";
+            string CmdString = "SELECT * FROM db.udf_stock_data_code(@codigo)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@codigo", codigo);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);

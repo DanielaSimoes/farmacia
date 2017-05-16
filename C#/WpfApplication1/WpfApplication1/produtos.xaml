@@ -6,13 +6,25 @@
         Title="Produtos" Height="519.552" Width="717.239">
     <Grid Margin="0,0,18.2,22.6">
         <Label Content="Check Stock" HorizontalAlignment="Left" Margin="45,28,0,0" VerticalAlignment="Top" Height="35" Width="142" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-        <DataGrid Name="produtosGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" Height="292" Width="418">
+        <DataGrid Name="produtosGrid" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top" Height="292" Width="418">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Lab" Binding="{Binding Lab}"/>
+                <DataGridTextColumn Header="Qty" Binding="{Binding Qty}"/>
+                <DataGridTextColumn Header="Dose" Binding="{Binding Dose}"/>
+                <DataGridTextColumn Header="Units" Binding="{Binding Units}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Code" Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="PVP" Binding="{Binding PVP, StringFormat={}{0}€}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat={}{0}€}"/>
+                <DataGridTextColumn Header="IVA" Binding="{Binding IVA, StringFormat={}{0}%}"/>
+            </DataGrid.Columns>
         </DataGrid>
-
         <Label Content="Name" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
         <Label Content="Code" HorizontalAlignment="Left" Margin="45,91,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
         <TextBox Name="TextBoxNome" HorizontalAlignment="Left" Height="23" Margin="178,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
         <TextBox Name="TextBoxCodigo" HorizontalAlignment="Left" Height="23" Margin="178,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="332,99,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="329,93,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Background="#46b0df"/>
     </Grid>
 </Page>

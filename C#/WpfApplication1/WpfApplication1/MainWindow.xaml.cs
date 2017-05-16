@@ -56,7 +56,7 @@ namespace WpfApplication1
         {
             string selectedText = (sender as ComboBox).SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
 
-            if (selectedText.Equals("Check Stock"))
+            if (selectedText.Equals("List Stock"))
             {
                 produtos produtos_frame = new produtos();
                 this.NavigateTo(produtos_frame);
@@ -85,7 +85,7 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Check Prices"))
+            if (selectedText.Equals("List Prices"))
             {
                 precos precos_frame = new precos();
                 this.NavigateTo(precos_frame);
@@ -106,10 +106,10 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Add User"))
+            if (selectedText.Equals("Add Meds"))
             {
-                criarUtente criarUtente_frame = new criarUtente();
-                this.NavigateTo(criarUtente_frame);
+                criarMedicamento criarMeds_frame = new criarMedicamento();
+                this.NavigateTo(criarMeds_frame);
             }
             Console.WriteLine(selectedText);
 

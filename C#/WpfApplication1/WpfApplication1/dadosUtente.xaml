@@ -7,11 +7,11 @@
     <Grid>
         <Grid Margin="10,13,8,10">
             <Label Content="User Data" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <DataGrid Name="dadosUtenteGrid" HorizontalAlignment="Left" Margin="45,162,0,0" VerticalAlignment="Top" Height="292" Width="460" IsEnabled="True" SelectionChanged="dadosUtenteGrid_SelectionChanged"/>
-            <Label Content="NIF of the User" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
+            <DataGrid Name="dadosUtenteGrid" HorizontalAlignment="Left" Margin="75,142,0,0" VerticalAlignment="Top" Height="292" Width="430" IsEnabled="True" SelectionChanged="dadosUtenteGrid_SelectionChanged"/>
+            <Label Content="User NIF" HorizontalAlignment="Left" Margin="61,68,0,0" VerticalAlignment="Top" Height="35" Width="90" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light" RenderTransformOrigin="0.578,0.857"/>
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="35" Margin="156,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
-            <Button Content="Ok" HorizontalAlignment="Left" Margin="223,108,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <Button Content="Ok" HorizontalAlignment="Left" Margin="430,459,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+            <Button Background="#46b0df" Content="Search" HorizontalAlignment="Left" Margin="334,70,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="0.375,2.951"/>
+            <Button Background="#46b0df" Content="Edit" HorizontalAlignment="Left" Margin="489,453,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         </Grid>
     </Grid>
 </Page>

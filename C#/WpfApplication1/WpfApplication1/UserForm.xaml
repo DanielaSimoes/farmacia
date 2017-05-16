@@ -4,7 +4,7 @@
         Title="User Prescriptions" Height="310.448" Width="300">
     <Grid Margin="10,10,10,10">
         <DataGrid Name="users" IsReadOnly="True" Margin="0,0,0,158" ></DataGrid>
-        <Button Name="selected_btn" Content="Select Prescription" HorizontalAlignment="Left" Margin="63,224,0,0" Width="150" Click="selected_btn_Click"/>
+        <Button Background="#46b0df" Name="selected_btn" Content="Select Prescription" HorizontalAlignment="Left" Margin="63,224,0,0" Width="150" Click="selected_btn_Click"/>
         <DataGrid Name="prescriptions" IsReadOnly="True" Margin="0,106,0,52" />
     </Grid>
 </Window>

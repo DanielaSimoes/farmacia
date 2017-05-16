@@ -42,6 +42,7 @@ namespace WpfApplication1
             sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             precosGrid.ItemsSource = dt.DefaultView;
+            //precosGrid.Columns[2].ClipboardContentBinding.StringFormat = "$00.00";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

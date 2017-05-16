@@ -11,10 +11,10 @@
             </DataGrid>
             <Label Content="NIF of the User" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" Height="23" Margin="157,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" SelectionBrush="#FFB93535"/>
-            <Button Content="Ok" HorizontalAlignment="Left" Margin="202,103,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Background="#46b0df" Content="Search" HorizontalAlignment="Left" Margin="310,72,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             <DataGrid x:Name="historicoMedsGrid" IsReadOnly="True" HorizontalAlignment="Left" Margin="397,156,0,0" VerticalAlignment="Top" Height="320" Width="251" IsEnabled="True">
             </DataGrid>
-            <Button Content="Select Prescription" HorizontalAlignment="Left" Margin="180,481,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click1" RenderTransformOrigin="1.48,1.9"/>
+            <Button Background="#46b0df" Content="Select Prescription" HorizontalAlignment="Left" Margin="180,481,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click1" RenderTransformOrigin="1.48,1.9"/>
             <Label Content="Prescriptions" HorizontalAlignment="Left" Margin="45,128,0,0" VerticalAlignment="Top" Height="35" Width="161" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
             <Label Content="Non-prescription Medicine " HorizontalAlignment="Left" Margin="397,128,0,0" VerticalAlignment="Top" Height="35" Width="196" FontSize="14" Background="{x:Null}" Foreground="#FF131313" FontFamily="Microsoft YaHei Light"/>
         </Grid>
