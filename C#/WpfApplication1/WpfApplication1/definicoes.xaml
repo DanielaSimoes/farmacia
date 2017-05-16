@@ -18,6 +18,8 @@
             <TextBox Name="disponibilidade" HorizontalAlignment="Left" Height="36" Margin="205,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Period" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
             <Label Content="Availability" HorizontalAlignment="Left" Margin="45,226,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+            <Button Content="Edit" HorizontalAlignment="Left" Margin="302,317,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
+            <Button Name="viewPeriod" Content="View Period" HorizontalAlignment="Left" Margin="579,317,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="-1.426,0.437" Click="Button_Click1"/>
         </Grid>
     </Grid>
 </Page>
