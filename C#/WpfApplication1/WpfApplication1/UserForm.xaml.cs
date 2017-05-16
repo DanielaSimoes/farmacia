@@ -34,7 +34,10 @@ namespace WpfApplication1
         public UserForm(DataTable dt, DataTable dt_pres, Index idx)
         {
             InitializeComponent();
-            users.ItemsSource = dt.DefaultView;
+            DataRow dr = dt.Rows[0];
+            name.Content = (string)dr["Name"];
+            nif.Content = (int)dr["NIF"];
+            userNumber.Content = (int)dr["Utente Number"];
             prescriptions.ItemsSource = dt_pres.DefaultView;
             idx_page = idx;
             con = ConnectionDB.getConnection();
