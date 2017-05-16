@@ -131,8 +131,10 @@ namespace WpfApplication1
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
-
+                MessageBox.Show("User added!");
                 con.Close();
+                dadosUtente Utente_frame = new dadosUtente();
+                this.NavigationService.Navigate(Utente_frame);
             }
             catch (Exception exc)
             {
@@ -140,10 +142,7 @@ namespace WpfApplication1
                 MessageBox.Show(exc.Message);
             }
 
-            MessageBox.Show("User added!");
-
-            dadosUtente Utente_frame = new dadosUtente();
-            this.NavigationService.Navigate(Utente_frame);
+            
         }
 
         private void nome_TextChanged(object sender, TextChangedEventArgs e)

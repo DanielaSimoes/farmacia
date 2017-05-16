@@ -13,7 +13,6 @@
             <Label Content="NIF" HorizontalAlignment="Left" Margin="45,173,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="nif" HorizontalAlignment="Left" Height="36" Margin="222,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
             <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="45,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="data" HorizontalAlignment="Left" Height="36" Margin="222,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="45,255,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="email" HorizontalAlignment="Left" Height="36" Margin="222,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Phone" HorizontalAlignment="Left" Margin="45,296,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
@@ -24,6 +23,7 @@
             <TextBox Name="funcao" HorizontalAlignment="Left" Height="36" Margin="222,337,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <TextBox Name="pass" HorizontalAlignment="Left" Height="36" Margin="222,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Password" HorizontalAlignment="Left" Margin="45,419,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <DatePicker Name="data" HorizontalAlignment="Left" Margin="222,214,0,0" VerticalAlignment="Top" Height="36" Width="171"/>
         </Grid>
     </Grid>
 </Page>

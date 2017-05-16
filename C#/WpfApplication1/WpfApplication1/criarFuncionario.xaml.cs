@@ -80,7 +80,7 @@ namespace WpfApplication1
 
             try
             {
-                if (DateTime.TryParse(data.Text, out dt))
+                if (DateTime.TryParse(data.Text , out dt))
                 {
 
                     cmd_member.Parameters.AddWithValue("@dataNasc", dt);
@@ -142,8 +142,10 @@ namespace WpfApplication1
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
-
+                MessageBox.Show("Employee created!");
                 con.Close();
+                Index index_frame = new Index();
+                this.NavigationService.Navigate(index_frame);
             }
             catch (Exception exc)
             {
@@ -151,10 +153,9 @@ namespace WpfApplication1
                 MessageBox.Show(exc.Message);
             }
 
-            MessageBox.Show("Employee created!");
+            
 
-            Index index_frame = new Index();
-            this.NavigationService.Navigate(index_frame);
+            
         }
     }
 }
