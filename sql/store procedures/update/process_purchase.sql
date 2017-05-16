@@ -40,6 +40,7 @@ AS
 	DECLARE @num int, @med int, @unidades_med int, @lab_NIPC int, @num_unidades_vendidas int, @unidades_em_falta int, @NIF int, @num_venda int
 	DECLARE @data date
 	DECLARE @nome varchar(30)
+	DECLARE @nao_ha_medicamento_por_vender int
 	DECLARE @today date = GETDATE();
 	SET @num_unidades_vendidas=0
 
@@ -116,10 +117,7 @@ AS
 
 		-- ADICIONAR A DATA
 	    DECLARE db_cursor CURSOR FOR SELECT Contem.nome_medicamento as nome, Contem.lab_NIPC, Contem.unidades as num_unidades FROM db.Contem WHERE db.Contem.num_prescricao=@num_prescricao
-	    DECLARE @nome VARCHAR(30);
-	    DECLARE @lab_NIPC INT;
 	    DECLARE @num_unidades INT;
-	    DECLARE @num_unidades_vendidas INT;
 		DECLARE @ha_medicamento BIT;
 		SET @nao_ha_medicamento_por_vender = 1 /* true */
 
@@ -156,7 +154,7 @@ AS
 	    CLOSE db_cursor;
 	    DEALLOCATE db_cursor;
 
-		IF @nao_ha_medicamento_por_vender
+		IF @nao_ha_medicamento_por_vender = 1
 		BEGIN
 			UPDATE db.Prescricao SET data_processa = @today WHERE num_prescricao=@num_prescricao;
 		END
