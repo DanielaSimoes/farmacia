@@ -7,7 +7,7 @@
     <Grid>
         <Grid Margin="10,10,8,13">
             <Label Content="Add User" HorizontalAlignment="Left" Margin="45,53,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="319,442,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
+            <Button Background="#00cc66" Content="Add" HorizontalAlignment="Left" Margin="319,442,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
             <Label Content="Name" HorizontalAlignment="Left" Margin="45,132,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="nome" HorizontalAlignment="Left" Height="36" Margin="222,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
             <Label Content="NIF" HorizontalAlignment="Left" Margin="45,173,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
