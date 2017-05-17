@@ -23,4 +23,7 @@ INSERT INTO db.Vende VALUES (19, 20, 23, 'benuron', 1, 11111111)
 INSERT INTO db.Contem VALUES ('as', 'teste', 1, 'teste', 10, 'benuron', 11111111,1)
 INSERT INTO db.Contem VALUES ('as', 'teste', 2, 'teste', 10, 'aspirina', 11111111,1)
 
+INSERT INTO db.Periodo VALUES (8, 19, 'Monday',1);
+
+
 

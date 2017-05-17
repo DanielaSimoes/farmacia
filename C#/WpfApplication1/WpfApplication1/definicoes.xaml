@@ -5,7 +5,7 @@
         Title="Definições de Farmácia" Height="536.552" Width="717.239">
 
     <Grid>
-        <Grid Margin="8,10,10,13">
+        <Grid Margin="8,13,10,10">
             <Label Content="Pharmacy Definitions" HorizontalAlignment="Left" Margin="45,21,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
             <Button Content="Edit" HorizontalAlignment="Left" Margin="302,317,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
             <Label Content="Begin" HorizontalAlignment="Left" Margin="45,108,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
@@ -17,7 +17,6 @@
             <Label Content="Period" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
             <Label Content="Availability" HorizontalAlignment="Left" Margin="45,226,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
             <Button Background="#00cc66" Content="Edit" HorizontalAlignment="Left" Margin="302,317,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
-            <Button Background="#00cc66" Name="viewPeriod" Content="View Period" HorizontalAlignment="Left" Margin="579,317,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="-1.426,0.437" Click="Button_Click1"/>
             <ComboBox Name="disponibilidade" SelectedIndex="0" HorizontalAlignment="Left" Margin="205,262,0,0" VerticalAlignment="Top" Width="171" SelectionChanged="menu_SelectionChanged" Height="36">
                 <ComboBoxItem>Available</ComboBoxItem>
                 <ComboBoxItem>Unavailable</ComboBoxItem>
@@ -31,6 +30,11 @@
                 <ComboBoxItem>Saturday</ComboBoxItem>
                 <ComboBoxItem>Sunday</ComboBoxItem>
             </ComboBox>
+            <Label Content="Begin:" HorizontalAlignment="Left" Margin="421,108,0,0" VerticalAlignment="Top" Height="36" Width="57" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Label Content="Current Period" HorizontalAlignment="Left" Margin="421,72,-53,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+            <Label Content="End:" HorizontalAlignment="Left" Margin="421,144,-53,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Label Name="begin" Content="" HorizontalAlignment="Left" Margin="494,113,0,0" VerticalAlignment="Top" Height="31" Width="170" FontSize="14"/>
+            <Label Name="end" Content="" HorizontalAlignment="Left" Margin="494,148,0,0" VerticalAlignment="Top" Height="36" Width="170" RenderTransformOrigin="0.482,0.111" FontSize="14"/>
         </Grid>
     </Grid>
 </Page>

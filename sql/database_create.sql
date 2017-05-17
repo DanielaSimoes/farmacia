@@ -109,7 +109,7 @@ CREATE TABLE db.Farmacia(
 );
 
 CREATE TABLE db.Periodo(
-		ID        		    INT IDENTITY,
+		ID        		    INT,
 		inicio    		    INT			NOT NULL,
         fim    		        INT			NOT NULL,
         dia_da_semana       VARCHAR(30)	NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE db.Periodo(
 );
 
 CREATE TABLE db.Disponibilidade(
-        ID        		    INT IDENTITY,
+        ID        		    INT,
         disponibilidade     VARCHAR(30)	NOT NULL,
         PRIMARY KEY(ID)
 );
