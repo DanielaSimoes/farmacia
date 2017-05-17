@@ -151,8 +151,6 @@ namespace WpfApplication1
 
                         UserForm uf = new UserForm(dt, dt_pres, this);
                         uf.Show();
-
-                        
                        
                     }
                 }
@@ -168,6 +166,21 @@ namespace WpfApplication1
                 {
                     MessageBox.Show("The code must be an Integer!");
                     return;
+                }
+
+                string CmdString = "SELECT * FROM db.udf_stock_data_code(@codigo)";
+                cmd = new SqlCommand(CmdString, con);
+                sda = new SqlDataAdapter(cmd);
+                cmd.Parameters.AddWithValue("@codigo", cod);
+                DataTable dt = new DataTable("stockgrid");
+                sda.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Medicine out of stock!");
+                }
+                else
+                {
                 }
 
                 FillGridProdutos(cod);
