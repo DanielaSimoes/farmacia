@@ -54,9 +54,17 @@ namespace WpfApplication1
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("period");
             sda.Fill(dt);
-            DataRow dr = dt.Rows[0];
-            definicoes_frame.begin.Content = (int)dr["Begin"] + "h";
-            definicoes_frame.end.Content = (int)dr["End"] + "h";
+            try
+            {
+                DataRow dr = dt.Rows[0];
+                definicoes_frame.begin.Content = (int)dr["Begin"] + "h";
+                definicoes_frame.end.Content = (int)dr["End"] + "h";
+            }
+            catch
+            {
+
+            }
+            
             this.NavigateTo(definicoes_frame);
 
         }
