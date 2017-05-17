@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip"
     
-        Title="Gestor de Farmacias" Height="557.552" Width="985.764" Visibility="Visible" Icon="1491319877_pharmacy.png">
+        Title="Gestor de Farmacias" Height="634.552" Width="985.764" Visibility="Visible" Icon="1491319877_pharmacy.png">
     <!-- http://mahapps.com/guides/ -->
     <Grid Margin="0,0,18.2,22.6">
         <Grid.ColumnDefinitions>

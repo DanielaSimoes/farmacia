@@ -111,14 +111,14 @@ namespace WpfApplication1
 
             if (item_code != null)
             {
-                det_presc det = new det_presc();
+
                 string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 cmd.Parameters.AddWithValue("@num_prescricao", item_code);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sda.Fill(det.detpresc);
-                det.presc.ItemsSource = det.detpresc.DefaultView;
-
+                DataTable dt = new DataTable("det");
+                sda.Fill(dt);
+                det_presc det = new det_presc(dt, this);
                 det.Show();
             }
         }

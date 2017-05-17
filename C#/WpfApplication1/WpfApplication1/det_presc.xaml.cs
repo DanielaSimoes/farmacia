@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
@@ -21,10 +22,27 @@ namespace WpfApplication1
     /// </summary>
     public partial class det_presc : Window
     {
-        public DataTable detpresc = new DataTable("presc");
+        private static historico his_page;
+        private SqlConnection con;
+
         public det_presc()
         {
             InitializeComponent();
+            con = ConnectionDB.getConnection();
+        }
+
+        public det_presc(DataTable dt, historico his)
+        {
+            InitializeComponent();
+            DataRow dr = dt.Rows[0];
+            name.Content = (string)dr["Name"];
+            lab.Content = (int)dr["Lab"];
+            qty.Content = (int)dr["Qty"];
+            code.Content = (int)dr["Code"];
+            price.Content = (int)dr["Price"] + "€";
+
+            con = ConnectionDB.getConnection();
+            his_page = his;
         }
     }
 }
