@@ -20,7 +20,7 @@ BEGIN
 	ELSE
     	BEGIN
             DECLARE @categoria INT;
-            SELECT @categoria = db.tipo.id FROM db.tipo WHERE db.tipo.nome LIKE SUBSTRING(@name,1,3) + '%'
+            SELECT @categoria = db.categoria.id FROM db.categoria WHERE db.categoria.nome LIKE SUBSTRING(@name,1,3) + '%'
 
     		INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.codigo
     		FROM db.Medicamento WHERE db.Medicamento.categoria_id = @categoria;

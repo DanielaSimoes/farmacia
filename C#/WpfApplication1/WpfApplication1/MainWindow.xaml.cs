@@ -116,6 +116,13 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
+            if (selectedText.Equals("Search Meds"))
+            {
+                search search = new search();
+                this.NavigateTo(search);
+            }
+            Console.WriteLine(selectedText);
+
             if (selectedText.Equals("Add Employee"))
             {
                 criarFuncionario criar_frame = new criarFuncionario();
