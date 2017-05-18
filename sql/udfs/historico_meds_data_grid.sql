@@ -3,7 +3,7 @@ RETURNS @table TABLE ("User NIF" int, "Employee NIF" int, "Date" date, "Sale num
 
 WITH SCHEMABINDING, ENCRYPTION
 AS
-x 
+
 BEGIN
 	IF (@nif is null)
 		BEGIN

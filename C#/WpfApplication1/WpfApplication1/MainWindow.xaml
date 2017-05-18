@@ -26,7 +26,6 @@
             <ComboBoxItem>List Prices</ComboBoxItem>
             <ComboBoxItem>View User Data</ComboBoxItem>
             <ComboBoxItem>Add Employee</ComboBoxItem>
-            <ComboBoxItem>Add User</ComboBoxItem>
             <ComboBoxItem>Search Meds</ComboBoxItem>
             <ComboBoxItem>Add Meds</ComboBoxItem>
             <ComboBoxItem>Logout</ComboBoxItem>

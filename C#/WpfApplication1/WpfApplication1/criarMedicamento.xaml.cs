@@ -32,7 +32,7 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int idLab_int, codigo_int, quantidade_int;
+            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int;
 
             if (!Int32.TryParse(ID_lab.Text, out idLab_int))
             {
@@ -52,14 +52,26 @@ namespace WpfApplication1
                 return;
             }
 
+            if (!Int32.TryParse(quantidade.Text, out categoria_int))
+            {
+                MessageBox.Show("The amount must be an Integer!");
+                return;
+            }
+
+            if (!Int32.TryParse(quantidade.Text, out tipo_int))
+            {
+                MessageBox.Show("The amount must be an Integer!");
+                return;
+            }
+
             string CmdString = "db.sp_createMedicamento";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
             cmd_member.Parameters.AddWithValue("@nome", nome.Text);
             cmd_member.Parameters.AddWithValue("@lab_id", idLab_int);
             cmd_member.Parameters.AddWithValue("@codigo", codigo_int);
-            cmd_member.Parameters.AddWithValue("@categoria", categoria.Text);
-            cmd_member.Parameters.AddWithValue("@tipo", tipo.Text);
+            cmd_member.Parameters.AddWithValue("@categoria_id", categoria_int);
+            cmd_member.Parameters.AddWithValue("@tipo_id", tipo_int);
             cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
 
             try

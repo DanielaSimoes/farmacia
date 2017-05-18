@@ -12,7 +12,7 @@ CREATE PROCEDURE db.sp_createMedicamento
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @dose is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null
+	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null
 
 	BEGIN
 
@@ -27,13 +27,6 @@ AS
 	IF @count != 0
 	BEGIN
 		RAISERROR('The Name already exists!', 14, 1)
-	END
-
-	SELECT @count = count(lab_id) FROM db.Medicamento WHERE lab_id=@lab_id
-
-	IF @count != 0
-	BEGIN
-		RAISERROR('The LAB ID already exists!', 14, 1)
 	END
 
 	SELECT @count = count(codigo) FROM db.Medicamento WHERE codigo=@codigo
