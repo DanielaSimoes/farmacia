@@ -28,6 +28,7 @@
             <ComboBoxItem>Add Employee</ComboBoxItem>
             <ComboBoxItem>Add User</ComboBoxItem>
             <ComboBoxItem>Search Meds</ComboBoxItem>
+            <ComboBoxItem>Add Meds</ComboBoxItem>
             <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52,0,0,0.4" Grid.Column="2"></Frame>

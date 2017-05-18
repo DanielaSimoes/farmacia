@@ -256,6 +256,10 @@ namespace WpfApplication1
 
         private void pay(object sender, RoutedEventArgs e)
         {
+
+            // get the user points
+            
+
             for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
             {
                 DataRow dr = dt_grid_produtos.Rows[i];
@@ -266,6 +270,7 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@codigo", dr_code);
+                cmd.Parameters.AddWithValue("@utente_NIF", SeeNIF.Text);
                 cmd.Parameters.AddWithValue("@func_NIF", login.GetNIF());
                 int pres;
                 

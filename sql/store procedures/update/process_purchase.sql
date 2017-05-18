@@ -1,6 +1,7 @@
 CREATE PROCEDURE db.sp_processPurchase
 				@codigo				 INT,
 				@func_NIF			 INT,
+				@utente_NIF			 INT,
 				@num_prescricao INT = null
 AS
 	IF @codigo is null
@@ -159,6 +160,11 @@ AS
 			UPDATE db.Prescricao SET data_processa = @today WHERE num_prescricao=@num_prescricao;
 		END
 	END
+	ELSE
+		BEGIN
+			INSERT INTO db.Venda ([pontos], [utente_NIF], [func_NIF], [data]) VALUES (1, @utente_NIF, @func_NIF, @today);
+			SELECT @num_venda=SCOPE_IDENTITY();
+		END
 
 	BEGIN TRY
 		SET @units = @units - 1;
