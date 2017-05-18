@@ -73,6 +73,9 @@ namespace WpfApplication1
             cmd_member.Parameters.AddWithValue("@categoria_id", categoria_int);
             cmd_member.Parameters.AddWithValue("@tipo_id", tipo_int);
             cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
+            cmd_member.Parameters.AddWithValue("@validade", "10/02/2010");
+            cmd_member.Parameters.AddWithValue("@dose", 2);
+            cmd_member.Parameters.AddWithValue("@unidades", 5);
 
             try
             {

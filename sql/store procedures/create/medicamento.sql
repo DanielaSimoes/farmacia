@@ -26,22 +26,16 @@ AS
 
 	IF @count != 0
 	BEGIN
-		RAISERROR('The Name already exists!', 14, 1)
+		UPDATE db.Medicamento SET 
+		unidades=unidades + @unidades
+		WHERE nome=@nome AND codigo=@codigo
 	END
-
-	SELECT @count = count(codigo) FROM db.Medicamento WHERE codigo=@codigo
-
-	IF @count != 0
-	BEGIN
-		RAISERROR('The code already exists!', 14, 1)
-	END
-
 
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
 
-		INSERT INTO [farmacia].[db].[Medicamento]
+		INSERT INTO [master].[db].[Medicamento]
 		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
 
 	COMMIT TRANSACTION;
