@@ -44,6 +44,8 @@ AS
 	DECLARE @nao_ha_medicamento_por_vender int
 	DECLARE @today date = GETDATE();
 	SET @num_unidades_vendidas=0
+	SELECT @nome = nome FROM db.Medicamento WHERE codigo = @codigo;
+	SELECT @lab_NIPC = lab_id FROM db.Medicamento WHERE codigo = @codigo;
 
 	IF @num_prescricao is not null
 	BEGIN
@@ -63,9 +65,6 @@ AS
 			RAISERROR ('The prescription already have been processed!', 14, 1)
 			RETURN
 		END
-
-		SELECT @nome = nome FROM db.Medicamento WHERE codigo = @codigo;
-		SELECT @lab_NIPC = lab_id FROM db.Medicamento WHERE codigo = @codigo;
 
 		SELECT @med = COUNT(nome_medicamento) FROM db.Contem WHERE num_prescricao = @num_prescricao AND nome_medicamento=@nome AND lab_NIPC=@lab_NIPC;
 
@@ -164,6 +163,7 @@ AS
 		BEGIN
 			INSERT INTO db.Venda ([pontos], [utente_NIF], [func_NIF], [data]) VALUES (1, @utente_NIF, @func_NIF, @today);
 			SELECT @num_venda=SCOPE_IDENTITY();
+			INSERT INTO db.TemMV VALUES(@nome, @num_venda, 1, @lab_NIPC);
 		END
 
 	BEGIN TRY
