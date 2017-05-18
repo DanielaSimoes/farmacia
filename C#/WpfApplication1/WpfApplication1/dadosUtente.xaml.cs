@@ -66,6 +66,11 @@ namespace WpfApplication1
             }
             else
             {
+                if (TextBoxNIF.Text.Length != 8)
+                {
+                    MessageBox.Show("The NIF must have 8 digits!");
+                    return;
+                }
                 string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);

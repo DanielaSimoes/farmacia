@@ -123,6 +123,12 @@ namespace WpfApplication1
                     return;
                 }
 
+                if (SeeNIF.Text.Length != 8)
+                {
+                    MessageBox.Show("The NIF must have 8 digits!");
+                    return;
+                }
+
                 try
                 {
                     string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
