@@ -129,6 +129,19 @@ namespace WpfApplication1
                     return;
                 }
 
+                // get the user points
+                if (SeeNIF.Text.Length != 0)
+                {
+                    string CmdString = "SELECT * FROM db.udf_utente_pontos(@nif)";
+                    cmd = new SqlCommand(CmdString, con);
+                    sda = new SqlDataAdapter(cmd);
+                    cmd.Parameters.AddWithValue("@nif", SeeNIF.Text);
+                    DataTable dt = new DataTable("pontos");
+                    sda.Fill(dt);
+                    points.Content = dt.Rows[0].ItemArray[0];
+
+                }
+
                 try
                 {
                     string CmdString = "SELECT * FROM db.utente_data_grid(@nif)";
@@ -194,8 +207,6 @@ namespace WpfApplication1
                 LabelNIF.Content = "NIF";
 
             }
-
-
         }
 
         private void DEL_Click(object sender, RoutedEventArgs e)
@@ -256,9 +267,6 @@ namespace WpfApplication1
 
         private void pay(object sender, RoutedEventArgs e)
         {
-
-            // get the user points
-            
 
             for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
             {

@@ -49,5 +49,7 @@
         <Button Background="#00cc66" Content="Digit Code" HorizontalAlignment="Left" Margin="243,468,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
         <Button Content="Pay" Background="#00cc66" HorizontalAlignment="Left" Margin="516,467,0,3.4" Width="102" Click="pay"/>
         <TextBox x:Name="show_price" IsReadOnly="True" TextAlignment="Right" Text="0€" HorizontalAlignment="Left" Height="24" Margin="67,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" TextChanged="SeeNIF_TextChanged"/>
+        <Label Content="Points" HorizontalAlignment="Left" Margin="67,402,0,0" VerticalAlignment="Top" Height="29" Width="56"/>
+        <Label Name="points" Content="" HorizontalAlignment="Left" Margin="173,400,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
