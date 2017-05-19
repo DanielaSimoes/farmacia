@@ -43,6 +43,6 @@ AS
 	END TRY
 
 	BEGIN CATCH
-		ROLLBACK TRANSACTION
 		RAISERROR('An error occurred when creating the medicament!', 14, 1)
+		ROLLBACK TRANSACTION
 	END CATCH;

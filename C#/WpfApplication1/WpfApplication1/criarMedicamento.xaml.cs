@@ -32,7 +32,7 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int;
+            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int, dose_int, uni_int;
 
             if (!Int32.TryParse(ID_lab.Text, out idLab_int))
             {
@@ -64,6 +64,8 @@ namespace WpfApplication1
                 return;
             }
 
+            
+
             string CmdString = "db.sp_createMedicamento";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
@@ -73,15 +75,56 @@ namespace WpfApplication1
             cmd_member.Parameters.AddWithValue("@categoria_id", categoria_int);
             cmd_member.Parameters.AddWithValue("@tipo_id", tipo_int);
             cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
-            cmd_member.Parameters.AddWithValue("@validade", "10/02/2010");
-            cmd_member.Parameters.AddWithValue("@dose", 2);
-            cmd_member.Parameters.AddWithValue("@unidades", 5);
+
+            try
+            {
+                if (Int32.TryParse(dose.Text, out dose_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@dose", dose_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The dosage must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(unidades.Text, out uni_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@unidades", uni_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The units must be an Integer!");
+                return;
+            }
+
+            
+            DateTime dt;
+             try
+            {
+                if (DateTime.TryParse(data.Text, out dt))
+                {
+                    
+                    cmd_member.Parameters.AddWithValue("@validade", dt);
+                }
+            }
+            
+            catch (Exception)
+            {
+                MessageBox.Show("Please insert a valid date!");
+                return;
+            }
+
 
             try
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
-
+                MessageBox.Show("Meds Added!");
                 con.Close();
             }
             catch (Exception exc)
