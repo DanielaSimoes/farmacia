@@ -31,18 +31,22 @@ AS
 		WHERE nome=@nome AND codigo=@codigo
 	END
 
-	BEGIN TRANSACTION;
+	ELSE
+	BEGIN
+		BEGIN TRANSACTION;
+	
+		BEGIN TRY
 
-	BEGIN TRY
+			INSERT INTO [master].[db].[Medicamento]
+			VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
 
-		INSERT INTO [master].[db].[Medicamento]
-		VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
+		COMMIT TRANSACTION;
 
-	COMMIT TRANSACTION;
-
-	END TRY
+		END TRY
+	
 
 	BEGIN CATCH
 		RAISERROR('An error occurred when creating the medicament!', 14, 1)
 		ROLLBACK TRANSACTION
 	END CATCH;
+	END

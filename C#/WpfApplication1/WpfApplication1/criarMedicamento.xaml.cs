@@ -34,47 +34,85 @@ namespace WpfApplication1
         {
             int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int, dose_int, uni_int;
 
-            if (!Int32.TryParse(ID_lab.Text, out idLab_int))
-            {
-                MessageBox.Show("The ID Lab must be an Integer!");
-                return;
-            }
-
-            if (!Int32.TryParse(codigo.Text, out codigo_int))
-            {
-                MessageBox.Show("The code number must be an Integer!");
-                return;
-            }
-
-            if (!Int32.TryParse(quantidade.Text, out quantidade_int))
-            {
-                MessageBox.Show("The amount must be an Integer!");
-                return;
-            }
-
-            if (!Int32.TryParse(quantidade.Text, out categoria_int))
-            {
-                MessageBox.Show("The amount must be an Integer!");
-                return;
-            }
-
-            if (!Int32.TryParse(quantidade.Text, out tipo_int))
-            {
-                MessageBox.Show("The amount must be an Integer!");
-                return;
-            }
-
-            
-
+           
             string CmdString = "db.sp_createMedicamento";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@nome", nome.Text);
-            cmd_member.Parameters.AddWithValue("@lab_id", idLab_int);
-            cmd_member.Parameters.AddWithValue("@codigo", codigo_int);
-            cmd_member.Parameters.AddWithValue("@categoria_id", categoria_int);
-            cmd_member.Parameters.AddWithValue("@tipo_id", tipo_int);
-            cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
+            
+
+            try
+            {
+                cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                if (Int32.TryParse(ID_lab.Text, out idLab_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@lab_id", idLab_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The Lab ID must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(codigo.Text, out codigo_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@codigo", codigo_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The code must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(categoria.Text, out categoria_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@categoria_id", categoria_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The category ID must be an Integer!");
+                return;
+            }
+
+
+            try
+            {
+                if (Int32.TryParse(tipo.Text, out tipo_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@tipo_id", tipo_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The type ID must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(quantidade.Text, out quantidade_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The amount must be an Integer!");
+                return;
+            }
 
             try
             {
