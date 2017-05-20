@@ -1,4 +1,3 @@
--- DROP TRIGGER db.trigger_stock_insert
 CREATE TRIGGER db.trigger_stock_insert ON db.TemMV
 AFTER INSERT
 AS
