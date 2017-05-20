@@ -166,17 +166,4 @@ AS
 			INSERT INTO db.TemMV VALUES(@nome, @num_venda, 1, @lab_NIPC);
 		END
 
-	BEGIN TRY
-		SET @units = @units - 1;
-		UPDATE  [farmacia].[db].[Medicamento] SET
-				unidades = @units
-		WHERE codigo = @codigo;
-
 	COMMIT TRANSACTION;
-
-	END TRY
-
-	BEGIN CATCH
-		ROLLBACK TRANSACTION
-		RAISERROR('An error occurred when updating the medicament!', 14, 1)
-	END CATCH;
