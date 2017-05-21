@@ -179,6 +179,7 @@ namespace WpfApplication1
                 catch (Exception exc)
                 {
                     MessageBox.Show(exc.Message);
+                    return;
                 }
             }
             else { 
@@ -270,10 +271,31 @@ namespace WpfApplication1
 
         private void pay(object sender, RoutedEventArgs e)
         {
+            int soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            if (soma == 0)
+            {
+                MessageBox.Show("Not possible to complete the payment without any product!");
+                return;
+            }
 
             for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
             {
                 DataRow dr = dt_grid_produtos.Rows[i];
+
+                if ((string)dr["name"] == "discount")
+                {
+                    dt_grid_produtos.Rows.RemoveAt(i);
+                    dr.Delete();
+                    continue;
+                }
+
                 int dr_code = (int)dr["Code"];
                 int price = (int)dr["Price"];
 
@@ -310,24 +332,10 @@ namespace WpfApplication1
                 }
             }
 
-            int soma = 0;
-            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
-            {
-                DataRow dr = dt_grid_produtos.Rows[i];
-                int price = (int)dr["Price"];
-                soma += price;
-            }
+            show_price.Text = "0€";
 
-            show_price.Text = soma.ToString() + "€";
-
-            if (show_price.Text == "0€") {
-                MessageBox.Show("Not possible to complete the payment without any product!");
-            }
-            else
-            {
-                MessageBox.Show("Payment completed!");
-            }
-
+            MessageBox.Show("Payment completed!");
+            
             pay_button.IsEnabled = false;
             use_points.IsEnabled = false;
             points.Content = "";
@@ -341,7 +349,60 @@ namespace WpfApplication1
 
         private void points_button(object sender, RoutedEventArgs e)
         {
+            int soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
 
+            if (soma == 0)
+            {
+                MessageBox.Show("Not possible to use points without any product!");
+                return;
+            }
+
+            string CmdString = "db.sp_update_points";
+            cmd = new SqlCommand(CmdString, con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NIF", SeeNIF.Text);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception exc)
+            {
+                con.Close();
+                MessageBox.Show(exc.Message);
+                return;
+            }
+
+            // search for points and make the count
+            int pt = (int) points.Content;
+            points.Content = "0";
+
+
+            // add an entry to the data grid
+
+            DataRow toInsert = dt_grid_produtos.NewRow();
+            toInsert["name"] = "discount";
+            toInsert["qty"] = 1;
+            toInsert["price"] = -pt;
+            dt_grid_produtos.Rows.InsertAt(toInsert, dt_grid_produtos.Rows.Count);
+
+            soma = 0;
+            for (int i = dt_grid_produtos.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt_grid_produtos.Rows[i];
+                int price = (int)dr["Price"];
+                soma += price;
+            }
+
+            show_price.Text = soma.ToString() + "€";
         }
 
     }
