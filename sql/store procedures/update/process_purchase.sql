@@ -116,45 +116,9 @@ AS
 			END
 
 		-- ADICIONAR A DATA
-	    DECLARE db_cursor CURSOR FOR SELECT Contem.nome_medicamento as nome, Contem.lab_NIPC, Contem.unidades as num_unidades FROM db.Contem WHERE db.Contem.num_prescricao=@num_prescricao
-	    DECLARE @num_unidades INT;
-		DECLARE @ha_medicamento BIT;
-		SET @nao_ha_medicamento_por_vender = 1 /* true */
+		SELECT @count=count(*) FROM (SELECT Contem.nome_medicamento as 'name', Contem.lab_NIPC, Contem.unidades FROM [farmacia].[db].[Prescricao] JOIN db.Contem ON db.Prescricao.num_prescricao=db.Contem.num_prescricao WHERE db.Prescricao.num_prescricao=@num_prescricao EXCEPT SELECT  db.TemMV.nome, db.TemMV.lab_NIPC, db.TemMV.num_unidades as 'unidades' FROM (db.Prescricao JOIN db.Venda ON Prescricao.num_venda = db.Venda.num_venda) JOIN db.TemMV ON db.Prescricao.num_venda=db.TemMV.num_venda WHERE db.Prescricao.num_prescricao=@num_prescricao) a
 
-
-	    OPEN db_cursor;
-	    FETCH NEXT FROM db_cursor INTO @nome, @lab_NIPC, @num_unidades;
-	    WHILE @@FETCH_STATUS = 0
-	    BEGIN
-	            -- verificar se ja esta vendido o medicamento
-	            SELECT @count = count(*) FROM (db.TemMV JOIN db.Venda ON db.TemMV.num_venda=db.Venda.num_venda)
-	                    JOIN db.Prescricao ON db.Venda.num_venda=db.Prescricao.num_venda
-	                    WHERE db.Prescricao.num_prescricao=@num_prescricao AND TemMV.nome=@nome AND TemMV.lab_NIPC=@lab_NIPC;
-
-	            IF @count = 1
-	                BEGIN
-	                    -- verificar se a quantidade corresponde
-	                    SELECT @num_unidades_vendidas=TemMV.num_unidades FROM (db.TemMV JOIN db.Venda ON db.TemMV.num_venda=db.Venda.num_venda)
-	                            JOIN db.Prescricao ON db.Venda.num_venda=db.Prescricao.num_venda
-	                            WHERE db.Prescricao.num_prescricao=@num_prescricao AND TemMV.nome=@nome AND TemMV.lab_NIPC=@lab_NIPC;
-
-	                    SET @num_unidades = @num_unidades - @num_unidades_vendidas
-
-	                    IF @num_unidades != 0
-	                        BEGIN
-								SET @nao_ha_medicamento_por_vender = 0 /* false */
-	                        END
-	                END
-	            ELSE
-	                BEGIN
-						SET @nao_ha_medicamento_por_vender = 0 /* false */
-					END
-	            FETCH NEXT FROM db_cursor INTO @nome, @lab_NIPC, @num_unidades;
-	    END;
-	    CLOSE db_cursor;
-	    DEALLOCATE db_cursor;
-
-		IF @nao_ha_medicamento_por_vender = 1
+		IF @count = 0
 		BEGIN
 			UPDATE db.Prescricao SET data_processa = @today WHERE num_prescricao=@num_prescricao;
 		END
