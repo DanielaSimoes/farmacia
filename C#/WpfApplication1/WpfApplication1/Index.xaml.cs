@@ -132,6 +132,9 @@ namespace WpfApplication1
                 // get the user points
                 if (SeeNIF.Text.Length != 0)
                 {
+                    pay_button.IsEnabled = true;
+                    use_points.IsEnabled = true;
+
                     string CmdString = "SELECT * FROM db.udf_utente_pontos(@nif)";
                     cmd = new SqlCommand(CmdString, con);
                     sda = new SqlDataAdapter(cmd);
@@ -318,9 +321,19 @@ namespace WpfApplication1
             show_price.Text = soma.ToString() + "€";
 
             MessageBox.Show("Payment completed!");
+
+            pay_button.IsEnabled = false;
+            use_points.IsEnabled = false;
+            points.Content = "";
+            SeeNIF.Text = "";
         }
 
         public void dados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void points_button(object sender, RoutedEventArgs e)
         {
 
         }

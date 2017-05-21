@@ -47,9 +47,10 @@
         <DataGrid Name="produtosGrid" HorizontalAlignment="Left" Margin="67,138,0,0" VerticalAlignment="Top" Height="293" Width="278" IsReadOnly="True"/>
         <Button Background="#00cc66" Name="DelRow" Content="-" HorizontalAlignment="Left" Margin="10,431,0,0" VerticalAlignment="Top" Width="38" Click="DelRow_Click" FontSize="16" FontWeight="Bold"/>
         <Button Background="#00cc66" Content="Digit Code" HorizontalAlignment="Left" Margin="243,468,0,0" VerticalAlignment="Top" Width="102" Click="Codigo"/>
-        <Button Content="Pay" Background="#00cc66" HorizontalAlignment="Left" Margin="516,467,0,3.4" Width="102" Click="pay"/>
+        <Button Name="pay_button"  IsEnabled="False" Content="Pay" Background="#00cc66" HorizontalAlignment="Left" Margin="516,467,0,3.4" Width="102" Click="pay"/>
         <TextBox x:Name="show_price" IsReadOnly="True" TextAlignment="Right" Text="0€" HorizontalAlignment="Left" Height="24" Margin="67,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" TextChanged="SeeNIF_TextChanged"/>
-        <Label Content="Points" HorizontalAlignment="Left" Margin="67,402,0,0" VerticalAlignment="Top" Height="29" Width="56"/>
-        <Label Name="points" Content="" HorizontalAlignment="Left" Margin="173,400,0,0" VerticalAlignment="Top"/>
+        <Label Content="Points" HorizontalAlignment="Left" Margin="67,394,0,0" VerticalAlignment="Top" Height="29" Width="56"/>
+        <Label Name="points" Content="" HorizontalAlignment="Left" Margin="166,394,0,0" VerticalAlignment="Top"/>
+        <Button Background="AliceBlue" Name="use_points" Content="Use" HorizontalAlignment="Left" Margin="274,394,0,0" VerticalAlignment="Top" Width="51" Click="points_button" FontSize="10" FontWeight="Bold" Height="26" IsEnabled="False"/>
     </Grid>
 </Page>
