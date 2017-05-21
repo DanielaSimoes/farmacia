@@ -320,7 +320,13 @@ namespace WpfApplication1
 
             show_price.Text = soma.ToString() + "€";
 
-            MessageBox.Show("Payment completed!");
+            if (show_price.Text == "0€") {
+                MessageBox.Show("Not possible to complete the payment without any product!");
+            }
+            else
+            {
+                MessageBox.Show("Payment completed!");
+            }
 
             pay_button.IsEnabled = false;
             use_points.IsEnabled = false;
