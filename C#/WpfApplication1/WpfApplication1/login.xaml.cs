@@ -70,7 +70,7 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
-                cmd.Parameters.AddWithValue("@password", TextBoxPassword.Password);
+                cmd.Parameters.AddWithValue("@password", GetStringSha256Hash(TextBoxPassword.Password));
                 DataTable dt = new DataTable("login");
                 sda.Fill(dt);
                 if (dt.Rows.Count == 0)
@@ -79,12 +79,11 @@ namespace WpfApplication1
                 }
                 else
                 {
-                    Index index = new Index();
+                    Index index = new Index(main_window);
                     main_window.menu.Visibility = Visibility.Visible;
                     main_window.definitions.Visibility = Visibility.Visible;
                     this.NavigationService.Navigate(index);
                 }
-                Index ind = new Index(main_window);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

@@ -34,24 +34,30 @@ namespace WpfApplication1
         public Index()
         {
             InitializeComponent(); // http://stackoverflow.com/questions/6925584/the-name-initializecomponent-does-not-exist-in-the-current-context
-            con = ConnectionDB.getConnection();
-
-            
+            con = ConnectionDB.getConnection();    
         }
+
         public Index(MainWindow mw)
         {
             InitializeComponent(); 
             con = ConnectionDB.getConnection();
             this.m_w = mw;
+            m_w.add_employee.Visibility = Visibility.Hidden;
+            this.update_menu(m_w, con);
+        }
 
+        private void update_menu(MainWindow mw, SqlConnection con)
+        {
             string CmdString = "SELECT * FROM db.udf_get_function(@NIF)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@NIF", login.GetNIF());
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("period");
             sda.Fill(dt);
+            Console.WriteLine(dt.Rows[0].ItemArray[0]);
             if (String.Equals(dt.Rows[0].ItemArray[0], "func"))
             {
+                Console.WriteLine("VISIVEL");
                 mw.add_employee.Visibility = Visibility.Visible;
             }
         }

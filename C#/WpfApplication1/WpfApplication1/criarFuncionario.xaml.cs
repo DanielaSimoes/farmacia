@@ -31,6 +31,20 @@ namespace WpfApplication1
             con = ConnectionDB.getConnection();
         }
 
+        internal static string GetStringSha256Hash(string text)
+        {
+            if (String.IsNullOrEmpty(text))
+                return String.Empty;
+
+            using (var sha = new System.Security.Cryptography.SHA256Managed())
+            {
+                byte[] textData = System.Text.Encoding.UTF8.GetBytes(text);
+                byte[] hash = sha.ComputeHash(textData);
+                return BitConverter.ToString(hash).Replace("-", String.Empty);
+            }
+        }
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int telefone_int, nif_int, numero_int;
@@ -94,7 +108,7 @@ namespace WpfApplication1
 
             try
             {
-                if (Int32.TryParse(nif.Text, out nif_int) & nif_int.ToString().Length == 8)
+                if (Int32.TryParse(nif.Text, out nif_int) && nif.Text.Length == 8)
                 {
                     cmd_member.Parameters.AddWithValue("@NIF", nif_int);
                 }
@@ -105,7 +119,7 @@ namespace WpfApplication1
             }
             catch (Exception)
             {
-                MessageBox.Show("The name must be provided!");
+                MessageBox.Show("The NIF must be provided!");
                 return;
             }
 
@@ -129,11 +143,11 @@ namespace WpfApplication1
 
             try
             {
-                cmd_member.Parameters.AddWithValue("@pass", pass.Text);
+                cmd_member.Parameters.AddWithValue("@pass", GetStringSha256Hash(pass.Text));
             }
             catch (Exception)
             {
-                MessageBox.Show("The function must be provided!");
+                MessageBox.Show("The function password must be provided!");
                 return;
             }
             
