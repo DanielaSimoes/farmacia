@@ -25,9 +25,9 @@
             <ComboBoxItem>List Stock</ComboBoxItem>
             <ComboBoxItem>List Prices</ComboBoxItem>
             <ComboBoxItem>View User Data</ComboBoxItem>
-            <ComboBoxItem>Add Employee</ComboBoxItem>
             <ComboBoxItem>Search Meds</ComboBoxItem>
             <ComboBoxItem>Add Meds</ComboBoxItem>
+            <ComboBoxItem Name="add_employee" Visibility="Hidden">Add Employee</ComboBoxItem>
             <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>
         <Frame x:Name="Frame1" NavigationUIVisibility="Hidden" Margin="52,0,0,0.4" Grid.Column="2"></Frame>

@@ -39,11 +39,23 @@ namespace WpfApplication1
         {
             InitializeComponent();
             con = ConnectionDB.getConnection();
-
         }
 
         public static int GetNIF(){
             return NIFInt;
+        }
+
+        internal static string GetStringSha256Hash(string text)
+        {
+            if (String.IsNullOrEmpty(text))
+                return String.Empty;
+
+            using (var sha = new System.Security.Cryptography.SHA256Managed())
+            {
+                byte[] textData = System.Text.Encoding.UTF8.GetBytes(text);
+                byte[] hash = sha.ComputeHash(textData);
+                return BitConverter.ToString(hash).Replace("-", String.Empty);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -72,8 +84,7 @@ namespace WpfApplication1
                     main_window.definitions.Visibility = Visibility.Visible;
                     this.NavigationService.Navigate(index);
                 }
-           
-
+                Index ind = new Index(main_window);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

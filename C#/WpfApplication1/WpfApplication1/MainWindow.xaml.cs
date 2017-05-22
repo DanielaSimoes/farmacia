@@ -124,7 +124,7 @@ namespace WpfApplication1
             Console.WriteLine(selectedText);
 
             if (selectedText.Equals("Add Employee"))
-            {
+            {        
                 criarFuncionario criar_frame = new criarFuncionario();
                 this.NavigateTo(criar_frame);
             }
