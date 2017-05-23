@@ -7,13 +7,13 @@ AS
 BEGIN
 	IF (@nome is null)
 		BEGIN
-			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Vende.PVP, Vende.Preco, Vende.IVA
-			FROM db.Vende JOIN db.Medicamento ON db.Vende.medicamento_nome=db.Medicamento.nome AND db.Vende.lab_NIPC=db.Medicamento.lab_id WHERE Medicamento.unidades > 0;
+			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+			FROM db.Medicamento WHERE Medicamento.unidades > 0;
 		END;
 	ELSE
 		BEGIN
-	        INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Vende.PVP, Vende.Preco, Vende.IVA
-	        FROM db.Vende JOIN db.Medicamento ON db.Vende.medicamento_nome=db.Medicamento.nome AND db.Vende.lab_NIPC=db.Medicamento.lab_id WHERE db.Medicamento.nome LIKE SUBSTRING(@nome,1,3) + '%' OR db.Medicamento.nome = @nome AND Medicamento.unidades > 0;
+	        INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.quantidade, Medicamento.validade, Medicamento.dose, Medicamento.unidades, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+	        FROM db.Medicamento WHERE db.Medicamento.nome LIKE SUBSTRING(@nome,1,3) + '%' OR db.Medicamento.nome = @nome AND Medicamento.unidades > 0;
 		END;
 RETURN;
 END;

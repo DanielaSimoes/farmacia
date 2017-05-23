@@ -7,15 +7,15 @@ AS
 BEGIN
 	IF (@codigo is null)
 		BEGIN
-			INSERT @table SELECT Vende.medicamento_nome, Vende.lab_NIPC, Vende.PVP, Vende.Preco, Vende.IVA
-			FROM db.Vende
+			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+			FROM db.Medicamento
 		END;
 	ELSE
 		BEGIN
 		IF (@codigo is not null)
 			BEGIN
-				INSERT @table SELECT Vende.medicamento_nome, Vende.lab_NIPC, Vende.PVP, Vende.Preco, Vende.IVA
-				FROM db.Vende JOIN db.Medicamento ON db.Vende.medicamento_nome=db.Medicamento.nome AND db.Vende.lab_NIPC=db.Medicamento.lab_id WHERE db.Medicamento.codigo = @codigo;
+				INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+				FROM db.Medicamento WHERE db.Medicamento.codigo = @codigo;
 			END;
 		END;
 RETURN;
