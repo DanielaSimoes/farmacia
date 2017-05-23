@@ -15,7 +15,7 @@ CREATE TABLE db.Prescricao(
         data_processa				 DATE,
         num_venda					 INT,
 		PRIMARY KEY(num_prescricao),
-		Check(num_prescricao>=0), Check(codigo_acesso_dispensa>=0), Check(codigo_opcao>=0), Check(medico_NIF>=0), Check(utente_NIF>=0), Check(db_NIPC>=0)
+		Check(num_prescricao>=0), Check(codigo_acesso_dispensa>=0), Check(codigo_opcao>=0), Check(medico_NIF>=0), Check(utente_NIF>=0)
 );
 
 CREATE TABLE db.Pessoa(
