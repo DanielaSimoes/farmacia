@@ -5,27 +5,33 @@
         Title="Adicionar Medicamento" Height="536.552" Width="717.239">
 
     <Grid>
-        <Grid Margin="0,-28,18,0">
+        <Grid Margin="10,-38,8,10">
             <Label Content="Add Medication" HorizontalAlignment="Left" Margin="45,53,0,0" VerticalAlignment="Top" Height="35" Width="331" FontSize="20" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <Button Background="#00cc66" Content="Add" HorizontalAlignment="Left" Margin="320,528,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
+            <Button Background="#00cc66" Content="Add" HorizontalAlignment="Left" Margin="584,469,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click"/>
             <Label Content="Name" HorizontalAlignment="Left" Margin="45,132,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="nome" HorizontalAlignment="Left" Height="36" Margin="222,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="nome" HorizontalAlignment="Left" Height="36" Margin="188,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
             <Label Content="ID Laboratory" HorizontalAlignment="Left" Margin="45,173,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="ID_lab" HorizontalAlignment="Left" Height="36" Margin="222,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="ID_lab" HorizontalAlignment="Left" Height="36" Margin="188,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
             <Label Content="Code" HorizontalAlignment="Left" Margin="45,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="codigo" HorizontalAlignment="Left" Height="36" Margin="222,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
+            <TextBox Name="codigo" HorizontalAlignment="Left" Height="36" Margin="188,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172"/>
             <Label Content="Category ID" HorizontalAlignment="Left" Margin="45,255,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="categoria" HorizontalAlignment="Left" Height="36" Margin="222,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="categoria" HorizontalAlignment="Left" Height="36" Margin="188,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Type ID" HorizontalAlignment="Left" Margin="45,296,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="tipo" HorizontalAlignment="Left" Height="36" Margin="222,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="tipo" HorizontalAlignment="Left" Height="36" Margin="188,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Amount" HorizontalAlignment="Left" Margin="45,337,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="quantidade"  HorizontalAlignment="Left" Height="36" Margin="222,337,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="quantidade"  HorizontalAlignment="Left" Height="36" Margin="188,337,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Expires at" HorizontalAlignment="Left" Margin="45,378,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <DatePicker Name="data" HorizontalAlignment="Left" Margin="222,378,0,0" VerticalAlignment="Top" Height="36" Width="171"/>
+            <DatePicker Name="data" HorizontalAlignment="Left" Margin="189,377,0,0" VerticalAlignment="Top" Height="36" Width="171"/>
             <Label Content="Dosage" HorizontalAlignment="Left" Margin="45,419,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="dose"   HorizontalAlignment="Left" Height="36" Margin="222,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="dose"   HorizontalAlignment="Left" Height="36" Margin="189,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
             <Label Content="Units" HorizontalAlignment="Left" Margin="45,460,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <TextBox Name="unidades"  HorizontalAlignment="Left" Height="36" Margin="222,460,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <TextBox Name="unidades"  HorizontalAlignment="Left" Height="36" Margin="189,460,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.523,2.028"/>
+            <Label Content="PVP" HorizontalAlignment="Left" Margin="408,132,0,0" VerticalAlignment="Top" Height="36" Width="68" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <TextBox Name="pvp" HorizontalAlignment="Left" Height="36" Margin="488,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
+            <Label Content="Price" HorizontalAlignment="Left" Margin="408,173,0,0" VerticalAlignment="Top" Height="36" Width="68" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Label Content="IVA" HorizontalAlignment="Left" Margin="408,214,0,0" VerticalAlignment="Top" Height="36" Width="68" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <TextBox Name="price" HorizontalAlignment="Left" Height="36" Margin="488,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
+            <TextBox Name="IVA" HorizontalAlignment="Left" Height="36" Margin="488,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
         </Grid>
     </Grid>
 </Page>

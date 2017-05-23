@@ -32,7 +32,7 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int, dose_int, uni_int;
+            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int, dose_int, uni_int, pvp_int, price_int, iva_int;
 
            
             string CmdString = "db.sp_createMedicamento";
@@ -140,6 +140,45 @@ namespace WpfApplication1
                 return;
             }
 
+            try
+            {
+                if (Int32.TryParse(pvp.Text, out pvp_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@PVP", pvp_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The PVP must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(price.Text, out price_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@preco", price_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The price must be an Integer!");
+                return;
+            }
+
+            try
+            {
+                if (Int32.TryParse(IVA.Text, out iva_int))
+                {
+                    cmd_member.Parameters.AddWithValue("@IVA", iva_int);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The IVA must be an Integer!");
+                return;
+            }
+
             
             DateTime dt;
              try
@@ -168,7 +207,6 @@ namespace WpfApplication1
             catch (Exception exc)
             {
                 con.Close();
-                MessageBox.Show(exc.Message);
             }
             
         }
