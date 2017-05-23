@@ -15,7 +15,7 @@ AS
 	IF @count > 0
 	BEGIN
 		SET @count = @count - 1;
-		UPDATE  [farmacia].[db].[Medicamento] SET
+		UPDATE  [master].[db].[Medicamento] SET
 				unidades = @count
 		WHERE nome = @nome AND lab_id = @lab_id;
 	END
@@ -44,7 +44,7 @@ AS
 	IF @count > 0
 	BEGIN
 		SET @count = @count - 1;
-		UPDATE  [farmacia].[db].[Medicamento] SET
+		UPDATE  [master].[db].[Medicamento] SET
 				unidades = @count
 		WHERE nome = @nome AND lab_id = @lab_id;
 	END
