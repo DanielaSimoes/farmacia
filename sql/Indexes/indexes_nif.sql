@@ -1,8 +1,8 @@
-CREATE NONCLUSTERED INDEX indexnif ON db.Utente(NIF)
+CREATE INDEX indexnif_utente ON db.Utente(NIF)
 
 go
 
 
-CREATE NONCLUSTERED INDEX indexnif ON db.Funcionario(NIF)
+CREATE INDEX indexnif_func ON db.Funcionario(NIF)
 
 go
