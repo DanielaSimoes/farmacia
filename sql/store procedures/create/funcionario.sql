@@ -52,7 +52,7 @@ AS
 
 		BEGIN TRY
 
-			INSERT INTO [farmacia].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
+			INSERT INTO [master].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
 
 			COMMIT TRANSACTION;
 
@@ -68,7 +68,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO [farmacia].[db].[Funcionario] VALUES (@funcao, @num_funcionario, @pass, @NIF)
+		INSERT INTO [master].[db].[Funcionario] VALUES (@funcao, @num_funcionario, @pass, @NIF)
 
 	COMMIT TRANSACTION;
 

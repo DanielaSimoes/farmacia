@@ -8,15 +8,18 @@ CREATE PROCEDURE db.sp_createMedicamento
 				@unidades            INT,
 				@categoria_id        INT,
 				@tipo_id             INT,
-				@codigo				 INT
+				@codigo				 INT,
+				@PVP				 INT,
+				@preco				 INT,
+				@IVA				 INT
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null
+	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null OR @preco is null OR @PVP is null OR @IVA is null 
 
 	BEGIN
 
-		PRINT 'The quantity, dosage, units, category_ID, type_ID and code cannot be empty!'
+		PRINT 'The quantity, dosage, units, category_ID, type_ID, code, price, PVP and IVA cannot be empty!'
 		RETURN
 
 	END
@@ -38,7 +41,7 @@ AS
 		BEGIN TRY
 
 			INSERT INTO [master].[db].[Medicamento]
-			VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo)
+			VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo, @PVP, @preco, @IVA)
 
 		COMMIT TRANSACTION;
 
