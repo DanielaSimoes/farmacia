@@ -7,13 +7,13 @@ AS
 BEGIN
 	IF (@nome is null)
 		BEGIN
-			INSERT @table SELECT Vende.medicamento_nome, Vende.lab_NIPC, Vende.PVP, Vende.Preco, Vende.IVA
-			FROM db.Vende
+			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+			FROM db.Medicamento
 		END;
 	ELSE
 		BEGIN
-			INSERT @table SELECT Vende.medicamento_nome, Vende.lab_NIPC, Vende.PVP, Vende.Preco, Vende.IVA
-			FROM db.Vende WHERE db.Vende.medicamento_nome  LIKE SUBSTRING(@nome,1,3) + '%' OR db.Vende.medicamento_nome = @nome;
+			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+			FROM db.Medicamento WHERE db.Medicamento.nome LIKE SUBSTRING(@nome,1,3) + '%' OR db.Medicamento.nome = @nome;
 		END;
 RETURN;
 END;
