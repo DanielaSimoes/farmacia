@@ -70,7 +70,7 @@ namespace WpfApplication1
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@nif", NIFInt);
-                cmd.Parameters.AddWithValue("@password", GetStringSha256Hash(TextBoxPassword.Password));
+                cmd.Parameters.AddWithValue("@password", TextBoxPassword.Password);
                 DataTable dt = new DataTable("login");
                 sda.Fill(dt);
                 if (dt.Rows.Count == 0)

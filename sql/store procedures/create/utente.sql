@@ -25,6 +25,7 @@ AS
 	IF @count != 0
 	BEGIN
 		RAISERROR('The NIF already exists as user!', 14, 1)
+		RETURN
 	END
 
 	SELECT @count = count(num_utente) FROM db.Utente WHERE num_utente=@num_utente
@@ -32,6 +33,7 @@ AS
 	IF @count != 0
 	BEGIN
 		RAISERROR('The User number already exists!', 14, 1)
+		RETURN
 	END
 
 	SELECT @count = count(NIF) FROM db.Pessoa WHERE NIF=@NIF
@@ -52,6 +54,7 @@ AS
 		BEGIN CATCH
 			ROLLBACK TRANSACTION
 			RAISERROR('An error occurred when creating the person!', 14, 1)
+			RETURN
 		END CATCH;
 	END
 
@@ -59,7 +62,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO [master].[db].[Utente]
+		INSERT INTO db.Utente
 		VALUES (@morada, @num_utente, @NIF)
 
 	COMMIT TRANSACTION;
@@ -69,6 +72,7 @@ AS
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
 		RAISERROR('An error occurred when creating the Utente!', 14, 1)
+		RETURN
 	END CATCH;
 
 

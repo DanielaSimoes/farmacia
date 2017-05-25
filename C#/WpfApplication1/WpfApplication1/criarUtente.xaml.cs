@@ -143,6 +143,7 @@ namespace WpfApplication1
             catch (Exception exc)
             {
                 con.Close();
+                MessageBox.Show(exc.Message);
             }
 
             

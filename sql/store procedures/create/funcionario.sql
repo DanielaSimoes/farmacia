@@ -1,4 +1,3 @@
---DROP PROCEDURE db.sp_createFuncionario
 CREATE PROCEDURE db.sp_createFuncionario
 
 				@funcao			    VARCHAR(30),
@@ -45,7 +44,7 @@ AS
 
 		BEGIN TRY
 
-			INSERT INTO [master].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
+			INSERT INTO db.Pessoa VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
 
 			COMMIT TRANSACTION;
 
@@ -61,7 +60,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO [master].[db].[Funcionario] VALUES (@funcao, @num_funcionario, @pass, @NIF)
+		INSERT INTO db.Funcionario VALUES (@funcao, @num_funcionario, @pass, @NIF)
 
 	COMMIT TRANSACTION;
 
