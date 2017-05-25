@@ -9,13 +9,13 @@ CREATE PROCEDURE db.sp_createMedicamento
 				@categoria_id        INT,
 				@tipo_id             INT,
 				@codigo				 INT,
-				@PVP				 INT,
-				@preco				 INT,
+				@PVP				 FLOAT,
+				@preco				 FLOAT,
 				@IVA				 INT
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null OR @preco is null OR @PVP is null OR @IVA is null 
+	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null OR @preco is null OR @PVP is null OR @IVA is null
 
 	BEGIN
 
@@ -29,7 +29,7 @@ AS
 
 	IF @count != 0
 	BEGIN
-		UPDATE db.Medicamento SET 
+		UPDATE db.Medicamento SET
 		unidades=unidades + @unidades
 		WHERE nome=@nome AND codigo=@codigo
 	END
@@ -37,16 +37,16 @@ AS
 	ELSE
 	BEGIN
 		BEGIN TRANSACTION;
-	
+
 		BEGIN TRY
 
-			INSERT INTO [master].[db].[Medicamento]
+			INSERT INTO db.Medicamento
 			VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo, @PVP, @preco, @IVA)
 
 		COMMIT TRANSACTION;
 
 		END TRY
-	
+
 
 	BEGIN CATCH
 		RAISERROR('An error occurred when creating the medicament!', 14, 1)

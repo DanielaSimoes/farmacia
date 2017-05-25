@@ -196,7 +196,6 @@ namespace WpfApplication1
                 return;
             }
 
-
             try
             {
                 con.Open();
@@ -207,6 +206,7 @@ namespace WpfApplication1
             catch (Exception exc)
             {
                 con.Close();
+                MessageBox.Show(exc.Message);
             }
             
         }

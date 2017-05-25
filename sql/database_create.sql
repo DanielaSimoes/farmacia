@@ -60,8 +60,8 @@ CREATE TABLE db.Medicamento(
         categoria_id        INT NOT NULL CHECK(categoria_id>=0),
         tipo_id             INT NOT NULL CHECK(tipo_id>=0),
 		codigo				INT UNIQUE NOT NULL,
-		PVP					INT NOT NULL,
-		preco				INT NOT NULL,
+		PVP					FLOAT NOT NULL,
+		preco				FLOAT NOT NULL,
 		IVA					INT NOT NULL,
         PRIMARY KEY(nome,lab_id)
 );
