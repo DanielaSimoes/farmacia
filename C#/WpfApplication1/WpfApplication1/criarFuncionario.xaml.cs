@@ -108,9 +108,14 @@ namespace WpfApplication1
 
             try
             {
-                if (Int32.TryParse(nif.Text, out nif_int) && nif.Text.Length == 8)
+                if (Int32.TryParse(nif.Text, out nif_int) & nif_int.ToString().Length == 8)
                 {
                     cmd_member.Parameters.AddWithValue("@NIF", nif_int);
+
+                }
+                else if (nif_int.ToString().Length != 8)
+                {
+                    MessageBox.Show("The NIF need to have 8 digits!");
                 }
                 else
                 {
