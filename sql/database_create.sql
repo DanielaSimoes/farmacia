@@ -54,7 +54,7 @@ CREATE TABLE db.Medicamento(
 		nome                VARCHAR(30),
         lab_id              INT,
         quantidade          INT NOT NULL CHECK(quantidade>=0),
-        validade            DATE,
+        validade            DATE NOT NULL,
         dose                INT NOT NULL CHECK(dose>=0),
         unidades            INT NOT NULL CHECK(unidades>=0),
         categoria_id        INT NOT NULL CHECK(categoria_id>=0),
