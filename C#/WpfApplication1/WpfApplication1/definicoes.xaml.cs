@@ -52,7 +52,6 @@ namespace WpfApplication1
             cmd_member.Parameters.AddWithValue("@inicio", inicio_int);
             cmd_member.Parameters.AddWithValue("@fim", fim_int);
             cmd_member.Parameters.AddWithValue("@dia_da_semana", dia.Text);
-            cmd_member.Parameters.AddWithValue("@db_NIPC", 4);
          
             try
             {

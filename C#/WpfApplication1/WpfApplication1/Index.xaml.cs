@@ -414,7 +414,6 @@ namespace WpfApplication1
 
             DataRow toInsert = dt_grid_produtos.NewRow();
             toInsert["name"] = "discount";
-            toInsert["qty"] = 1;
             toInsert["price"] = -pt;
             dt_grid_produtos.Rows.InsertAt(toInsert, dt_grid_produtos.Rows.Count);
 

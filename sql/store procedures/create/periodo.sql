@@ -18,7 +18,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO [master].[db].[Periodo] ([inicio],
+		INSERT INTO db.Periodo ([inicio],
 					 [fim],
 					 [dia_da_semana])
 		VALUES (@inicio, @fim, @dia_da_semana)

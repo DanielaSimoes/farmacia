@@ -102,7 +102,7 @@ CREATE TABLE db.Tipo(
 );
 
 CREATE TABLE db.Periodo(
-		ID        		    INT,
+		ID        		    INT IDENTITY,
 		inicio    		    INT			NOT NULL,
         fim    		        INT			NOT NULL,
         dia_da_semana       VARCHAR(30)	NOT NULL,
