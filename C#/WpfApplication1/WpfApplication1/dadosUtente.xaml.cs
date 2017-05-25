@@ -107,7 +107,6 @@ namespace WpfApplication1
                 return;
             }
 
-
             // NIF
             int NIFInt;
 
@@ -125,7 +124,7 @@ namespace WpfApplication1
             // telefone
             try
             {
-                int item_telefone = (int)selectedItem.Row.ItemArray[2];
+                int item_telefone = (int)selectedItem.Row.ItemArray[3];
                 cmd.Parameters.AddWithValue("@telefone", item_telefone);
             }
             catch (Exception)

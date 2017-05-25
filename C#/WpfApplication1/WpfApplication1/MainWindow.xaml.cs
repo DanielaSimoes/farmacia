@@ -116,7 +116,7 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Search Meds"))
+            if (selectedText.Equals("Search Medication"))
             {
                 search search = new search();
                 this.NavigateTo(search);
@@ -130,7 +130,7 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Add Meds"))
+            if (selectedText.Equals("Add Medication"))
             {
                 criarMedicamento criarMeds_frame = new criarMedicamento();
                 this.NavigateTo(criarMeds_frame);

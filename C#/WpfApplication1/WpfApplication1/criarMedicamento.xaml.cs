@@ -200,7 +200,7 @@ namespace WpfApplication1
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
-                MessageBox.Show("Meds Added!");
+                MessageBox.Show("Medication Added!");
                 con.Close();
             }
             catch (Exception exc)

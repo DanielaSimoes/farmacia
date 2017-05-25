@@ -25,8 +25,8 @@
             <ComboBoxItem>List Stock</ComboBoxItem>
             <ComboBoxItem>List Prices</ComboBoxItem>
             <ComboBoxItem>View User Data</ComboBoxItem>
-            <ComboBoxItem>Search Meds</ComboBoxItem>
-            <ComboBoxItem>Add Meds</ComboBoxItem>
+            <ComboBoxItem>Search Medication</ComboBoxItem>
+            <ComboBoxItem>Add Medication</ComboBoxItem>
             <ComboBoxItem Name="add_employee" Visibility="Hidden">Add Employee</ComboBoxItem>
             <ComboBoxItem>Logout</ComboBoxItem>
         </ComboBox>

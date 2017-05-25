@@ -39,7 +39,6 @@ namespace WpfApplication1
             DataTable dt = new DataTable("preco");
             sda.Fill(dt);
             precosGrid.ItemsSource = dt.DefaultView;
-            //precosGrid.Columns[2].ClipboardContentBinding.StringFormat = "$00.00";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,9 +59,10 @@ namespace WpfApplication1
             }
             else
             {
+               
                 string CmdString = "SELECT * FROM db.preco_code(@codigo)";
                 SqlCommand cmd = new SqlCommand(CmdString, con);
-                cmd.Parameters.AddWithValue("@codigo", TextBoxNome.Text);
+                cmd.Parameters.AddWithValue("@codigo", TextBoxCodigo.Text);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("preco");
                 sda.Fill(dt);
