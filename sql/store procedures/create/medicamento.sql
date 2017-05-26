@@ -25,7 +25,8 @@ AS
 	END
 
 	DECLARE @count int
-	SELECT @count = count(nome) FROM db.Medicamento WHERE nome=@nome
+	SELECT @count = count(nome) FROM db.Medicamento WHERE nome=@nome AND lab_id=@lab_id AND quantidade=@quantidade AND validade=@validade AND dose=@dose AND categoria_id=@categoria_id
+	AND tipo_id=@tipo_id AND codigo=@codigo AND PVP=@PVP AND preco=@preco AND IVA=@IVA 
 
 	IF @count != 0
 	BEGIN
