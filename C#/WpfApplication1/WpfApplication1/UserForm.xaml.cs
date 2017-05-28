@@ -59,7 +59,7 @@ namespace WpfApplication1
             }
 
             // listar medicamentos por numero perscricao
-            string CmdString = "SELECT * FROM db.udf_prescricao_utente(@num_prescricao)";
+            string CmdString = "SELECT * FROM db.udf_verificar_prescricao(@num_prescricao)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@num_prescricao", item_code);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
