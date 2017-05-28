@@ -81,6 +81,7 @@ namespace WpfApplication1
             {
                 DataRow dr = idx_page.dt_grid_produtos.Rows[i];
                 int price = (int)dr["Price"];
+                price = price * (int)dr["Qty"];
                 soma += price;
             }
 
