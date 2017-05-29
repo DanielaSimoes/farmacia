@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace WpfApplication1
 {
     /// <summary>
@@ -23,12 +24,21 @@ namespace WpfApplication1
     public partial class definicoes : Page
     {
         private SqlConnection con;
+        DataTable dt1;
 
         public definicoes()
         {
             InitializeComponent();
             con = ConnectionDB.getConnection();
         }
+
+        public definicoes(DataTable dt)
+        {
+            InitializeComponent();
+            con = ConnectionDB.getConnection();
+            dt1 = dt;
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -93,6 +103,20 @@ namespace WpfApplication1
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_del(object sender, RoutedEventArgs e)
+        {
+            string CmdString = "db.sp_delete_periodo";
+            SqlCommand cmd_member = new SqlCommand(CmdString, con);
+            cmd_member.CommandType = CommandType.StoredProcedure;
+
+            DataRow dr = dt1.Rows[0];
+
+            cmd_member.Parameters.AddWithValue("@ID_disponibilidade", (int)dr["ID_dispo"]);
+            cmd_member.Parameters.AddWithValue("@ID_periodo", (int)dr["ID_per"]);
+
+            periods.Items.Remove(periods.SelectedItem);
         }
     }
 }
