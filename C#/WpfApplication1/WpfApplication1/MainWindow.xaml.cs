@@ -56,6 +56,10 @@ namespace WpfApplication1
             try
             {
                 DataRow dr = dt.Rows[0];
+                Console.WriteLine(dt.Rows[0]);
+
+                definicoes_frame.periods.Items.Add(dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
+
                 definicoes_frame.begin.Content = (int)dr["Begin"] + "h";
                 definicoes_frame.end.Content = (int)dr["End"] + "h";
             }
