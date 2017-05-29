@@ -6,12 +6,9 @@ CREATE PROCEDURE db.sp_createPeriodo
 WITH ENCRYPTION
 AS
 	IF @inicio is null OR @fim is null OR @dia_da_semana is null
-
 	BEGIN
-
 		PRINT 'The begin, end, day of the week cannot be empty!'
 		RETURN
-
 	END
 
 	BEGIN TRANSACTION;

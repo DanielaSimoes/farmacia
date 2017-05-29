@@ -48,9 +48,8 @@ namespace WpfApplication1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             definicoes definicoes_frame = new definicoes();
-            string CmdString = "SELECT * FROM db.udf_period(@ID)";
+            string CmdString = "SELECT * FROM db.udf_period(DEFAULT)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
-            cmd.Parameters.AddWithValue("@ID", 1);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("period");
             sda.Fill(dt);

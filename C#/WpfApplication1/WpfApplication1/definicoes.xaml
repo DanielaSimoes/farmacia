@@ -30,11 +30,13 @@
                 <ComboBoxItem>Saturday</ComboBoxItem>
                 <ComboBoxItem>Sunday</ComboBoxItem>
             </ComboBox>
-            <Label Content="Begin:" HorizontalAlignment="Left" Margin="421,108,0,0" VerticalAlignment="Top" Height="36" Width="57" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <Label Content="Current Period" HorizontalAlignment="Left" Margin="421,72,-53,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
-            <Label Content="End:" HorizontalAlignment="Left" Margin="421,144,-53,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <Label Name="begin" Content="" HorizontalAlignment="Left" Margin="494,113,0,0" VerticalAlignment="Top" Height="31" Width="170" FontSize="14"/>
-            <Label Name="end" Content="" HorizontalAlignment="Left" Margin="494,148,0,0" VerticalAlignment="Top" Height="36" Width="170" RenderTransformOrigin="0.482,0.111" FontSize="14"/>
+            <Label Visibility="Hidden"  Content="Begin:" HorizontalAlignment="Left" Margin="403,109,0,0" VerticalAlignment="Top" Height="36" Width="57" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light" RenderTransformOrigin="-0.596,0.472"/>
+            <Label Content="Period" HorizontalAlignment="Left" Margin="403,68,0,0" VerticalAlignment="Top" Height="36" Width="75" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+            <Label Visibility="Hidden" Content="End:" HorizontalAlignment="Left" Margin="404,139,-36,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Label Name="begin" Content="" HorizontalAlignment="Left" Margin="494,108,0,0" VerticalAlignment="Top" Height="31" Width="170" FontSize="14"/>
+            <Label Name="end" Content="" HorizontalAlignment="Left" Margin="494,144,0,0" VerticalAlignment="Top" Height="36" Width="170" RenderTransformOrigin="0.482,0.111" FontSize="14"/>
+            <ComboBox x:Name="periods" SelectedIndex="0" HorizontalAlignment="Left" Margin="493,67,0,0" VerticalAlignment="Top" Width="171" SelectionChanged="menu_SelectionChanged" Height="36">
+            </ComboBox>
         </Grid>
     </Grid>
 </Page>

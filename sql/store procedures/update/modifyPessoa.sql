@@ -26,7 +26,7 @@ AS
 
 	BEGIN TRY
 
-        UPDATE  [farmacia].[db].[Pessoa] SET
+        UPDATE  db.Pessoa SET
                 nome = @nome,
                 dataNasc = @dataNasc,
                 email= @email,

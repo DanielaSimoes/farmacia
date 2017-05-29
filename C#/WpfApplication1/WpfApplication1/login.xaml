@@ -8,7 +8,7 @@
     <Grid>
         <Grid Margin="-109,10,127,13">
             <Label Content="Authentication" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Height="45" Width="198" FontSize="24" Background="{x:Null}" Foreground="#FF961212" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
-            <Label Content="Employee Number:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
+            <Label Content="Employee NIF:" HorizontalAlignment="Left" Margin="200,137,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
             <TextBox Name="TextBoxNIF" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="36" Margin="200,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" TextChanged="TextBox_TextChanged" RenderTransformOrigin="1,0.5"/>
             <PasswordBox Name="TextBoxPassword" VerticalContentAlignment="Center"  PasswordChar="*" Margin="200,241,200,237"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="200,214,0,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
