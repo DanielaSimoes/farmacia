@@ -59,7 +59,7 @@ namespace WpfApplication1
             }
 
             // listar medicamentos por numero perscricao
-            string CmdString = "SELECT * FROM db.udf_verificar_prescricao(@num_prescricao)";
+            string CmdString = "SELECT * FROM db.udf_pres_med_por_vender(@num_prescricao)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@num_prescricao", item_code);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -82,6 +82,21 @@ namespace WpfApplication1
                 DataRow dr = idx_page.dt_grid_produtos.Rows[i];
                 int price = (int)dr["Price"];
                 price = price * (int)dr["Qty"];
+
+                if((int)dr["Qty"]>1){
+                    int b = 1;
+
+                    for (; b < (int)dr["Qty"]; b++)
+                    {
+                        DataRow toInsert = idx_page.dt_grid_produtos.NewRow();
+                        toInsert.ItemArray = dr.ItemArray.Clone() as object[];
+                        toInsert["Qty"] = 1;
+                        idx_page.dt_grid_produtos.Rows.InsertAt(toInsert, idx_page.dt_grid_produtos.Rows.Count);
+                    }
+
+                    dr["Qty"] = 1;
+                }
+
                 soma += price;
             }
 
