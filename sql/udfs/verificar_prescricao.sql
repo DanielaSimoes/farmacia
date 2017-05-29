@@ -1,7 +1,8 @@
+DROP FUNCTION db.udf_verificar_prescricao
 CREATE FUNCTION db.udf_verificar_prescricao(@num_prescricao int)
 RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Validity" date, "Dose" int, "Units" int, "Category" int, "Type" int, "Code" int, "PVP" int, "Price" int, "IVA" int, "Prescription" int)
 
-WITH SCHEMABINDING, ENCRYPTION
+WITH SCHEMABINDING
 AS
 BEGIN
     DECLARE @count INT;
@@ -9,10 +10,14 @@ BEGIN
 	DECLARE @num_unidades INT;
     BEGIN
             -- verificar se ja esta vendido o medicamento
-            SELECT @count = count(*) FROM (SELECT Contem.nome_medicamento as nome, Contem.lab_NIPC as lab_NIPC, Contem.unidades as num_unidades FROM db.Contem
-					JOIN (db.TemMV JOIN db.Venda ON db.TemMV.num_venda=db.Venda.num_venda) ON db.TemMV.lab_NIPC=db.Contem.lab_NIPC
+            SELECT @count = count(*) FROM (SELECT Contem.nome_medicamento as nome, Contem.lab_NIPC as lab_NIPC, Contem.unidades as num_unidades FROM db.Contem) AS DATA
+					JOIN (db.TemMV JOIN db.Venda ON db.TemMV.num_venda=db.Venda.num_venda) ON db.TemMV.lab_NIPC=DATA.lab_NIPC
                     JOIN db.Prescricao ON db.Venda.num_venda=db.Prescricao.num_venda
-                    WHERE db.Prescricao.num_prescricao=@num_prescricao AND TemMV.nome=Contem.nome_medicamento AND TemMV.lab_NIPC=db.Contem.lab_NIPC) AS cont;
+                    WHERE db.Prescricao.data_processa=NULL AND db.Prescricao.num_prescricao=@num_prescricao;
+
+			--SELECT * FROM db.Contem JOIN db.TemMV ON db.TemMV.lab_NIPC=db.Contem.lab_NIPC
+			--SELECT * FROM db.TemMV JOIN db.Venda ON db.TemMV.num_venda=db.Venda.num_venda
+			--SELECT * FROM db.Prescricao JOIN db.Venda ON db.Venda.num_venda=db.Prescricao.num_venda
 
             IF @count = 0
                 BEGIN
@@ -47,3 +52,5 @@ BEGIN
     END;
 RETURN;
 END;
+
+SELECT * FROM db.udf_verificar_prescricao(14)
