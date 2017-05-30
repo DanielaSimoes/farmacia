@@ -1,29 +1,59 @@
-use farmacia;
+--Pessoa
+INSERT INTO db.pessoa VALUES (55771105, 'Vasco Santos', '1998/4/4', 'vasco@ua.pt', 919191919);
+INSERT INTO db.pessoa VALUES (55771103, 'Carla Santos', '1993/5/6', 'cs@ua.pt', 919191913);
+INSERT INTO db.pessoa VALUES (55771102, 'Albertino Fonseca', '1970/4/4', null, 919191000);
+INSERT INTO db.pessoa VALUES (55741105, 'Eduardo Silva', '1992/4/6', 'eduardo@ua.pt', 919191918);
 
-INSERT INTO db.laboratorio VALUES (11111111, 'dani', 'lab', 'aveiro')
-INSERT INTO db.farmacia VALUES (1, null, null, 'ala', 'aveiro', 'email')
-INSERT INTO db.categoria VALUES (1, 'categoria');
-INSERT INTO db.tipo VALUES (1, 'tipo');
-INSERT INTO db.Medicamento VALUES ('benuron', 11111111, 2, '2018/7/7', 100, 15, 1, 1, 1010);
-INSERT INTO db.Medicamento VALUES ('aspirina', 11111111, 2, '2018/7/7', 100, 15, 1, 1, 2020);
+--Funcionário
+INSERT INTO db.Funcionario VALUES ('func', 1, 'pass', 55771105);
 
-INSERT INTO db.pessoa VALUES (1999, 'danna', '1998/4/4', 'email', 9191)
-INSERT INTO db.pessoa VALUES (1989, 'danna', null, null, null);
-INSERT INTO db.pessoa VALUES (2000, 'func', null, null, null);
+-- MEDICO
+INSERT INTO db.Medico VALUES ('Ortopedia', 123, 55771103);
 
-INSERT INTO db.utente VALUES ('agueda', 1, 1999);
-INSERT INTO db.Medico VALUES ('ortopedia', 12, 1989);
-INSERT INTO db.Funcionario VALUES ('func', 56, 'pass', 2000);
+--Utente
+INSERT INTO db.utente VALUES ('Agueda', 1, 55771102);
+INSERT INTO db.utente VALUES ('Aveiro', 2, 55741105);
 
-INSERT INTO db.Prescricao VALUES (10, 10, '2017/1/20', 'Agueda', 5, '2018/2/10', 912188210, 1989, 1999, 1, null, null)
+--Laboratório
+INSERT INTO db.laboratorio VALUES (11111111, 'lab@hotmail.com', 'Lab1', 'Aveiro');
+INSERT INTO db.laboratorio VALUES (11111112, 'lab2@hotmail.com', 'Lab2', 'Viseu');
+INSERT INTO db.laboratorio VALUES (11111113, 'lab3@hotmail.com', 'Lab3', 'Guarda');
 
-INSERT INTO db.Vende VALUES (20, 21, 23, 'aspirina', 1, 11111111)
-INSERT INTO db.Vende VALUES (19, 20, 23, 'benuron', 1, 11111111)
+--Categoria
+INSERT INTO db.categoria VALUES (1, 'Anti-inflamatório');
+INSERT INTO db.categoria VALUES (2, 'Analgésico');
+INSERT INTO db.categoria VALUES (3, 'Suplemento Alimentar');
 
-INSERT INTO db.Contem VALUES ('as', 'teste', 1, 'teste', 10, 'benuron', 11111111,1)
-INSERT INTO db.Contem VALUES ('as', 'teste', 2, 'teste', 10, 'aspirina', 11111111,1)
+--Tipo
+INSERT INTO db.tipo VALUES (1, 'Creme');
+INSERT INTO db.tipo VALUES (2, 'Comprimido');
+INSERT INTO db.tipo VALUES (3, 'Cápsula');
+INSERT INTO db.tipo VALUES (4, 'Ampôla');
 
-INSERT INTO db.Periodo VALUES (8, 19, 'Monday',1);
+--Periodo
+INSERT INTO db.Periodo VALUES (1, 8, 19, 'Monday');
+INSERT INTO db.Periodo VALUES (2, 19, 23, 'Tuesday');
+
+--Disponibilidade
+INSERT INTO db.Disponibilidade VALUES (2, 'Available');
+INSERT INTO db.Disponibilidade VALUES (1, 'Unavailable');
+
+--TemPD
+INSERT INTO db.TemPD VALUES(1,2);
+INSERT INTO db.TemPD VALUES(2,2);
+
+--Medicamento
+INSERT INTO db.Medicamento VALUES ('Brufen', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 1010, 2, 4, 5);
+INSERT INTO db.Medicamento VALUES ('Aspirina', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 2020, 3, 5, 5);
+INSERT INTO db.Medicamento VALUES ('Ben-u-ron', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 2021, 2, 6, 5);
+
+--Prescrição
+INSERT INTO db.Prescricao VALUES (1, 10, '2017/1/20', 'Agueda', 5, '2018/2/10', 912188210, 55771103, 55771102, null, null);
+
+--Contém
+INSERT INTO db.Contem VALUES ('Comprimido', 'Comprimido', 1, '1 por dia', 1, 'Brufen', 11111111,1);
+INSERT INTO db.Contem VALUES ('Comprimido', 'Comprimido', 1, '2 por dia', 1, 'Aspirina', 11111111,1);
+
 
 
 
