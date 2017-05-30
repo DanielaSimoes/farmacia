@@ -52,19 +52,16 @@ namespace WpfApplication1
             string CmdString = "SELECT * FROM db.udf_period(DEFAULT)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            
             sda.Fill(dt2);
-            try
-            {
-                DataRow dr = dt2.Rows[0];
 
+
+            var len = dt2.Rows.Count;
+            for (int i = 0; i <= len - 1; i++)
+            {
+                DataRow dr = dt2.Rows[i];
                 definicoes_frame.periods.Items.Add(dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
             }
-            catch
-            {
 
-            }
-            
             this.NavigateTo(definicoes_frame);
 
         }
