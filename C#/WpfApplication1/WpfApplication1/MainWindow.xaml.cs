@@ -127,7 +127,7 @@ namespace WpfApplication1
             }
             Console.WriteLine(selectedText);
 
-            if (selectedText.Equals("Add Medication"))
+            if (selectedText.Equals("Add Lot"))
             {
                 criarMedicamento criarMeds_frame = new criarMedicamento();
                 this.NavigateTo(criarMeds_frame);
