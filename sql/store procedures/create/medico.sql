@@ -50,7 +50,7 @@ AS
 
 		BEGIN TRY
 
-			INSERT INTO [master].[db].[Pessoa] VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
+			INSERT INTO db.Pessoa VALUES (@NIF, @nome, @dataNasc, @email, @telefone)
 
 			COMMIT TRANSACTION;
 
