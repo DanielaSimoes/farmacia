@@ -1,4 +1,4 @@
-DROP FUNCTION db.udf_pres_med_por_vender
+--DROP FUNCTION db.udf_pres_med_por_vender
 CREATE FUNCTION db.udf_pres_med_por_vender(@num_prescricao int)
 RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Validity" date, "Dose" int, "Category" int, "Type" int, "Code" int, "PVP" int, "Price" int, "IVA" int, "Prescription" int)
 
