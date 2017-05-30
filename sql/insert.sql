@@ -18,6 +18,10 @@ INSERT INTO db.utente VALUES ('Aveiro', 2, 55741105);
 INSERT INTO db.laboratorio VALUES (11111111, 'lab@hotmail.com', 'Lab1', 'Aveiro');
 INSERT INTO db.laboratorio VALUES (11111112, 'lab2@hotmail.com', 'Lab2', 'Viseu');
 INSERT INTO db.laboratorio VALUES (11111113, 'lab3@hotmail.com', 'Lab3', 'Guarda');
+INSERT INTO db.laboratorio VALUES (11111114, 'lab4@hotmail.com', 'Lab4', 'Guarda');
+INSERT INTO db.laboratorio VALUES (11111115, 'lab5@hotmail.com', 'Lab5', 'Guarda');
+INSERT INTO db.laboratorio VALUES (11111116, 'lab6@hotmail.com', 'Lab6', 'Guarda');
+
 
 --Categoria
 INSERT INTO db.categoria VALUES (1, 'Anti-inflamatório');
@@ -43,9 +47,9 @@ INSERT INTO db.TemPD VALUES(1,2);
 INSERT INTO db.TemPD VALUES(2,2);
 
 --Medicamento
-INSERT INTO db.Medicamento VALUES ('Brufen', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 1010, 2, 4, 5);
-INSERT INTO db.Medicamento VALUES ('Aspirina', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 2020, 3, 5, 5);
-INSERT INTO db.Medicamento VALUES ('Ben-u-ron', 11111111, 100, '2018/7/7', 2, 100, 2, 2, 2021, 2, 6, 5);
+INSERT INTO db.Medicamento VALUES ('Brufen', 11111114, 100, '2018/7/7', 2, 100, 2, 2, 1010, 2, 4, 5);
+INSERT INTO db.Medicamento VALUES ('Aspirina', 11111115, 100, '2018/7/7', 2, 100, 2, 2, 2020, 3, 5, 5);
+INSERT INTO db.Medicamento VALUES ('Ben-u-ron', 11111116, 100, '2018/7/7', 2, 100, 2, 2, 2021, 2, 6, 5);
 
 --Prescrição
 INSERT INTO db.Prescricao VALUES (1, 10, '2017/1/20', 'Agueda', 5, '2018/2/10', 912188210, 55771103, 55771102, null, null);
