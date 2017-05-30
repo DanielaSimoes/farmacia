@@ -1,6 +1,6 @@
+use farm
 go
 CREATE SCHEMA db;
-
 go
 CREATE TABLE db.Prescricao(
 		num_prescricao			     INT NOT NULL,
@@ -166,6 +166,17 @@ CREATE TABLE db.TemMV(
 		PRIMARY KEY(nome,num_venda,lab_NIPC)
 );
 
+CREATE TABLE db.Lotes(
+		id				INT IDENTITY NOT NULL,
+		nome_med		VARCHAR(30) NOT NULL,
+		lab_id			INT NOT NULL,
+		quantidade		INT NOT NULL,
+		validade		DATE NOT NULL
+
+		PRIMARY KEY(id)
+
+);
+
 
 -- FOREIGN KEY:
 
@@ -214,5 +225,7 @@ ALTER TABLE db.TemMV ADD CONSTRAINT FORME FOREIGN KEY(nome, lab_NIPC) REFERENCES
 ALTER TABLE db.TemMV ADD CONSTRAINT NV FOREIGN KEY(num_venda) REFERENCES db.Venda(num_venda) ON UPDATE NO ACTION;
 
 
+-- LOTES
+ALTER TABLE db.Lotes ADD CONSTRAINT lotes1 FOREIGN KEY(nome_med, lab_id) REFERENCES db.Medicamento(nome, lab_id) ON UPDATE NO ACTION;
 
 
