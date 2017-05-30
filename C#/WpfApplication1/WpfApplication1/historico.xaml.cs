@@ -119,6 +119,14 @@ namespace WpfApplication1
                 DataTable dt = new DataTable("det");
                 sda.Fill(dt);
                 det_presc det = new det_presc(dt, this);
+
+                var len = dt.Rows.Count;
+                for (int i = 0; i <= len - 1; i++)
+                {
+                DataRow dr = dt.Rows[i];
+                det.combo.Items.Add(dr["Name"] + " ");
+                }
+
                 det.Show();
             }
         }
