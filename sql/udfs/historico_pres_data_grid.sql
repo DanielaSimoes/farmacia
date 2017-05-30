@@ -8,12 +8,12 @@ BEGIN
 	IF (@nif is null)
 		BEGIN
 			INSERT @table SELECT Prescricao.num_prescricao, Prescricao.codigo_acesso_dispensa, Prescricao.data, Prescricao.local, Prescricao.codigo_opcao, Prescricao.validade, Prescricao.telefone, Prescricao.medico_NIF, Prescricao.utente_NIF, Prescricao.data_processa, Prescricao.num_venda
-			FROM db.Prescricao WHERE db.Prescricao.data_processa = NULL;
+			FROM db.Prescricao WHERE db.Prescricao.data_processa is not NULL;
 		END;
 	ELSE
 		BEGIN
             INSERT @table SELECT Prescricao.num_prescricao, Prescricao.codigo_acesso_dispensa, Prescricao.data, Prescricao.local, Prescricao.codigo_opcao, Prescricao.validade, Prescricao.telefone, Prescricao.medico_NIF, Prescricao.utente_NIF, Prescricao.data_processa, Prescricao.num_venda
-            FROM db.Prescricao WHERE db.Prescricao.utente_NIF = @nif AND db.Prescricao.data_processa = NULL;
+            FROM db.Prescricao WHERE db.Prescricao.utente_NIF = @nif AND db.Prescricao.data_processa is not NULL;
 		END;
 RETURN;
 END;

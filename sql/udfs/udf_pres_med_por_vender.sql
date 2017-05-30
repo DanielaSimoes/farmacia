@@ -19,7 +19,7 @@ BEGIN
 	EXCEPT
 	(SELECT  db.TemMV.nome as 'name', db.TemMV.lab_NIPC FROM (db.Prescricao JOIN db.Venda ON Prescricao.num_venda = db.Venda.num_venda) JOIN db.TemMV ON db.Prescricao.num_venda=db.TemMV.num_venda WHERE db.Prescricao.num_prescricao=@num_prescricao)
 	) C JOIN (SELECT Contem.nome_medicamento as 'name', Contem.lab_NIPC, Contem.unidades FROM db.Prescricao JOIN db.Contem ON db.Prescricao.num_prescricao=db.Contem.num_prescricao WHERE db.Prescricao.num_prescricao=@num_prescricao) AS D ON C.name = D.name AND C.lab_NIPC = D.lab_NIPC
-	) AS E ON db.Medicamento.nome = E.name AND db.Medicamento.lab_id=E.lab_NIPC)
+	) AS E ON db.Medicamento.nome = E.name AND db.Medicamento.lab_id=E.lab_NIPC) WHERE E.Qty > 0;
 RETURN
 END;
 
