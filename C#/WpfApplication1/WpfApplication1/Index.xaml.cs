@@ -335,7 +335,7 @@ namespace WpfApplication1
                 
                 try
                 {
-                    pres = (int)dr.ItemArray[11];
+                    pres = (int)dr.ItemArray[10];
                     cmd.Parameters.AddWithValue("@num_prescricao", pres);
                 }
                 catch

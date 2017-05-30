@@ -58,6 +58,10 @@ INSERT INTO db.Prescricao VALUES (1, 10, '2017/1/20', 'Agueda', 5, '2018/2/10', 
 INSERT INTO db.Contem VALUES ('Comprimido', 'Comprimido', 1, '1 por dia', 1, 'Brufen', 11111111,1);
 INSERT INTO db.Contem VALUES ('Comprimido', 'Comprimido', 1, '2 por dia', 1, 'Aspirina', 11111111,1);
 
+-- Lotes
+INSERT INTO db.Lotes VALUES('Aspirina',11111111, 100, '2019/7/7');
+INSERT INTO db.Lotes VALUES('Brufen',11111111, 100, '2019/7/7');
+
 
 
 
