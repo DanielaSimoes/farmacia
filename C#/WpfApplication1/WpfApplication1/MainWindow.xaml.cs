@@ -27,6 +27,7 @@ namespace WpfApplication1
         private SqlConnection con;
         SqlCommandBuilder cmb;
         DataTable dt = new DataTable("prescricao");
+        DataTable dt2 = new DataTable("period");
         SqlCommand cmd;
         SqlDataAdapter sda;
          
@@ -47,21 +48,17 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            definicoes definicoes_frame = new definicoes();
+            definicoes definicoes_frame = new definicoes(dt2);
             string CmdString = "SELECT * FROM db.udf_period(DEFAULT)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable("period");
-            sda.Fill(dt);
+            
+            sda.Fill(dt2);
             try
             {
-                DataRow dr = dt.Rows[0];
-                Console.WriteLine(dt.Rows[0]);
+                DataRow dr = dt2.Rows[0];
 
                 definicoes_frame.periods.Items.Add(dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
-
-                definicoes_frame.begin.Content = (int)dr["Begin"] + "h";
-                definicoes_frame.end.Content = (int)dr["End"] + "h";
             }
             catch
             {

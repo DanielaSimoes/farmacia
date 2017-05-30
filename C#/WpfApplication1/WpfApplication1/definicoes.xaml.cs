@@ -111,10 +111,23 @@ namespace WpfApplication1
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
 
-            DataRow dr = dt1.Rows[0];
+            String selectedItem = periods.SelectedIndex.ToString();
+            DataRow dr = dt1.Rows[Int32.Parse(selectedItem)];
 
             cmd_member.Parameters.AddWithValue("@ID_disponibilidade", (int)dr["ID_dispo"]);
             cmd_member.Parameters.AddWithValue("@ID_periodo", (int)dr["ID_per"]);
+            
+            try
+            {
+                con.Open();
+                cmd_member.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+                con.Close();
+            }
 
             periods.Items.Remove(periods.SelectedItem);
         }

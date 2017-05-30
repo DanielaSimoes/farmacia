@@ -33,10 +33,9 @@
             <Label Visibility="Hidden"  Content="Begin:" HorizontalAlignment="Left" Margin="403,109,0,0" VerticalAlignment="Top" Height="36" Width="57" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light" RenderTransformOrigin="-0.596,0.472"/>
             <Label Content="Period" HorizontalAlignment="Left" Margin="403,68,0,0" VerticalAlignment="Top" Height="36" Width="75" FontSize="16" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
             <Label Visibility="Hidden" Content="End:" HorizontalAlignment="Left" Margin="404,139,-36,0" VerticalAlignment="Top" Height="36" Width="331" FontSize="16" Background="{x:Null}" Foreground="Black" FontFamily="Microsoft YaHei Light"/>
-            <Label Name="begin" Content="" HorizontalAlignment="Left" Margin="494,108,0,0" VerticalAlignment="Top" Height="31" Width="170" FontSize="14"/>
-            <Label Name="end" Content="" HorizontalAlignment="Left" Margin="494,144,0,0" VerticalAlignment="Top" Height="36" Width="170" RenderTransformOrigin="0.482,0.111" FontSize="14"/>
-            <ComboBox x:Name="periods" SelectedIndex="0" HorizontalAlignment="Left" Margin="493,67,0,0" VerticalAlignment="Top" Width="171" SelectionChanged="menu_SelectionChanged" Height="36">
+            <ComboBox Name="periods" SelectedIndex="0" HorizontalAlignment="Left" Margin="493,67,0,0" VerticalAlignment="Top" Width="171" SelectionChanged="menu_SelectionChanged" Height="36">
             </ComboBox>
+            <Button Background="#00cc66" Content="Delete" HorizontalAlignment="Left" Margin="590,121,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-1.426,0.437" Click="Button_Click_del"/>
         </Grid>
     </Grid>
 </Page>
