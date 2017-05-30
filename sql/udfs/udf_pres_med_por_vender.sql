@@ -1,12 +1,12 @@
 --DROP FUNCTION db.udf_pres_med_por_vender
 CREATE FUNCTION db.udf_pres_med_por_vender(@num_prescricao int)
-RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Validity" date, "Dose" int, "Category" int, "Type" int, "Code" int, "PVP" int, "Price" int, "IVA" int, "Prescription" int)
+RETURNS @table TABLE ("Name" varchar(30), "Lab" int, "Qty" int, "Dose" int, "Category" int, "Type" int, "Code" int, "PVP" int, "Price" int, "IVA" int, "Prescription" int)
 
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
 	INSERT INTO @table
-	SELECT Medicamento.nome, Medicamento.lab_id, E.Qty, Medicamento.validade, Medicamento.dose, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Medicamento.PVP, Medicamento.preco, Medicamento.IVA, @num_prescricao FROM
+	SELECT Medicamento.nome, Medicamento.lab_id, E.Qty, Medicamento.dose, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Medicamento.PVP, Medicamento.preco, Medicamento.IVA, @num_prescricao FROM
 	(db.Medicamento JOIN
 	(
 	SELECT A.name, A.lab_NIPC, (A.unidades-B.unidades) AS Qty FROM
