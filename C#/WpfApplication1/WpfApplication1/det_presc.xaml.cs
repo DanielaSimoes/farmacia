@@ -50,7 +50,8 @@ namespace WpfApplication1
             his_page = his;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String selectedItem = combo.SelectedIndex.ToString();
             DataRow dr = dt1.Rows[Int32.Parse(selectedItem)];
@@ -63,7 +64,6 @@ namespace WpfApplication1
 
             con = ConnectionDB.getConnection();
             his_page = his1;
-
         }
 
     }
