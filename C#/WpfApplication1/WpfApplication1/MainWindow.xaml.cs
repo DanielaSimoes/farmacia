@@ -59,7 +59,7 @@ namespace WpfApplication1
             for (int i = 0; i <= len - 1; i++)
             {
                 DataRow dr = dt2.Rows[i];
-                definicoes_frame.periods.Items.Add(dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
+                definicoes_frame.periods.Items.Add(dr["dia"] + " " + dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
             }
 
             this.NavigateTo(definicoes_frame);

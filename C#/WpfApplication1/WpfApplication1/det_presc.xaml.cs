@@ -42,7 +42,6 @@ namespace WpfApplication1
 
             name.Content = (string)dr["Name"];
             lab.Content = (int)dr["Lab"];
-            qty.Content = (int)dr["Qty"];
             code.Content = (int)dr["Code"];
             price.Content = (int)dr["Price"] + "€";
 
@@ -58,7 +57,6 @@ namespace WpfApplication1
 
             name.Content = (string)dr["Name"];
             lab.Content = (int)dr["Lab"];
-            qty.Content = (int)dr["Qty"];
             code.Content = (int)dr["Code"];
             price.Content = (int)dr["Price"] + "€";
 
