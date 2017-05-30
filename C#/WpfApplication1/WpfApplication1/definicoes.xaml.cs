@@ -55,13 +55,15 @@ namespace WpfApplication1
                 MessageBox.Show("The end must be an Integer!");
                 return;
             }
-
+            int i = 0;
             string CmdString = "db.sp_createPeriodo";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
+            cmd_member.Parameters.AddWithValue("@id_periodo", i++);
             cmd_member.Parameters.AddWithValue("@inicio", inicio_int);
             cmd_member.Parameters.AddWithValue("@fim", fim_int);
             cmd_member.Parameters.AddWithValue("@dia_da_semana", dia.Text);
+            cmd_member.Parameters.AddWithValue("@id_disponibilidade", disponibilidade.SelectedIndex+1);
          
             try
             {
@@ -76,23 +78,6 @@ namespace WpfApplication1
                 MessageBox.Show(exc.Message);
             }
 
-            CmdString = "db.sp_createDisponibilidade";
-            cmd_member = new SqlCommand(CmdString, con);
-            cmd_member.CommandType = CommandType.StoredProcedure;
-            cmd_member.Parameters.AddWithValue("@disponibilidade", disponibilidade.Text);
-
-            try
-            {
-                con.Open();
-                cmd_member.ExecuteNonQuery();
-               
-                con.Close();
-            }
-            catch (Exception exc)
-            {
-                con.Close();
-                MessageBox.Show(exc.Message);
-            }
         }
 
         private void Button_Click1(object sender, RoutedEventArgs e)
