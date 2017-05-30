@@ -5,6 +5,6 @@ WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
 		INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, 1, Medicamento.dose, Medicamento.categoria_id, Medicamento.tipo_id, Medicamento.codigo, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA, NULL
-		FROM db.Medicamento WHERE Medicamento.unidades > 0;
+		FROM db.Medicamento JOIN db.Lotes ON db.Medicamento.nome=db.Lotes.nome_med AND db.Medicamento.lab_id=db.Lotes.lab_id WHERE Lotes.quantidade > 0;
 RETURN;
 END;

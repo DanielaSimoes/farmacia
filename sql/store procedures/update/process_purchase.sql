@@ -26,16 +26,6 @@ AS
 
 	DECLARE @units int
 
-	-- verificar se existe stock
-	SELECT @units = unidades FROM db.medicamento WHERE codigo = @codigo;
-
-	IF @units = 0
-	BEGIN
-		ROLLBACK TRANSACTION
-		RAISERROR ('No stock!', 14, 1)
-		RETURN
-	END
-
 	-- se tiver prescription, verificar o numero de Prescription existe
 
 	DECLARE @num int, @med int, @unidades_med int, @lab_NIPC int, @num_unidades_vendidas int, @unidades_em_falta int, @NIF int, @num_venda int
@@ -46,6 +36,16 @@ AS
 	SET @num_unidades_vendidas=0
 	SELECT @nome = nome FROM db.Medicamento WHERE codigo = @codigo;
 	SELECT @lab_NIPC = lab_id FROM db.Medicamento WHERE codigo = @codigo;
+
+	-- verificar se existe stock
+	SELECT @units = COUNT(Lotes.id) FROM db.Lotes WHERE nome_med = @nome AND lab_id = @lab_NIPC AND quantidade > 0;
+
+	IF @units = 0
+	BEGIN
+		ROLLBACK TRANSACTION
+		RAISERROR ('No stock!', 14, 1)
+		RETURN
+	END
 
 	IF @num_prescricao is not null
 	BEGIN
