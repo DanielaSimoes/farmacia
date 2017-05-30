@@ -64,7 +64,7 @@ namespace WpfApplication1
 
         private void FillGridProdutos(int codigo)
         {
-            string CmdString = "SELECT * FROM db.udf_stock_data_code(@codigo)";
+            string CmdString = "SELECT * FROM db.udf_search_med(@codigo)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@codigo", codigo);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -215,7 +215,7 @@ namespace WpfApplication1
                     return;
                 }
 
-                string CmdString = "SELECT * FROM db.udf_stock_data_code(@codigo)";
+                string CmdString = "SELECT * FROM db.udf_search_med(@codigo)";
                 cmd = new SqlCommand(CmdString, con);
                 sda = new SqlDataAdapter(cmd);
                 cmd.Parameters.AddWithValue("@codigo", cod);
@@ -301,7 +301,7 @@ namespace WpfApplication1
             {
                 DataRow dr = dt_grid_produtos.Rows[i];
                 int price = (int)dr["Price"];
-                price = price * (int)dr["Qty"];
+                //price = price * (int)dr["Qty"];
                 soma += price;
             }
 
@@ -408,7 +408,14 @@ namespace WpfApplication1
             }
 
             // search for points and make the count
-            int pt = (int) points.Content;
+            int pt = 0;
+            try
+            {
+                pt = (int)points.Content;
+            }
+            catch
+            {
+            }
             points.Content = "0";
 
 

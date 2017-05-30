@@ -3,7 +3,6 @@ RETURNS @table TABLE ("Prescription number" int, "Date" date, "Code" int, "Expir
 
 WITH SCHEMABINDING, ENCRYPTION
 AS
-
 BEGIN
 		INSERT @table SELECT Prescricao.num_prescricao, Prescricao.data, Prescricao.codigo_acesso_dispensa, Prescricao.validade
 		FROM db.Prescricao WHERE db.Prescricao.utente_NIF = @utente_NIF AND db.Prescricao.data_processa is NULL;

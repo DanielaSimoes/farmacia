@@ -12,11 +12,8 @@ BEGIN
 		END;
 	ELSE
 		BEGIN
-		IF (@codigo is not null)
-			BEGIN
-				INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
-				FROM db.Medicamento WHERE db.Medicamento.codigo = @codigo;
-			END;
+			INSERT @table SELECT Medicamento.nome, Medicamento.lab_id, Medicamento.PVP, Medicamento.Preco, Medicamento.IVA
+			FROM db.Medicamento WHERE db.Medicamento.codigo = @codigo;
 		END;
 RETURN;
 END;
