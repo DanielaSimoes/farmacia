@@ -16,7 +16,7 @@ AS
 
 	BEGIN TRY
 
-		INSERT INTO [farmacia].[db].[Disponibilidade] ([disponibilidade])
+		INSERT INTO db.Disponibilidade ([disponibilidade])
 		VALUES (@disponibilidade)
 
 	COMMIT TRANSACTION;

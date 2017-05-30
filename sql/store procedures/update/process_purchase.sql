@@ -116,7 +116,7 @@ AS
 			END
 
 		-- ADICIONAR A DATA
-		SELECT @count=count(*) FROM (SELECT Contem.nome_medicamento as 'name', Contem.lab_NIPC, Contem.unidades FROM [farmacia].[db].[Prescricao] JOIN db.Contem ON db.Prescricao.num_prescricao=db.Contem.num_prescricao WHERE db.Prescricao.num_prescricao=@num_prescricao EXCEPT SELECT  db.TemMV.nome, db.TemMV.lab_NIPC, db.TemMV.num_unidades as 'unidades' FROM (db.Prescricao JOIN db.Venda ON Prescricao.num_venda = db.Venda.num_venda) JOIN db.TemMV ON db.Prescricao.num_venda=db.TemMV.num_venda WHERE db.Prescricao.num_prescricao=@num_prescricao) a
+		SELECT @count=count(*) FROM (SELECT Contem.nome_medicamento as 'name', Contem.lab_NIPC, Contem.unidades FROM db.Prescricao JOIN db.Contem ON db.Prescricao.num_prescricao=db.Contem.num_prescricao WHERE db.Prescricao.num_prescricao=@num_prescricao EXCEPT SELECT  db.TemMV.nome, db.TemMV.lab_NIPC, db.TemMV.num_unidades as 'unidades' FROM (db.Prescricao JOIN db.Venda ON Prescricao.num_venda = db.Venda.num_venda) JOIN db.TemMV ON db.Prescricao.num_venda=db.TemMV.num_venda WHERE db.Prescricao.num_prescricao=@num_prescricao) a
 
 		IF @count = 0
 		BEGIN
