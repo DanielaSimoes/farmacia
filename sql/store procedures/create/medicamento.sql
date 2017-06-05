@@ -2,10 +2,7 @@ CREATE PROCEDURE db.sp_createMedicamento
 
 				@nome                VARCHAR(30),
 				@lab_id              INT,
-				@quantidade          INT,
-				@validade            DATE,
 				@dose                INT,
-				@unidades            INT,
 				@categoria_id        INT,
 				@tipo_id             INT,
 				@codigo				 INT,
@@ -15,7 +12,7 @@ CREATE PROCEDURE db.sp_createMedicamento
 
 WITH ENCRYPTION
 AS
-	IF @quantidade is null OR @unidades is null OR @categoria_id is null OR @tipo_id is null OR @codigo is null OR @preco is null OR @PVP is null OR @IVA is null
+	IF @categoria_id is null OR @tipo_id is null OR @codigo is null OR @preco is null OR @PVP is null OR @IVA is null
 
 	BEGIN
 
@@ -23,26 +20,13 @@ AS
 		RETURN
 
 	END
-
-	DECLARE @count int
-	SELECT @count = count(nome) FROM db.Medicamento WHERE nome=@nome AND lab_id=@lab_id AND quantidade=@quantidade AND validade=@validade AND dose=@dose AND categoria_id=@categoria_id
-	AND tipo_id=@tipo_id AND codigo=@codigo AND PVP=@PVP AND preco=@preco AND IVA=@IVA 
-
-	IF @count != 0
-	BEGIN
-		UPDATE db.Medicamento SET
-		unidades=unidades + @unidades
-		WHERE nome=@nome AND codigo=@codigo
-	END
-
-	ELSE
 	BEGIN
 		BEGIN TRANSACTION;
 
 		BEGIN TRY
 
 			INSERT INTO db.Medicamento
-			VALUES (@nome, @lab_id, @quantidade, @validade, @dose, @unidades, @categoria_id, @tipo_id, @codigo, @PVP, @preco, @IVA)
+			VALUES (@nome, @lab_id, @dose, @categoria_id, @tipo_id, @codigo, @PVP, @preco, @IVA)
 
 		COMMIT TRANSACTION;
 

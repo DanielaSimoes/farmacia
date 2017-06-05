@@ -32,17 +32,22 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int idLab_int, codigo_int, quantidade_int, categoria_int, tipo_int, dose_int, uni_int, pvp_int, price_int, iva_int;
+            int idLab_int, codigo_int, categoria_int, tipo_int, dose_int, uni_int, pvp_int, price_int, iva_int;
 
            
             string CmdString = "db.sp_createMedicamento";
             SqlCommand cmd_member = new SqlCommand(CmdString, con);
             cmd_member.CommandType = CommandType.StoredProcedure;
+
+            string CmdString1 = "db.sp_createLote";
+            SqlCommand cmd_member1 = new SqlCommand(CmdString1, con);
+            cmd_member1.CommandType = CommandType.StoredProcedure;
             
 
             try
             {
                 cmd_member.Parameters.AddWithValue("@nome", nome.Text);
+                cmd_member1.Parameters.AddWithValue("@nome_med", nome.Text);
             }
             catch (Exception)
             {
@@ -53,6 +58,7 @@ namespace WpfApplication1
                 if (Int32.TryParse(ID_lab.Text, out idLab_int))
                 {
                     cmd_member.Parameters.AddWithValue("@lab_id", idLab_int);
+                    cmd_member1.Parameters.AddWithValue("@lab_id", idLab_int);
                 }
             }
             catch (Exception)
@@ -103,19 +109,6 @@ namespace WpfApplication1
 
             try
             {
-                if (Int32.TryParse(quantidade.Text, out quantidade_int))
-                {
-                    cmd_member.Parameters.AddWithValue("@quantidade", quantidade_int);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("The amount must be an Integer!");
-                return;
-            }
-
-            try
-            {
                 if (Int32.TryParse(dose.Text, out dose_int))
                 {
                     cmd_member.Parameters.AddWithValue("@dose", dose_int);
@@ -131,12 +124,12 @@ namespace WpfApplication1
             {
                 if (Int32.TryParse(unidades.Text, out uni_int))
                 {
-                    cmd_member.Parameters.AddWithValue("@unidades", uni_int);
+                    cmd_member1.Parameters.AddWithValue("@quantidade", uni_int);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("The units must be an Integer!");
+                MessageBox.Show("The quantity must be an Integer!");
                 return;
             }
 
@@ -186,7 +179,7 @@ namespace WpfApplication1
                 if (DateTime.TryParse(data.Text, out dt))
                 {
                     
-                    cmd_member.Parameters.AddWithValue("@validade", dt);
+                    cmd_member1.Parameters.AddWithValue("@validade", dt);
                 }
             }
             
@@ -200,6 +193,7 @@ namespace WpfApplication1
             {
                 con.Open();
                 cmd_member.ExecuteNonQuery();
+                cmd_member1.ExecuteNonQuery();
                 MessageBox.Show("Medication Added!");
                 con.Close();
             }
