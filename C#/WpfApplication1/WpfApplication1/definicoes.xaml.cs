@@ -25,11 +25,13 @@ namespace WpfApplication1
     {
         private SqlConnection con;
         DataTable dt1;
+        DataTable dt2 = new DataTable("period");
 
         public definicoes()
         {
             InitializeComponent();
             con = ConnectionDB.getConnection();
+         
 
         }
 
@@ -38,6 +40,18 @@ namespace WpfApplication1
             InitializeComponent();
             con = ConnectionDB.getConnection();
             dt1 = dt;
+            string CmdString = "SELECT * FROM db.udf_period(DEFAULT)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt2);
+
+
+            var len = dt2.Rows.Count;
+            for (int i = 0; i <= len - 1; i++)
+            {
+                DataRow dr = dt2.Rows[i];
+                periods.Items.Add(dr["dia"] + " " + dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

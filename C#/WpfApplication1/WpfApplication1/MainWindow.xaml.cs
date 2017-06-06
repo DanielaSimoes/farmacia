@@ -49,19 +49,7 @@ namespace WpfApplication1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             definicoes definicoes_frame = new definicoes(dt2);
-            string CmdString = "SELECT * FROM db.udf_period(DEFAULT)";
-            SqlCommand cmd = new SqlCommand(CmdString, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt2);
-
-
-            var len = dt2.Rows.Count;
-            for (int i = 0; i <= len - 1; i++)
-            {
-                DataRow dr = dt2.Rows[i];
-                definicoes_frame.periods.Items.Add(dr["dia"] + " " + dr["Disponibilidade"] + ": " + (int)dr["Begin"] + "h" + " - " + (int)dr["End"] + "h");
-            }
-
+            
             this.NavigateTo(definicoes_frame);
 
         }
