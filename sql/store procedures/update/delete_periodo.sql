@@ -19,5 +19,3 @@ AS
 		RAISERROR('An error occurred when deleting the period!', 14, 1)
 		ROLLBACK TRANSACTION
 	END CATCH;
-
-EXEC db.sp_delete_periodo 2,2
