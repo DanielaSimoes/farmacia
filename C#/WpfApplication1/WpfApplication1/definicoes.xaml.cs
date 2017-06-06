@@ -30,6 +30,7 @@ namespace WpfApplication1
         {
             InitializeComponent();
             con = ConnectionDB.getConnection();
+
         }
 
         public definicoes(DataTable dt)
@@ -63,6 +64,18 @@ namespace WpfApplication1
             cmd_member1.Parameters.AddWithValue("@fim", fim_int);
             cmd_member1.Parameters.AddWithValue("@dia_da_semana", dia.Text);
             cmd_member1.Parameters.AddWithValue("@id_disponibilidade", disponibilidade.SelectedIndex+1);
+
+
+            if (disponibilidade.SelectedIndex + 1 == 1)
+            {
+                periods.Items.Add(dia.Text + " " + "Available" + ": " + inicio_int + "h" + " - " + fim_int + "h");
+            }
+
+            if (disponibilidade.SelectedIndex + 1 == 2)
+            {
+                periods.Items.Add(dia.Text + " " + "Unavailable" + ": " + inicio_int + "h" + " - " + fim_int + "h");
+            }
+
 
             try
             {
